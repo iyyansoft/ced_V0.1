@@ -1,0 +1,855 @@
+
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    
+
+    /* ===== SAME BACKGROUND AS HOME PAGE ===== */
+body {
+  background-color: #334766;   /* home page bg colour */
+}
+
+
+.bg-edii {
+  background-color: #334766 !important;
+}
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: white;
+      border-radius: 0 0 40px 40px;
+    }
+
+    /* Section card */
+    .ivp-card {
+      border: none;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      background: white;
+    }
+
+    .section-title {
+      font-weight: 700;
+      color: #4338ca;
+    }
+
+    /* Check list */
+    .list-check li {
+      margin-bottom: 10px;
+    }
+    .list-check li::marker {
+      content: "✔  ";
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    /* Voucher badges */
+    .badge-voucher {
+      background: linear-gradient(135deg, #6366f1, #9333ea);
+      font-size: 14px;
+      padding: 8px 14px;
+      border-radius: 50px;
+    }
+
+    /* Buttons */
+.btn-ivp {
+  background: linear-gradient(135deg, #6366f1, #9333ea);
+  border: none;
+  color: white;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-weight: 600;
+
+  /* ✅ ADD THIS */
+  transition: all 0.10s ease;
+}
+
+.btn-ivp:hover {
+  transform: translateY(-4px); /* little more visible */
+  box-shadow: 0 15px 35px rgba(99,102,241,0.35);
+}
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero py-5 text-center">
+  <div class="container">
+    <h1 class="fw-bold display-5 mb-3">
+      Innovation Voucher Programme (IVP)
+    </h1>
+    <p class="lead mb-0">
+      Government of Tamil Nadu Initiative to Empower MSMEs & Startups
+    </p>
+  </div>
+</section>
+
+
+
+
+
+<section class="py-5 bg-edii mt-6">
+  <div class="container position-relative">
+
+    <h2 class="text-center text-white mb-4 fw-bold">
+      Grants & Beneficiaries
+    </h2>
+
+    <!-- LEFT ARROW -->
+    <button class="nav-btn left" id="leftBtn" onclick="scrollLeft()">&#10094;</button>
+
+    <!-- RIGHT ARROW -->
+    <button class="nav-btn right" id="rightBtn" onclick="scrollRight()">&#10095;</button>
+
+    <!-- SCROLLER -->
+    <div class="image-marquee" id="marquee">
+      <div class="image-track" id="marqueeTrack">
+
+        <!-- 🔁 ADD ALL 23 CARDS ONLY ONCE -->
+        <!-- SAMPLE CARD (repeat all your cards same way) -->
+
+        
+
+              <!-- IMAGE 26 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Curio.jpeg"  class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> Curio Clothing</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,72,700</p>
+          <p><span class="fw-bold text-info">Year:</span> 2026</p>
+
+        </div>
+
+
+
+
+      <!-- IMAGE 27 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/EdgeSphere.jpeg"  class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> EdgeSphere</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 3,00,700</p>
+          <p><span class="fw-bold text-info">Year:</span> 2026</p>
+
+        </div>
+
+
+
+  <!-- IMAGE 28 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+<img 
+  src="/assets/img/SafeSTride.jpeg"  
+  class="img-fluid rounded-3 mb-3 w-100"
+  style="height: 200px; object-fit: contain; background-color: #334766;"
+/>
+          <p><span class="fw-bold text-info">Company Name:</span> SafeSTride</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,65,500</p>
+          <p><span class="fw-bold text-info">Year:</span> 2026</p>
+          
+       
+        </div>
+
+
+            <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Learnsphere.jpeg"  class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> Learnsphere</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,97,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2026</p>
+          
+        
+        </div>
+
+
+
+
+        <!-- IMAGE 23 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/intra.jpeg" class="img-fluid rounded-3 mb-3">
+          <p><b class="text-info">Company:</b> Intra Mobility and Precision Systems Private Limited (IMPS)</p>
+          <p><b class="text-info">Grant:</b> IVP - Voucher A</p>
+          <p><b class="text-info">Amt:</b> 3,00,000</p>
+          <p><b class="text-info">Year:</b> 2026</p>
+        </div>
+
+
+
+
+         <!-- IMAGE 23 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Grainforge.jpeg" class="img-fluid rounded-3 mb-3">
+          <p><b class="text-info">Company:</b>Grainforge Technologies</p>
+          <p><b class="text-info">Grant:</b> IVP - Voucher A</p>
+          <p><b class="text-info">Amt:</b> 3,00,000</p>
+          <p><b class="text-info">Year:</b> 2026</p>
+        </div>
+
+
+
+
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Niya Therapy.jpeg" class="img-fluid rounded-3 mb-3">
+          <p><b class="text-info">Company:</b> Niya Therapy</p>
+          <p><b class="text-info">Grant:</b> IVP - Voucher A</p>
+          <p><b class="text-info">Amt:</b> 3,00,000</p>
+          <p><b class="text-info">Year:</b> 2025</p>
+        </div>
+
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/CEG Motorsports.jpeg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> CEG Motorsports</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,97,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+
+
+        <!-- IMAGE 3 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Neurotronix.jpeg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> Neurotronix</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 3,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+
+
+        <!-- IMAGE 4 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Vision Solve.jpeg"class="img-fluid rounded-3 mb-3"  />
+          <p><span class="fw-bold text-info">Company Name:</span> Vision Solve</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 3,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+
+
+        <!-- IMAGE 5 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/AQUAHOLICS.jpeg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> Aquaholics</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 3,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+        
+
+        <!-- IMAGE 6 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Indyarn.jpeg" class="img-fluid rounded-3 mb-3"/>
+          <p><span class="fw-bold text-info">Company Name:</span> Indyarn</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 3,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+
+
+        <!-- IMAGE 7 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/8 bix.jpeg"class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> 8 Bix</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,97,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+
+
+        <!-- IMAGE 8 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/8 bix1.jpeg"class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> 8 Bix</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,97,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+
+         <!-- IMAGE 9 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/8 bix 2.jpeg" class="img-fluid rounded-3 mb-3"/>
+          <p><span class="fw-bold text-info">Company Name:</span> 8 Bix</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,97,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+        
+
+        <!-- IMAGE 10 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Ennamopenupbro.jpeg" class="img-fluid rounded-3 mb-3"  />
+          <p><span class="fw-bold text-info">Company Name:</span> Ennamopenupbro Compute Technologies (P) Ltd</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 3,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+
+        <!-- IMAGE 11 -->
+         <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/AnimalTradeX.jpeg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> AnimalTradeX</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 3,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+
+
+        <!-- IMAGE 12 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Nikarika.jpg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> VitaSafe</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 3,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+
+        <!-- IMAGE 13 -->
+
+
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/MOTOR-X.jpeg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> Motor-x India Mobility Private Limited </p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher B</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 7,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2025</p>
+        </div>
+
+
+
+         <!-- IMAGE 14 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/ATOMAKI.jpeg" class="img-fluid rounded-3 mb-3"/>
+          <p><span class="fw-bold text-info">Company Name:</span>Atomaki</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2024</p>
+        </div>
+
+
+       
+
+
+        <!-- IMAGE 16 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/harsh.jpg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> Evoxia Labs </p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher B</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 5,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2024</p>
+        </div>
+
+
+
+        <!-- IMAGE 17 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/ezhil.JPG" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> CarboNergy Consultancy </p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP - Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2024</p>
+        </div>
+
+
+         <!-- IMAGE 15 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/MOTOR-X.jpeg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> Motor-x India Mobility Private Limited (Formerly know as
+                  Team Young Indians Auto Industries)</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2024</p>
+        </div>
+        
+
+
+        <!-- IMAGE 18 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Hue Enterprises.jpeg" class="img-fluid rounded-3 mb-3"  />
+          <p><span class="fw-bold text-info">Company Name:</span>Hue Enterprises</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 1,60,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2023</p>
+        </div>
+
+
+        <!-- IMAGE 19 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/harini k Singorison.jpg" class="img-fluid rounded-3 mb-3"  />
+          <p><span class="fw-bold text-info">Company Name:</span> Singorison</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2022</p>
+        </div>
+
+        <!-- IMAGE 20 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/Tri.jpeg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> TRi-India formerly known as MEINE Electric Automotives Pvt. Ltd.</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> TNSI</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 1,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2022</p>
+        </div>
+
+
+        <!-- IMAGE 21 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/avathar1.jpg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span>Kisson Flow</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> TNSI</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 1,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2022</p>
+        </div>
+
+
+
+  
+
+        <!-- IMAGE  22 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/dinesh pb innovative now Vividobots.jpg" class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> Vividobots (Formerly Known as  PB Innovative Solutions)</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 1,96,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2021</p>
+        </div>
+
+        
+
+
+      
+        <!-- IMAGE 23 -->
+        <div class="img-box card bg-edii text-white p-3 text-start">
+          <img src="/assets/img/karthi space cold tech.jpg"  class="img-fluid rounded-3 mb-3" />
+          <p><span class="fw-bold text-info">Company Name:</span> Space Cold Tech</p>
+          <p><span class="fw-bold text-info">Grant Name:</span> IVP- Voucher A</p>
+          <p><span class="fw-bold text-info">Grant Amt:</span> 2,00,000</p>
+          <p><span class="fw-bold text-info">Year:</span> 2020</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script is:inline>
+  const marquee = document.getElementById("marquee");
+  const track = document.getElementById("marqueeTrack");
+  const leftBtn = document.getElementById("leftBtn");
+  const rightBtn = document.getElementById("rightBtn");
+
+  let position = 0;
+  const speed = 2;
+  const step = 280;
+  let isPaused = false;
+
+  // duplicate cards
+  track.innerHTML += track.innerHTML;
+
+  const singleWidth = track.scrollWidth / 2;
+
+  function autoScroll() {
+    if (!isPaused) {
+      position -= speed;
+
+      // RIGHT END RESET
+      if (Math.abs(position) >= singleWidth) {
+        position = 0;
+      }
+
+      track.style.transform = `translateX(${position}px)`;
+    }
+    requestAnimationFrame(autoScroll);
+  }
+
+  autoScroll();
+
+  // hover pause
+  marquee.addEventListener("mouseenter", () => isPaused = true);
+  marquee.addEventListener("mouseleave", () => isPaused = false);
+
+  // 👉 RIGHT ARROW
+  rightBtn.addEventListener("click", () => {
+    position -= step;
+
+    if (Math.abs(position) >= singleWidth) {
+      position = 0;
+    }
+
+    track.style.transform = `translateX(${position}px)`;
+  });
+
+  // 👉 LEFT ARROW (🔥 IMPORTANT FIX)
+  leftBtn.addEventListener("click", () => {
+    position += step;
+
+    // 🚫 prevent empty space
+    if (position > 0) {
+      position = -singleWidth + step;
+    }
+
+    track.style.transform = `translateX(${position}px)`;
+  });
+</script>
+
+
+
+
+
+<style>
+
+
+.image-marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  
+}
+
+.img-box {
+  width: 230px;
+  height: 430px;
+  background: #111;
+  color: #fff;
+  border-radius: 22px;
+  padding: 15px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.4);
+  flex-shrink: 0;
+}
+
+.img-box img {
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* AUTO SCROLL */
+@keyframes autoScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* HOVER PAUSE */
+.image-marquee:hover .image-track {
+  animation-play-state: paused;
+}
+
+/* ARROW BUTTONS */
+.nav-btn {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.nav-btn:hover {
+  background: rgba(212, 207, 207, 0.35);
+}
+
+.nav-btn.left {
+  left: -40px;
+}
+
+.nav-btn.right {
+  right: -40px;
+}
+
+
+
+
+
+/* CARD */
+.img-box {
+  width: 230px;
+  height: 430px;
+  background: #111;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.4);
+  flex-shrink: 0;
+}
+
+/* IMAGE */
+.img-box img {
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50% 50% 45% 45%;
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.img-box p {
+  font-size: 14px;
+  margin: 3px 0;
+}
+
+/* FULL SCROLL */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Hover Pause */
+.image-marquee:hover .image-track {
+  animation-play-state: paused;
+}
+
+</style>
+
+
+
+
+
+
+<!-- ================= INTRO ================= -->
+<section class="">
+  <div class="container">
+    <div class="ivp-card p-4 p-md-5">
+      <h3 class="section-title mb-3">
+        <i class="bi bi-lightbulb-fill text-warning"></i>
+        What is Innovation Voucher Programme?
+      </h3>
+
+      <p>
+        Innovation Voucher Programme (IVP) is a flagship initiative of the
+        Government of Tamil Nadu to promote innovation among MSMEs and Startups
+        across sectors like Agriculture, Energy, Health, Electronics,
+        Automobiles, Deep Technology and more.
+      </p>
+
+      <p>
+        The programme provides financial support through a State-level screening
+        committee to convert ideas into prototypes and market-ready products.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= GRANT HIGHLIGHTS ================= -->
+<section class="py-3 bg-white">
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-md-6">
+        <div class="ivp-card p-4 h-100">
+          <span class="badge badge-voucher mb-3">Voucher A</span>
+          <h4 class="fw-bold">Idea to Prototype</h4>
+          <p>
+            Grant support of up to <strong>₹3 Lakhs</strong> to convert innovative
+            ideas into working prototypes.
+          </p>
+
+          
+        
+          <h4 class="fw-bold text-primary">Voucher A – Prototype Support</h4>
+          <p>
+            Supports validation and development of innovative ideas into
+            functional prototypes.
+          </p>
+          <ul class="list-check">
+            <li>Manufacturing MSME</li>
+            <li>Tamil Nadu based</li>
+            <li>No prior Knowledge Partner contract</li>
+          </ul>
+        
+    
+
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="ivp-card p-4 h-100">
+          <span class="badge badge-voucher mb-3">Voucher B</span>
+          <h4 class="fw-bold">Prototype to Market</h4>
+          <p>
+            Grant support of up to <strong>₹7 Lakhs</strong> for commercialization
+            and market access.
+          </p>
+
+
+
+         
+          <h4 class="fw-bold text-primary">Voucher B – Commercialization</h4>
+          <p>
+            Helps early-stage companies access markets faster through:
+          </p>
+          <ul class="list-check">
+            <li>Service engineering</li>
+            <li>Prototyping & design</li>
+            <li>Technology transfer & IP</li>
+            <li>Testing & certification</li>
+          </ul>
+        
+      
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPLICATION PROCESS ================= -->
+<section class="py-3">
+  <div class="container">
+    <div class="ivp-card p-4 p-md-5">
+      <h3 class="section-title mb-3">
+        <i class="bi bi-file-earmark-text-fill text-primary"></i>
+        Application Process
+      </h3>
+      <p>
+        Applicants must read the instructions carefully, verify eligibility,
+        arrange required documents and complete the online application process.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ELIGIBILITY ================= -->
+<section class="py-3 bg-white">
+  <div class="container">
+    <div class="ivp-card p-4 p-md-5">
+      <h3 class="section-title mb-3">
+        <i class="bi bi-check-circle-fill text-success"></i>
+        General Eligibility Conditions
+      </h3>
+
+      <ul class="list-check">
+        <li>Manufacturing MSME or Startup</li>
+        <li>Registered and located in Tamil Nadu</li>
+        <li>Willing to co-finance as per IVP norms</li>
+        <li>CIBIL score of 750 or above (if applicable)</li>
+        <li>No prior contract with Knowledge Partner</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VOUCHER DETAILS ================= -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+
+      
+
+      
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-5 bg-white text-center">
+  <div class="container">
+    <h3 class="fw-bold mb-3">Ready to Innovate?</h3>
+    <p class="text-muted mb-4">
+      Apply now and transform your idea into a market-ready solution.
+    </p>
+
+    <!-- Button -->
+    <button 
+      class="btn btn-ivp"
+      data-bs-toggle="modal"
+      data-bs-target="#innovationFormModal">
+      Apply for Innovation Voucher
+    </button>
+  </div>
+</section>
+
+
+<!-- APPLY FORM MODAL -->
+<div class="modal fade" id="innovationFormModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+
+      <!-- Header -->
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title fw-bold">
+          Innovation Voucher Application Form
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body p-4">
+        <form>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Name</label>
+            <input type="text" class="form-control" placeholder="Enter your name" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Phone Number</label>
+            <input type="tel" class="form-control" placeholder="Enter phone number" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Email</label>
+            <input type="email" class="form-control" placeholder="Enter email address" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Problem Statement</label>
+            <textarea class="form-control" rows="3" placeholder="Describe the problem" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Proposed Solution</label>
+            <textarea class="form-control" rows="3" placeholder="Describe your proposed solution" required></textarea>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-ivp">
+          Submit Application
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="py-4 text-center text-muted">
+  Innovation Voucher Programme – EDII Tamil Nadu | Government of Tamil Nadu
+</footer>
+
+

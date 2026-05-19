@@ -1,0 +1,196 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<footer class="footer py-7 position-relative bg-gradient-dark overflow-hidden">
+
+  <!-- Wave -->
+  <div class="position-absolute w-100 top-0 mt-n3">
+    <svg width="100%" viewBox="0 -2 1920 157" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#fff" d="M0,60.8C299,115 618,111 959,47.8C1299,-15 1620,-15 1920,47.8V156H0Z"
+        transform="rotate(180 960 78)"/>
+    </svg>
+  </div>
+
+  <div class="container position-relative mt-8">
+
+  <img src="/assets/img/au_logo.png" class="footer-logo" alt="CED">
+
+    <!-- ===== TOP LINKS ROW ===== -->
+    <div class="row footer-row">
+
+      <!-- COLUMN 1 -->
+      <div class="col-lg-2 col-md-3 col-12 footer-col">
+        <div class="footer-head">
+          
+          <h6>CED, Anna University</h6>
+        </div>
+        <ul class="nav flex-column">
+          <li><a href="/about">About CED</a></li>
+          <li><a href="/public/assets/pdf/AU_Startup_Policy.pdf">AU Startup Policy</a></li>
+          <li><a href="/team">Our Team</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMN 2 -->
+      <div class="col-lg-2 col-md-3 col-12 footer-col">
+        <div class="footer-head">
+          <h6>Our Support</h6>
+        </div>
+        <ul class="nav flex-column">
+          <li><a href="/makerslab">Prototyping</a></li>
+          <li><a href="/Climatetech">Funding</a></li>
+          <li><a href="/ecells">E-Cells</a></li>
+          <li><a href="/mentor">Community Connect</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMN 3 -->
+      <div class="col-lg-2 col-md-3 col-12 footer-col">
+        <div class="footer-head">
+          <h6>Our Programs</h6>
+        </div>
+        <ul class="nav flex-column">
+          <li><a href="https://austartify.com">Startify</a></li>
+          <li><a href="https://www.enantra.in/">Enantra by AUSEC</a></li>
+          <li><a href="/puthulir">Puthulir</a></li>
+          <li><a href="https://austartify.com">Startup Cafe</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMN 4 -->
+      <div class="col-lg-4 col-md-3 col-12 footer-col">
+        <div class="footer-head">
+          <h6>Our Initiatives</h6>
+        </div>
+        <ul class="nav flex-column">
+          <li><a href="/internship">CED Internship Program</a></li>
+          <li><a href="/IV">Industrial Visit to I&E Ecosystem</a></li>
+          <li><a href="/industrial internship">Industrial Innovation Internships</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <hr class="horizontal light my-4">
+
+    <!-- ===== NEWSLETTER ===== -->
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h6 class="text-white">Subscribe to our newsletters</h6>
+        <p class="text-white opacity-8 mb-0">
+          The latest news, articles and resources sent weekly.
+        </p>
+      </div>
+      <div class="col-lg-4 ms-auto">
+        <div class="d-flex">
+          <input class="form-control me-2" placeholder="E-mail" type="email">
+          <button class="btn bg-gradient-info">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <hr class="horizontal light my-4">
+
+    <!-- ===== COPYRIGHT ===== -->
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <p class="text-white opacity-8 mb-1">
+          Copyright © {currentYear}: CED, Anna University.
+        </p>
+        <p class="text-white opacity-8 mb-0">
+          Developed by
+          <a href="https://iyyansoft.com" target="_blank" class="text-primary fw-bold">
+            IyyanSoft Technologies
+          </a>
+        </p>
+      </div>
+
+      
+
+      <div class="col-lg-4 ms-auto text-end">
+        <a href="https://linkedin.com/company/centre-for-entrepreneurship-development-anna-university/" class="footer-icon"><i class="bi bi-linkedin"></i></a>
+        <a href="https://x.com/CedUniversity" class="footer-icon"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.youtube.com/channel/UCEA9X9T88CqbPwlIy96g8yA" class="footer-icon"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+</html>
+
+
+
+
+
+
+
+
+
+<style>
+.footer-row{
+  align-items:flex-start;
+}
+
+/* same top alignment */
+.footer-head{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* small logo */
+.footer-logo{
+  height:120px;
+  width:auto;
+}
+
+/* headings */
+.footer-head h6{
+  margin:0;
+  font-size:18px;
+  font-weight:600;
+  color:#fff;
+  
+}
+
+/* links */
+.footer-col ul li a{
+  color:rgba(255,255,255,.75);
+  font-size:16px;
+  padding:4px 0;
+  display:inline-block;
+}
+.footer-col ul li a:hover{
+  color:#fff;
+  text-decoration:none;
+}
+
+/* social icons */
+.footer-icon{
+  color:#cbd5e1;
+  font-size:20px;
+  margin-left:12px;
+  transition:0.3s;
+}
+
+.footer-icon:hover{
+  color:#ffffff;
+}
+
+
+/* mobile */
+@media(max-width:768px){
+  .footer-head{
+    min-height:auto;
+    margin-bottom:10px;
+  }
+}
+</style>

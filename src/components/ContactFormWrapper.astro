@@ -1,0 +1,47 @@
+---
+interface Props {
+  children: any; // Adjust the type as needed
+}
+
+const { children } = Astro.props as Props;
+---
+
+<form id="preForm" enctype="multipart/form-data">
+  {children}
+</form>
+
+<script>
+  const form = document.querySelector('#preForm');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    // ✅ IMPORTANT: FormData ONLY
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(
+        location.hostname === "localhost"
+          ? "http://localhost:8000/api/preincubation"
+          : "https://ced-backend-7uwz.onrender.com/api/preincubation",
+        {
+          method: "POST",
+          body: formData,   // ❌ NO headers
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.status) {
+        alert("Application submitted successfully ✅");
+        form.reset();
+      } else {
+        alert("❌ Save Failed");
+      }
+
+    } catch (error) {
+      console.error("Server Error:", error);
+      alert("❌ Server Error");
+    }
+  });
+</script>

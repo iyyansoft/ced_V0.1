@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <div class="makerslab-title">
+  <img src="/assets/img/makers_log.jpg" alt="Makers Lab">
+</div>
+
+  <style>
+    /* CSS for styling the sections */
+
+    .makerslab-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.makerslab-title img{
+  height:70px;        /* adjust pannalaam */
+  width:auto;
+  object-fit:contain;
+  margin-top:40px;
+}
+
+
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 2rem;
+    }
+
+    .makers-lab-sections {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      padding: 20px;
+    }
+
+    .makers-lab-section {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 30%;
+      text-align: center;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .makers-lab-section:hover {
+      transform: scale(1.05);
+    }
+
+    .makers-lab-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .makers-lab-section p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    /* Image styling */
+    .section-img {
+      width: 100%;
+      height: 300px; /* Fixed height for uniformity */
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    /* Common button styling */
+    .button {
+      display: inline-block;
+      padding: 8px 15px; /* Button size */
+      font-size: 1rem;
+      border-radius: 8px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      text-decoration: none; /* Removes underline from links */
+      transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styling for Book Slot Button */
+    .book-slot-btn {
+      background: linear-gradient(135deg, #f08080, #d63384); /* Light to violet */
+    }
+
+    .book-slot-btn:hover {
+      background: linear-gradient(135deg, #d63384, #f08080); /* Hover effect */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Styling for View Facilities Button */
+    .view-facilities-btn {
+      background: linear-gradient(135deg, #80d4f0, #007bff); /* Light blue to dark blue */
+    }
+
+    .view-facilities-btn:hover {
+      background: linear-gradient(135deg, #007bff, #80d4f0); /* Hover effect */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .button:active {
+      transform: translateY(1px);
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+      .makers-lab-sections {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .makers-lab-section {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <!-- Makers Lab Section -->
+  <div class="makers-lab-sections">
+    <!-- Digital Fabrication Zone -->
+    <div class="makers-lab-section">
+      <img src="../assets/img/dfz.jpg" alt="Digital Fabrication" class="section-img">
+      <h3>Digital Fabrication Zone</h3>
+      <p>Here, you can access cutting-edge tools for digital fabrication, including 3D printers, laser cutters, PCB Alliance.</p>
+      <a href="/digital-fabrication" class="button book-slot-btn">Book Your Slot</a>
+      <a href="/dfz-facilities" class="button view-facilities-btn">View Facilities</a>
+    </div>
+
+    <!-- Makers Space -->
+    <div class="makers-lab-section">
+      <img src="../assets/img/makers-space.jpg" alt="Makers Space" class="section-img">
+      <h3>Makers Space</h3>
+      <p>This is a collaborative workspace equipped with tools for building, creating, and prototyping physical products.</p>
+      <a href="/makersspace" class="button book-slot-btn">Book Your Slot</a>
+      <a href="/makers-space-facilities" class="button view-facilities-btn">View Facilities</a>
+    </div>
+
+    <!-- IoT -->
+    <div class="makers-lab-section">
+      <img src="../assets/img/Iot.jpg" alt="IoT Section" class="section-img">
+      <h3>IoT</h3>
+      <p>The Internet of Things (IoT) section focuses on developing connected devices, sensors, and systems for automation and smart technology.</p>
+      <a href="/iot" class="button book-slot-btn">Book Your Slot</a>
+      <a href="/iot-facilities" class="button view-facilities-btn">View Facilities</a>
+    </div>
+  </div>
+
+
+</body>
+</html>

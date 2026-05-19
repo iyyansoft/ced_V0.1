@@ -1,0 +1,713 @@
+---
+// iic-anna-university-page.astro – OPTION 3 THEME (White Main + Blue Accents)
+// Clean • Modern • Corporate • Premium
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IIC – Anna University | Clean White Premium Theme</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --blue-primary: #0b5cff;
+      --blue-dark: #002c70;
+      --blue-soft: #77b5ff;
+      --bg-light: #ffffff;
+      --text-dark: #1a1a1a;
+      --card-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --radius: 18px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    /* HERO SECTION – Only this is Blue */
+    .hero {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue-primary));
+      color: white;
+      padding: 80px 20px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: white;
+      color: var(--blue-primary);
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 600;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+
+    /* PAGE WRAPPER */
+    .wrapper {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* SECTION HEADERS */
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin-top: 50px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .stripe {
+      width: 80px;
+      height: 6px;
+      background: var(--blue-primary);
+      border-radius: 6px;
+    }
+
+    /* WHITE CARDS */
+    .white-card {
+      background: #ffffff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #e7e7e7;
+      margin-top: 16px;
+    }
+
+    /* INFO CARDS */
+    .info-card {
+      background: white;
+      border: 1px solid #eaeaea;
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--card-shadow);
+      transition: 0.25s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+
+    /* =====================================================
+   GLOBAL MOBILE SAFETY
+===================================================== */
+html, body {
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   HERO SECTION – MOBILE FIX
+===================================================== */
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 50px 16px;
+    border-radius: 0 0 28px 28px;
+  }
+
+  .hero .row {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+  }
+
+  .hero-image-box {
+    width: 240px;
+    height: 180px;
+    margin: 0 auto 20px;
+  }
+}
+
+/* =====================================================
+   WRAPPER & SECTIONS – MOBILE SPACING
+===================================================== */
+@media (max-width: 768px) {
+
+  .wrapper {
+    margin: 24px auto;
+    padding: 0 14px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    margin-top: 36px;
+  }
+
+  .stripe {
+    width: 50px;
+    height: 4px;
+  }
+
+  .white-card {
+    padding: 16px;
+    font-size: 0.95rem;
+  }
+}
+
+/* =====================================================
+   INFO CARDS – SINGLE COLUMN
+===================================================== */
+@media (max-width: 768px) {
+
+  .row.g-4 > div {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .info-card {
+    padding: 16px;
+  }
+
+  .info-card h6 {
+    font-size: 1rem;
+  }
+
+  .info-card ul {
+    padding-left: 18px;
+    font-size: 0.95rem;
+  }
+}
+
+/* =====================================================
+   TABLES – MOBILE FRIENDLY SCROLL
+===================================================== */
+@media (max-width: 768px) {
+
+  table {
+    min-width: 700px; /* enables horizontal scroll */
+  }
+
+  .table-responsive,
+  .table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th, td {
+    font-size: 0.9rem;
+    white-space: normal;
+  }
+}
+
+/* =====================================================
+   BADGES & TEXT
+===================================================== */
+@media (max-width: 768px) {
+
+  .badge {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE TABLE – FINAL FIX
+===================================================== */
+@media (max-width: 768px) {
+
+  /* wrapper scroll */
+  .table-responsive-mobile {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* force table width */
+  .table-responsive-mobile table {
+    min-width: 720px;   /* 👈 VERY IMPORTANT */
+    border-collapse: separate;
+  }
+
+  /* header readability */
+  .table-responsive-mobile thead th {
+    font-size: 13px;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  /* body cells */
+  .table-responsive-mobile td {
+    font-size: 12px;
+    line-height: 1.4;
+    vertical-align: top;
+    white-space: normal;
+  }
+
+  /* innovation title column */
+  .table-responsive-mobile td:nth-child(2) {
+    min-width: 220px;
+  }
+
+  /* theme column */
+  .table-responsive-mobile td:nth-child(3) {
+    min-width: 200px;
+  }
+
+  /* innovator column */
+  .table-responsive-mobile td:nth-child(4) {
+    min-width: 200px;
+  }
+
+  /* result column */
+  .table-responsive-mobile td:nth-child(5) {
+    min-width: 120px;
+    text-align: center;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO (ONLY BLUE AREA) -->
+  <section class="hero">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+
+      <!-- IMAGE LEFT (fixed clean frame) -->
+      <div class="col-md-5 mb-4 mb-md-0 d-flex justify-content-center">
+        <div class="hero-image-box">
+          <img 
+            src="/assets/img/iic.png"
+            alt="Institution’s Innovation Council"
+            class="hero-img"
+          >
+        </div>
+      </div>
+
+      <!-- TEXT RIGHT -->
+      <div class="col-md-6">
+        <div class="hero-badge">Institution’s Innovation Council</div>
+        <h3 class="hero-title">IIC – Anna University</h3>
+        <p class="hero-sub">
+          Empowering students to innovate, build, and transform ideas into real-world impact.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<style>
+/* Perfect fixed image frame */
+.hero-image-box {
+  width: 330px;
+  height: 260px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.20);
+}
+
+/* Image inside frame */
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* prevents stretching */
+  border-radius: 14px;
+}
+
+/* Mobile Fix */
+@media (max-width: 575px) {
+  .hero-image-box {
+    width: 260px;
+    height: 200px;
+  }
+}
+</style>
+
+
+  <!-- MAIN CONTENT -->
+  <div class="wrapper">
+
+    <!-- ABOUT IIC -->
+    <h2 class="section-title"><div class="stripe"></div> About IIC</h2>
+    <div class="white-card">
+      The Institution’s Innovation Council (IIC) at Anna University is committed to fostering a vibrant culture of innovation,
+      creativity, and entrepreneurship among students and faculty. The council works towards building an ecosystem that
+      nurtures ideas, encourages problem-solving, and accelerates innovation-led growth across all campuses. Through structured
+      activities, training programs, innovation challenges, and mentorship support, IIC aims to convert student-driven ideas into
+      sustainable solutions and market-ready products.
+    </div>
+
+    <!-- YUKTI SECTION -->
+    <h2 class="section-title"><div class="stripe"></div> Yukti Innovation Challenge </h2>
+    <div class="white-card">
+      As part of the national innovation initiatives, Anna University actively participated in the Yukti Innovation Challenge (YIC) 2025,
+      designed to identify and support high-potential student innovations across India. Our students eagerly contributed impactful ideas
+      addressing real<!-- SHORTLISTED TEAMS -->
+    <div class="white-card">
+
+
+      
+      <section class="pt-5 pb-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <div class="col-12 text-center mb-4">
+        <h2 class="text-primary fw-bold">
+          Shortlisted Teams – Product Fellowship Track-2025
+        </h2>
+        
+      </div>
+
+      <div class="table-responsive-mobile">
+        <table class="table table-bordered table-hover align-middle bg-white">
+
+          <thead class="table-primary text-center">
+            <tr>
+              <th style="width:5%">S.No</th>
+              <th style="width:25%">Innovation Title</th>
+              <th style="width:30%">Theme</th>
+              <th style="width:25%">Innovator Details</th>
+              <th style="width:15%">Round 1 Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- ROW 1 -->
+            <tr>
+              <td class="text-center fw-bold">1.</td>
+
+              <td class="text-wrap">
+                <strong>EventBoost</strong><br>
+                AI powered event optimization engine
+              </td>
+
+              <td class="text-wrap">
+                ICT, Cyber-Physical Systems,<br>
+                Blockchain,<br>
+                Cognitive Computing,<br>
+                Cloud Computing,<br>
+                AI & ML,<br>
+                Web App Development
+              </td>
+
+              <td class="text-wrap">
+                <strong>Sakthivel S</strong><br>
+                span.sakthivel@gmail.com
+              </td>
+
+              <td class="text-center">
+                <span class="badge bg-success fs-6">
+                  Shortlisted
+                </span>
+              </td>
+            </tr>
+
+            <!-- ROW 2 -->
+            <tr>
+              <td class="text-center fw-bold">2.</td>
+
+              <td class="text-wrap">
+                Predicting and Understanding the Longevity<br>
+                of Academic Research Papers
+              </td>
+
+              <td class="text-wrap">
+                Education
+              </td>
+
+              <td class="text-wrap">
+                <strong>Vishruthi A</strong><br>
+                vishruthia32@gmail.com
+              </td>
+
+              <td class="text-center">
+                <span class="badge bg-success fs-6">
+                  Shortlisted
+                </span>
+              </td>
+            </tr>
+
+            <!-- ROW 3 -->
+            <tr>
+              <td class="text-center fw-bold">3.</td>
+
+              <td class="text-wrap">
+                Nano engineered bio membrane reactor<br>
+                for selective methane extraction<br>
+                from gas hydrates
+              </td>
+
+              <td class="text-wrap">
+                Sustainable Environment
+              </td>
+
+              <td class="text-wrap">
+                <strong>Aravinth Krishnan S A</strong><br>
+                aravindkrishnan021@gmail.com
+              </td>
+
+              <td class="text-center">
+                <span class="badge bg-success fs-6">
+                  Shortlisted
+                </span>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+      <p class="mt-3">
+        These teams showcased exceptional creativity and problem-solving skills, positioning Anna University among the leading
+        institutions in innovation performance.
+      </p>
+    </div>
+
+    <!-- PRODUCT FELLOWSHIP -->
+    <h2 class="section-title "><div class="stripe"></div> AICTE Productization Fellowship(APF)</h2>
+    <div class="white-card ">
+      Under the Product Development Fellowship Program, students receive guided mentorship, technical resources, and entrepreneurial
+      support to transform ideas into validated prototypes. The fellowship empowers innovators to work on real-time challenges,
+      collaborate with experts, and gain exposure to national-level innovation platforms.
+      <br><br>
+      The three shortlisted teams who progressed through the YIC 2025 evaluations also represented this fellowship track, demonstrating
+      the university’s commitment to nurturing product-based innovation.
+    </div>
+
+    <!-- CED ROLE --><div class="mt-6">egional Meet 2025, held at St. Joseph’s Institute of Technology, OMR,
+      on 28th November 2025.
+    </div>
+
+    <!-- SHORTLISTED TEAMS -->
+    <div class="white-card mt-6">
+      
+      <section class="pt-5 pb-5 bg-light">
+  <div class="container">
+
+   
+
+   
+
+    <!-- TITLE -->
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h2 class="fw-bold text-primary">
+          Shortlisted Teams – Product Fellowship Track 2025
+        </h2>
+        
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-responsive-mobile">
+      <table class="table table-bordered table-hover align-middle bg-white">
+
+        <table
+          class="table table-bordered table-hover bg-white align-middle"
+          style="table-layout: fixed; width:100%;"
+        >
+
+          <!-- HEADER -->
+          <thead class="table-primary text-center">
+            <tr>
+              <th style="width:8%">S.No</th>
+              <th style="width:31%">Innovation Title</th>
+              <th style="width:32%">Theme</th>
+              <th style="width:28%">Innovator Details</th>
+              <th style="width:17%">Round 1 Result</th>
+            </tr>
+          </thead>
+
+          <!-- BODY -->
+          <tbody>
+
+            <!-- ROW 1 -->
+            <tr>
+              <td class="text-center fw-bold">1.</td>
+
+              <td class="text-break">
+                <strong>EventBoost</strong><br>
+                AI powered event optimization<br> engine
+              </td>
+
+              <td class="text-break">
+                ICT, Cyber-Physical Systems,<br>
+                Blockchain,<br>
+                Cognitive Computing,<br>
+                Cloud Computing,<br>
+                AI & ML,<br>
+                Software – Web App Development
+              </td>
+
+              <td class="text-break">
+                <strong>Sakthivel S</strong><br>
+                <a href="mailto:span.sakthivel@gmail.com">
+                  span.sakthivel@gmail.com
+                </a>
+              </td>
+
+              <td class="text-center">
+                <span class="badge bg-success px-3 py-2">
+                  SHORTLISTED
+                </span>
+              </td>
+            </tr>
+
+            <!-- ROW 2 -->
+            <tr>
+              <td class="text-center fw-bold">2.</td>
+
+              <td class="text-break">
+                Nano engineered bio membrane</br> reactor
+                for selective methane</br> extraction
+                from gas hydrates
+              </td>
+
+              <td class="text-break">
+                Sustainable Environment
+              </td>
+
+              <td class="text-break">
+                <strong>Aravinth Krishnan S A</strong><br>
+                <a href="mailto:aravindkrishnan021@gmail.com">
+                  aravindkrishnan021@gmail.com
+                </a>
+              </td>
+
+              <td class="text-center">
+                <span class="badge bg-success px-3 py-2">
+                  SHORTLISTED
+                </span>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+    </div>
+
+    <!-- CED ROLE -->
+    <h2 class="section-title mt-6"><div class="stripe"></div> Role of the Centre for Entrepreneurship Development (CED) in IIC Activities</h2>
+
+    <div class="white-card mt-5">
+      The Centre for Entrepreneurship Development (CED) at Anna University plays a pivotal role in strengthening the innovation and
+      startup ecosystem within the IIC framework. CED actively contributes through:
+    </div>
+
+    <div class="row g-4 mt-1">
+      <div class="col-md-6 ">
+        <div class="info-card mt-4">
+          <h6 class="fw-bold">1. Training & Capacity Building</h6>
+          <ul>
+            <li>Conducting workshops on Design Thinking, Ideation, Business Model Canvas, and Startup Fundamentals.</li>
+            <li>Offering pre-incubation and entrepreneurship orientation programs for students.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="info-card mt-4">
+          <h6 class="fw-bold">2. Mentorship & Expert Support</h6>
+          <ul>
+            <li>Providing domain-specific mentors for YIC, SIH, Toycathon, etc.</li>
+            <li>Connecting student teams with industry experts, alumni founders, and technical specialists.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="info-card mt-4">
+          <h6 class="fw-bold">3. Innovation & Prototype Support</h6>
+          <ul>
+            <li>Facilitating access to the Makers Lab, prototyping facilities, and technical resources.</li>
+            <li>Supporting teams in preparing prototypes, PoCs, and pitching presentations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="info-card mt-4">
+          <h6 class="fw-bold">4. Startup & Entrepreneurial Guidance</h6>
+          <ul>
+            <li>Assisting students in transforming innovative ideas into viable startups.</li>
+            <li>Offering guidance on funding opportunities, government schemes, and incubation pathways.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="info-card mt-4">
+          <h6 class="fw-bold">5. Organizing IIC Events & Reporting</h6>
+          <ul>
+            <li>Coordinating IIC activity calendars, events, competitions, and compliance reports.</li>
+            <li>Managing collaborations with external institutions and innovation partners.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- VISION -->
+    <h2 class="section-title mt-6"><div class="stripe"></div> Our Vision</h2>
+    <div class="white-card text-center">
+      To inspire and empower every student innovator at Anna University, enabling them to create impactful solutions and become future-ready entrepreneurs.
+    </div>
+
+
+
+  </div>
+
+</body>
+</html>

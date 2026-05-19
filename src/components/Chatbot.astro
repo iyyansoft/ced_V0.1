@@ -1,0 +1,571 @@
+<style>
+/* ==========================================
+   CED GLOBAL CHATBOT STYLES (PREMIUM UI)
+   ========================================== */
+.chat-launcher {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1050;
+  border: 0;
+  border-radius: 999px;
+  min-width: 140px;
+  min-height: 56px;
+  padding: 0 24px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #d81b8c 0%, #250c70 100%);
+  box-shadow: 0 10px 25px rgba(216, 27, 140, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chat-launcher:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(216, 27, 140, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.chat-widget {
+  position: fixed;
+  right: 24px;
+  bottom: 95px;
+  z-index: 1050;
+  width: min(500px, calc(100vw - 32px));
+  height: min(80vh, 750px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255,255,255,0.5) inset;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: bottom right;
+}
+
+.chat-widget.hidden {
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  pointer-events: none;
+}
+
+.chat-widget__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 24px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #250c70 0%, #150645 100%);
+  border-radius: 24px 24px 0 0;
+}
+
+.chat-widget__eyebrow {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+  color: #f472b6;
+}
+
+.chat-widget__header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.chat-widget__close {
+  border: 0;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.chat-widget__close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.chat-widget__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: rgba(248, 250, 252, 0.6);
+}
+
+.chat-widget__scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chat-widget__scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-widget__scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-widget__scroll::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+.chat-input-bar {
+  padding: 16px 20px;
+  background: #ffffff;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.search-row {
+  display: flex;
+  gap: 8px;
+  position: relative;
+}
+
+#cedChatSearchInput {
+  flex: 1;
+  border: 1px solid #e2e8f0;
+  border-radius: 99px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+#cedChatSearchInput:focus {
+  border-color: #d81b8c;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(216, 27, 140, 0.2);
+}
+
+#cedChatSearchButton {
+  border: 0;
+  border-radius: 99px;
+  padding: 10px 20px;
+  color: #ffffff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #d81b8c 0%, #250c70 100%);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(216, 27, 140, 0.3);
+}
+
+#cedChatSearchButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(216, 27, 140, 0.4);
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: messageSlideIn 0.4s ease forwards;
+}
+
+@keyframes messageSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message-user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #d81b8c 0%, #250c70 100%);
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 20px 20px 4px 20px;
+  max-width: 90%;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(216, 27, 140, 0.2);
+}
+
+.message-assistant {
+  align-self: flex-start;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 16px;
+  border-radius: 20px 20px 20px 4px;
+  max-width: 95%;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 20px !important;
+  width: fit-content;
+}
+
+.typing-indicator .dot {
+  width: 6px;
+  height: 6px;
+  background: #94a3b8;
+  border-radius: 50%;
+  animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator .dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator .dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+.quick-suggestions {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 0 4px 10px;
+  margin-top: -4px;
+}
+.quick-suggestions::-webkit-scrollbar { display: none; }
+
+.quick-chip {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #250c70;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 99px;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: all 0.2s ease;
+}
+.quick-chip:hover {
+  background: #fdf2f8;
+  border-color: #fbcfe8;
+  transform: translateY(-1px);
+}
+
+.history-empty {
+  text-align: center;
+  padding: 30px 20px;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: rgba(241, 245, 249, 0.5);
+  border-radius: 16px;
+  border: 1px dashed #cbd5e1;
+}
+
+@media (max-width: 640px) {
+  .chat-widget {
+    width: calc(100vw - 32px);
+    right: 16px;
+    bottom: 85px;
+  }
+}
+</style>
+
+<!-- CHATBOT WIDGET HTML -->
+<button id="cedChatLauncher" class="chat-launcher" type="button">
+  <span style="font-size: 1.2rem;">💬</span> Ask CED
+</button>
+
+<section id="cedChatWidget" class="chat-widget hidden">
+  <div class="chat-widget__header">
+    <div>
+      <p class="chat-widget__eyebrow">CED Assistant</p>
+      <h2>How can I help you?</h2>
+    </div>
+    <button id="cedCloseChatButton" class="chat-widget__close" type="button" aria-label="Close chatbot">✕</button>
+  </div>
+
+  <div class="chat-widget__body">
+    <div class="chat-widget__scroll">
+      <div id="cedChatConversationHistory" class="conversation-history">
+        <div class="history-empty">
+          👋 Welcome to CED Anna University! Ask me anything about our incubation programs, funding, hackathons, or general queries.
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Input & Quick Chips -->
+    <div class="chat-input-bar">
+      <div class="quick-suggestions" id="cedQuickSuggestions">
+        <div class="quick-chip">What is CED?</div>
+        <div class="quick-chip">Funding options</div>
+        <div class="quick-chip">Pre-Incubation</div>
+        <div class="quick-chip">Book Makers Lab slot</div>
+        <div class="quick-chip">What is IVP?</div>
+        <div class="quick-chip">Who are the team members?</div>
+        <div class="quick-chip">Internship details</div>
+        <div class="quick-chip">Upcoming Hackathons</div>
+      </div>
+      <div class="search-row">
+        <input id="cedChatSearchInput" type="text" placeholder="Type your question..." />
+        <button id="cedChatSearchButton" type="button">Send</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const cedFaqData = {
+    "About CED": [
+      { "question": "What is CED?", "keywords": "about ced centre for entrepreneurship development", "answer": "The <strong>Centre for Entrepreneurship Development (CED)</strong> at Anna University is a premier, dynamic hub established to foster innovation, entrepreneurship, and startup culture.<br><br>🚀 <strong>What we do:</strong> We act as a powerful catalyst, providing expert mentoring, dedicated workspace, networking opportunities, and funding connections to help young minds transform raw ideas into scalable reality." },
+      { "question": "Who is the Director of CED?", "keywords": "director mahalakshmi head incharge", "answer": "👩‍🏫 <strong>Dr. G. S. Mahalakshmi</strong> is the esteemed Director of the Centre for Entrepreneurship Development (CED) at Anna University. Under her visionary leadership, CED is constantly evolving to empower students and foster a dynamic startup ecosystem.<br><br><a href='https://www.linkedin.com/in/dr-mahalakshmi-g-s-86685a16b/' target='_blank'>🔗 Connect on LinkedIn</a>" },
+      { "question": "Where is CED located?", "keywords": "location address where guindy", "answer": "📍 CED is located at the heart of <strong>Anna University's Guindy Campus in Chennai, Tamil Nadu</strong>.<br><br>We welcome students and innovators to visit our office and explore our state-of-the-art incubation facilities." },
+      { "question": "Who can benefit from CED?", "keywords": "students alumni eligibility who can join", "answer": "🎓 CED is built primarily to serve <strong>Anna University students, alumni, and faculty members</strong> across our campuses.<br><br>🌍 However, we strongly believe in a widespread ecosystem. We actively host massive statewide programs, including <strong>IMPRENT, Balakamalam, and large-scale hackathons</strong> that are open to talented students across all of Tamil Nadu." },
+      { "question": "How do I contact CED?", "keywords": "contact email phone number reach out", "answer": "📞 We are always ready to help! You can reach out to us via:<br><ul><li><strong>Email:</strong> cedau.outreach@gmail.com</li><li><strong>Phone:</strong> 044-22359290</li></ul><br>Or simply visit the Contact page on our website to fill out a direct inquiry form." }
+    ],
+    "CED Team Members": [
+      { "question": "Who are the CED team members?", "keywords": "team members list staff people who works at ced", "answer": "🤝 Our core executive team building the entrepreneurship ecosystem includes:<br><br>• <strong>Dr. G. S. Mahalakshmi</strong> (Director i/c) <a href='https://www.linkedin.com/in/dr-mahalakshmi-g-s-86685a16b/' target='_blank'>🔗 LinkedIn</a><br>• <strong>Sakthivel S</strong> (Startup Ecosystem Strategy Officer) <a href='https://www.linkedin.com/in/sakthivel-shanmugam-2766674a/' target='_blank'>🔗 LinkedIn</a><br>• <strong>Arun Kumar R</strong> (Startup Analyst) <a href='https://www.linkedin.com/in/arunkumar-ramamurthy-akr-542977220/' target='_blank'>🔗 LinkedIn</a><br>• <strong>Praveen Kumar R</strong> (Startup Analyst) <a href='https://www.linkedin.com/in/pravin10101996/' target='_blank'>🔗 LinkedIn</a><br>• <strong>Jeffrey Kevin J</strong> (Program Manager) <a href='https://www.linkedin.com/in/jeffrey-kevin-64bbb31a0/' target='_blank'>🔗 LinkedIn</a><br>• <strong>Vinoprathipa S</strong> (Accounts Executive)<br>• <strong>Sandhiya B</strong> (Accounts Executive) <a href='https://www.linkedin.com/in/sandhiya-b-94134824b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' target='_blank'>🔗 LinkedIn</a><br>• <strong>Sasikumar R</strong> (Office Assistant)" },
+      { "question": "Who is Sakthivel S?", "keywords": "sakthivel", "answer": "👨‍💼 <strong>Sakthivel S</strong> is the Startup Ecosystem Strategy Officer for the RISE 100 project at CED.<br><br><a href='https://www.linkedin.com/in/sakthivel-shanmugam-2766674a/' target='_blank'>🔗 Connect on LinkedIn</a>" },
+      { "question": "Who is Arun Kumar R?", "keywords": "arun kumar arunkumar analyst", "answer": "👨‍💼 <strong>Arun Kumar R</strong> is a Startup Analyst for the RISE 100 project at CED.<br><br><a href='https://www.linkedin.com/in/arunkumar-ramamurthy-akr-542977220/' target='_blank'>🔗 Connect on LinkedIn</a>" },
+      { "question": "Who is Praveen Kumar R?", "keywords": "praveen kumar analyst", "answer": "👨‍💼 <strong>Praveen Kumar R</strong> is a Startup Analyst at CED.<br><br><a href='https://www.linkedin.com/in/pravin10101996/' target='_blank'>🔗 Connect on LinkedIn</a>" },
+      { "question": "Who is Jeffrey Kevin J?", "keywords": "jeffrey kevin program manager", "answer": "👨‍💼 <strong>Jeffrey Kevin J</strong> is the Program Manager for the RISE 100 project at CED.<br><br><a href='https://www.linkedin.com/in/jeffrey-kevin-64bbb31a0/' target='_blank'>🔗 Connect on LinkedIn</a>" },
+      { "question": "Who is Vinoprathipa S?", "keywords": "vinoprathipa prathipa accounts executive", "answer": "👩‍💼 <strong>Vinoprathipa S (Prathipa)</strong> is an Accounts Executive for the RISE 100 project at CED." },
+      { "question": "Who is Sandhiya B?", "keywords": "sandhiya accounts executive", "answer": "👩‍💼 <strong>Sandhiya B</strong> is an Accounts Executive at CED.<br><br><a href='https://www.linkedin.com/in/sandhiya-b-94134824b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' target='_blank'>🔗 Connect on LinkedIn</a>" },
+      { "question": "Who is Sasikumar R?", "keywords": "sasikumar sasi office assistant", "answer": "👨‍💼 <strong>Sasikumar R</strong> is the Office Assistant at CED." }
+    ],
+    "Internships & Training": [
+      { "question": "Do you provide internships?", "answer": "💻 Yes! CED offers incredibly valuable <strong>FREE Internship Programs</strong> (only a ₹500 + tax registration fee applies).<br><br>These hands-on programs provide real-time project experience and industry mentorship. Students from ANY department can apply!" },
+      { "question": "What domains are covered in the internship?", "answer": "⚙️ Our internships cover cutting-edge domains:<br><ul><li>Innovation & Entrepreneurship</li><li>IoT & Electronics</li><li>AI/ML & Software Development</li><li>AR/VR</li><li>Prototyping & Makers Lab</li><li>Digital Marketing & Content Writing</li></ul>" },
+      { "question": "What are the internship durations and dates?", "answer": "⏳ We offer highly flexible durations: <strong>2 Weeks, 1 Month, 2 Months, or 3 Months</strong>.<br><br>📅 The next batch starts on <strong>15th December 2025</strong>. The last date to register is <strong>12.12.2025</strong>." },
+      { "question": "How do I register for an internship?", "answer": "🔗 You can easily register online!<br><br><a href='https://forms.gle/BB3uD3K5NHV5SMep8' target='_blank'>👉 Click here to fill out the Internship Registration Form</a>" }
+    ],
+    "Incubation & Support": [
+      { "question": "How do I apply for Pre-Incubation?", "answer": "Applying is simple and entirely digital!<br><br>📝 Navigate to the <strong>'Startup Supports'</strong> menu and select <strong>'Pre-Incubation'</strong> to fill out your application.<br><br>This program gives early-stage startups intensive mentorship, dedicated co-working space, and continuous technical support." },
+      { "question": "Do you provide funding for startups?", "answer": "💰 Yes! While we don't act as a direct venture capitalist, CED actively connects promising startups with massive funding channels.<br><br>This includes <strong>EDII-TN's IVP</strong> (which grants up to ₹7 Lakhs), various hackathon prize grants, and schemes like NIDHI PRAYAS. Visit our <strong>'Grants'</strong> section for a full breakdown." },
+      { "question": "What is the Makers Lab?", "keywords": "makers lab equipment facility machines", "answer": "🛠️ The <strong>Makers Lab</strong> is a world-class prototyping facility offered by CED.<br><br>It consists of three main areas:<br>1️⃣ <strong>Digital Fabrication Zone (DFZ):</strong> 3D Printers (FDM, SLA), PCB Printers, and 80W CO2 Laser Cutters.<br>2️⃣ <strong>Makers Space:</strong> Woodworking and physical prototyping tools.<br>3️⃣ <strong>IoT Lab:</strong> Connected devices, sensors, and NodeMCU kits." },
+      { "question": "How do I book a slot in the Makers Lab?", "keywords": "book slot booking reserve use printer lab", "answer": "📅 Booking a slot is easy and fully digital!<br><br>Navigate to the <strong>'Makers Lab'</strong> section from the top menu, choose your required facility (like Digital Fabrication or IoT), and click the <strong>'Book Your Slot'</strong> button. You can select your campus, department, and date directly in the form." },
+      { "question": "How do I get a mentor?", "answer": "🤝 Startups enrolled in our Pre-Incubation program are automatically matched with seasoned industry experts, successful alumni, and professors based on their domain.<br><br>You can also explore the <strong>'Mentor Connect'</strong> section on our website to seek specialized guidance." }
+    ],
+    "Programs & Councils": [
+      { "question": "What is IIC?", "keywords": "iic institution's innovation council yukti", "answer": "🏛️ The <strong>Institution’s Innovation Council (IIC)</strong> at Anna University empowers students to innovate and transform ideas into real-world impact.<br><br>Under IIC, students participate in massive national challenges like the <strong>Yukti Innovation Challenge</strong> and the AICTE Productization Fellowship." },
+      { "question": "What is the AICTE Productization Fellowship?", "keywords": "apf fellowship aicte", "answer": "🏆 Under the Product Development Fellowship Program (APF), students receive guided mentorship, technical resources, and entrepreneurial support to transform ideas into validated prototypes." },
+      { "question": "What is the FDP?", "keywords": "fdp faculty development program", "answer": "👩‍🏫 The <strong>Faculty Development Program (FDP)</strong> focuses on fostering innovation and entrepreneurship skills among educators.<br><br>It provides teachers with the tools, methodologies, and frameworks to inspire and guide students in their entrepreneurial pursuits." },
+      { "question": "What is CEE?", "keywords": "cee certified entrepreneurship educator educators", "answer": "🎓 <strong>CEE (Certified Entrepreneurship Educator)</strong> is our specialized training program for faculty.<br><br>We have successfully trained 8 batches of educators across top engineering, arts & science, and polytechnic institutes, empowering them to build startup ecosystems in their respective colleges." }
+    ],
+    "Grants & Funding": [
+      { "question": "What is the Innovation Voucher Programme (IVP)?", "keywords": "ivp innovation voucher programme tamil nadu msme", "answer": "💡 The <strong>Innovation Voucher Programme (IVP)</strong> is a flagship initiative of the Govt. of Tamil Nadu to promote innovation among MSMEs and Startups.<br><br>CED actively helps innovators secure these funds. It is split into <strong>Voucher A</strong> (up to ₹3 Lakhs for Idea to Prototype) and <strong>Voucher B</strong> (up to ₹7 Lakhs for Prototype to Market commercialization)." },
+      { "question": "What is RUSA 2.0?", "keywords": "rusa rashtriya uchchatar shiksha abhiyan", "answer": "🏛️ <strong>RUSA 2.0</strong> is a major government funding scheme by the Ministry of Education.<br><br>CED received a project funding of <strong>₹3.69 Crores</strong> under RUSA 2.0. This Seed Fund was used to establish the world-class <strong>Makers Lab</strong>, upgrade our pre-incubation infrastructure, and conduct massive technology validation bootcamps." },
+      { "question": "What is RISE 100?", "keywords": "rise rise100 hcl foundation", "answer": "🚀 <strong>RISE 100</strong> is an ambitious grassroots innovation initiative.<br><br>Backed by a massive <strong>₹50 Lakhs grant from the HCL Foundation</strong> (facilitated via StartupTN), CED uses this fund to initiate grassroots innovation and entrepreneurship activities among underserved communities, school, and college students." },
+      { "question": "What is IEDP?", "keywords": "iedp edii tn", "answer": "📈 <strong>IEDP</strong> (Innovation and Entrepreneurship Development Programme) is a strategic initiative supported by EDII-TN.<br><br>It aims to build a robust entrepreneurial ecosystem within academic institutions across the state, training faculty to become startup enablers." },
+      { "question": "What are the projects of CED?", "keywords": "projects schemes initiatives", "answer": "🚀 CED is involved in several massive <strong>Projects & Schemes</strong> to boost entrepreneurship.<br><br>Some of our major projects include:<br>• <strong>RUSA 2.0</strong> (₹3.69 Crore funding for Makers Lab)<br>• <strong>RISE 100</strong> (HCL Foundation grassroots project)<br>• <strong>IEDP</strong> (Ecosystem development across institutions)<br>• <strong>IVP</strong> (Innovation Vouchers for startups)" },
+      { "question": "Do you provide funding for startups?", "keywords": "money fund investment capitalist vc", "answer": "💰 Yes! While we don't act as a direct venture capitalist, CED actively connects promising startups with massive funding channels.<br><br>This includes <strong>EDII-TN's IVP</strong> (which grants up to ₹7 Lakhs), various hackathon prize grants, and schemes like NIDHI PRAYAS. Visit our <strong>'Grants'</strong> section for a full breakdown." }
+    ],
+    "Flagship Events": [
+      { "question": "What is Puthulir?", "keywords": "puthulir school students competition 2.0", "answer": "🌟 <strong>Puthulir 2.0</strong> is a massive State-Level Innovation Competition specifically designed for School Students (Classes 8-12).<br><br>It allows young minds to pitch ideas across themes like Sustainability, Technology, and Health. Govt school students register for free, while private schools have a ₹500 fee per team. <br><br><a href='/puthulir'>👉 View Puthulir details</a>" },
+      { "question": "What are all the events?", "answer": "📅 We host several massive events throughout the year!<br><br>• <strong>Startify:</strong> An intensive pitching event where students pitch to angel investors.<br>• <strong>Enantra:</strong> A huge national-level entrepreneurship festival with unicorn founders.<br>• <strong>IMPRENT:</strong> A rural entrepreneurship documentation hackathon.<br>• <strong>Balakamalam:</strong> A climate and sustainability hackathon.<br>• <strong>Puthulir:</strong> A state-level innovation competition for school students.<br>• <strong>Idea Crunch:</strong> Competitive student hackathons." },
+      { "question": "What is Startify?", "answer": "🔥 <strong>Startify</strong> is one of our most celebrated flagship entrepreneurial events.<br><br>It features intense pitching sessions where student founders pitch directly to active angel investors and industry leaders for real funding. <br><br><a href='https://austartify.com' target='_blank'>👉 Visit Startify</a>" },
+      { "question": "What is Enantra?", "answer": "🎪 <strong>Enantra</strong> is an extraordinary, massive national-level entrepreneurship festival organized by CED.<br><br>It spans multiple days and features immersive workshops, elite speaker sessions from unicorn founders, and competitive hackathons like <strong>'Idea Crunch'</strong>. <br><br><a href='https://www.enantra.in/' target='_blank'>👉 Visit Enantra</a>" },
+      { "question": "What is IMPRENT?", "answer": "🌾 <strong>IMPRENT</strong> (Impacting Rural Entrepreneurship) is a unique, state-level initiative empowering students to document genuine rural challenges via short films and then solve them through dedicated hackathons. <br><br><a href='/imprent'>👉 View IMPRENT details here.</a>" },
+      { "question": "Are there any upcoming hackathons?", "answer": "💻 Yes, we regularly host massive hackathons! This includes the <strong>Balakamalam Climate Hackathon</strong> and <strong>Enantra Idea Crunch</strong>.<br><br>We recommend constantly checking the <strong>'Events/Hackathons'</strong> menu for the latest schedules!" }
+    ],
+    "Redirection & Actions": [
+      { "question": "Where can I submit my innovative idea?", "keywords": "submit idea innovation pitch", "answer": "💡 You can submit your idea directly right now!<br><br>Just click the <strong>'Submit your Innovation Here'</strong> button located in the top navigation menu under 'Do you have innovative idea?'. Our committee reviews these regularly." },
+      { "question": "Where can I find the Impact Reports?", "keywords": "report impact yearly statistics milestones", "answer": "📊 Our comprehensive yearly Impact Reports (including 2023-24 and 2024-25), which detail the massive number of startups we've helped, are available under the <strong>'Milestones'</strong> section in the main navigation menu." }
+    ]
+  };
+
+  const cedCorpus = [];
+  Object.entries(cedFaqData).forEach(([cat, questions]) => {
+    questions.forEach(q => cedCorpus.push({
+      text: (q.question + " " + q.answer + " " + (q.keywords || "") + " " + cat).toLowerCase(),
+      question: q.question,
+      answer: q.answer,
+      category: cat,
+      keywords: q.keywords || ""
+    }));
+  });
+
+  function cedGetTermFrequency(text) {
+    const words = text.match(/\b(\w+)\b/g) || [];
+    const tf = {};
+    words.forEach(w => { tf[w] = (tf[w] || 0) + 1; });
+    return { tf, length: words.length };
+  }
+
+  const cedIdf = {};
+  cedCorpus.forEach(doc => {
+    const uniqueWords = new Set((doc.text.match(/\b(\w+)\b/g) || []));
+    uniqueWords.forEach(w => { cedIdf[w] = (cedIdf[w] || 0) + 1; });
+  });
+
+  const cedTotalDocs = cedCorpus.length;
+  for (let w in cedIdf) {
+    cedIdf[w] = Math.log(cedTotalDocs / cedIdf[w]);
+  }
+
+  function cedGetVector(text) {
+    const { tf, length } = cedGetTermFrequency(text.toLowerCase());
+    const vec = {};
+    for (let w in tf) {
+      if (cedIdf[w]) vec[w] = (tf[w] / length) * cedIdf[w];
+    }
+    return vec;
+  }
+
+  function cedCosineSimilarity(vec1, vec2) {
+    let dotProduct = 0;
+    let mag1 = 0;
+    let mag2 = 0;
+    for (let w in vec1) {
+      if (vec2[w]) dotProduct += vec1[w] * vec2[w];
+      mag1 += vec1[w] * vec1[w];
+    }
+    for (let w in vec2) {
+      mag2 += vec2[w] * vec2[w];
+    }
+    if (mag1 === 0 || mag2 === 0) return 0;
+    return dotProduct / (Math.sqrt(mag1) * Math.sqrt(mag2));
+  }
+
+  function cedAppendChatConversation(queryText, answerText, isUserOnly = false) {
+    const history = document.getElementById("cedChatConversationHistory");
+    const emptyState = history.querySelector(".history-empty");
+    if (emptyState) emptyState.remove();
+
+    const oldTyping = history.querySelector(".typing-indicator");
+    if (oldTyping) oldTyping.parentElement.remove();
+
+    if (isUserOnly) {
+      const message = document.createElement("div");
+      message.className = "message";
+      const userBubble = document.createElement("div");
+      userBubble.className = "message-user";
+      userBubble.textContent = queryText;
+      message.appendChild(userBubble);
+      
+      const typingMsg = document.createElement("div");
+      typingMsg.className = "message";
+      typingMsg.innerHTML = '<div class="message-assistant typing-indicator"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
+      
+      history.appendChild(message);
+      history.appendChild(typingMsg);
+      typingMsg.scrollIntoView({ behavior: "smooth", block: "end" });
+      return;
+    }
+
+    const message = document.createElement("div");
+    message.className = "message";
+    
+    if (queryText && answerText) {
+      const userBubble = document.createElement("div");
+      userBubble.className = "message-user";
+      userBubble.textContent = queryText;
+      message.appendChild(userBubble);
+    }
+
+    const assistantBubble = document.createElement("div");
+    assistantBubble.className = "message-assistant";
+    assistantBubble.innerHTML = answerText;
+    
+    message.appendChild(assistantBubble);
+    history.appendChild(message);
+    message.scrollIntoView({ behavior: "smooth", block: "end" });
+  }
+
+  function cedSetChatOpen(isOpen) {
+    const widget = document.getElementById("cedChatWidget");
+    widget.classList.toggle("hidden", !isOpen);
+    if (isOpen) {
+      setTimeout(() => document.getElementById("cedChatSearchInput").focus(), 100);
+    }
+  }
+
+  function cedHandleChatSearch(query) {
+    const trimmed = query.trim().toLowerCase();
+    if (!trimmed) return;
+    document.getElementById("cedChatSearchInput").value = "";
+
+    cedAppendChatConversation(query, null, true);
+
+    setTimeout(() => {
+      const queryVec = cedGetVector(trimmed);
+      let bestMatch = null;
+      let highestScore = 0;
+
+      cedCorpus.forEach(doc => {
+        const docVec = cedGetVector(doc.text);
+        let score = cedCosineSimilarity(queryVec, docVec);
+        
+        // Massive boost for exact phrase match in question, category, or keywords
+        if (doc.question.toLowerCase().includes(trimmed) || 
+            doc.category.toLowerCase().includes(trimmed) || 
+            doc.keywords.toLowerCase().includes(trimmed)) {
+          score += 2.0;
+        }
+
+        const stopWords = ["what", "are", "the", "is", "for", "and", "to", "in", "of", "how", "do", "i", "a", "an", "all", "can", "you", "my", "we", "on", "where", "who", "when", "why", "it", "that", "this", "there", "their", "ced"];
+        const queryWords = trimmed.match(/\b(\w+)\b/g) || [];
+        
+        queryWords.forEach(w => {
+           if (stopWords.includes(w)) return; // Ignore common words
+           
+           // Small boost for matching important keywords inside the question
+           if(w.length > 2 && doc.question.toLowerCase().includes(w)) score += 0.4;
+           // Tiny boost for matching words inside the answer
+           if(w.length > 3 && doc.answer.toLowerCase().includes(w)) score += 0.15;
+        });
+
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = doc;
+        }
+      });
+
+      if (bestMatch && highestScore > 0.15) { 
+        const formattedAnswer = `<strong style="font-size:1.05rem; color:#d81b8c;">${bestMatch.question}</strong><br><br><span style="line-height:1.6; color:#374151;">${bestMatch.answer}</span>`;
+        cedAppendChatConversation(null, formattedAnswer, false);
+      } else {
+        cedAppendChatConversation(null, "I couldn't find an exact match for that. Please try exploring the menus at the top, or contact us directly at cedau.outreach@gmail.com.", false);
+      }
+    }, 600);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("cedChatSearchButton")?.addEventListener("click", () => {
+      cedHandleChatSearch(document.getElementById("cedChatSearchInput").value);
+    });
+    
+    document.getElementById("cedChatSearchInput")?.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") cedHandleChatSearch(document.getElementById("cedChatSearchInput").value);
+    });
+
+    document.getElementById("cedChatLauncher")?.addEventListener("click", () => {
+      const isOpen = document.getElementById("cedChatWidget").classList.contains("hidden");
+      cedSetChatOpen(isOpen);
+    });
+    
+    document.getElementById("cedCloseChatButton")?.addEventListener("click", () => {
+      cedSetChatOpen(false);
+    });
+
+    document.querySelectorAll("#cedQuickSuggestions .quick-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        cedHandleChatSearch(chip.textContent);
+      });
+    });
+  });
+</script>

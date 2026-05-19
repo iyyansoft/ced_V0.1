@@ -1,0 +1,567 @@
+
+
+<form class="ced-form" id="cedForm">
+
+<h3 class="ced-wave-title">
+  <span>P</span><span>R</span><span>E</span><span>-</span>
+  <span>I</span><span>N</span><span>C</span><span>U</span><span>B</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
+  <span>&nbsp;</span>
+  <span>R</span><span>E</span><span>G</span><span>I</span><span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
+  <span>&nbsp;</span>
+  <span>F</span><span>O</span><span>R</span><span>M</span>
+</h3>
+
+
+
+
+<label class="required">Name</label>
+<span class="error" id="nameErr"></span>
+<input type="text" id="name" name="name">
+
+<label class="required">Mobile Number</label>
+<span class="error" id="mobileErr"></span>
+<input type="tel" id="mobile" name="mobile">
+
+<label class="required">Email ID</label>
+<span class="error" id="emailErr"></span>
+<input type="email" id="email" name="email">
+
+<label class="required">Are you a?</label>
+<span class="error" id="roleErr"></span>
+<select id="role" name="role">
+  <option value="">Select</option>
+  <option value="Student">Student</option>
+  <option value="Alumni">Alumni</option>
+</select>
+
+
+
+<label class="required">Institute Name</label>
+<span class="error" id="instErr"></span>
+<input type="text" id="institute" name="institute">
+
+<label class="required">Year of Graduation</label>
+<span class="error" id="gradErr"></span>
+<input type="number" id="graduation_year" name="graduation_year">
+
+<label class="required">Startup Name</label>
+<span class="error" id="startupErr"></span>
+<input type="text" id="startup_name" name="startup_name">
+
+<label class="">Startup Address</label>
+<span class="error" id="addrErr"></span>
+<textarea id="startup_address" name="startup_address"></textarea>
+
+<label class="required">Project Title</label>
+<span class="error" id="titleErr"></span>
+<input type="text" id="project_title" name="project_title">
+
+<label class="required">Project Description</label>
+<span class="error" id="descErr"></span>
+<textarea id="project_description" name="project_description"></textarea>
+
+<label class="required">One-Sentence Pitch</label>
+<span class="error" id="pitchErr"></span>
+<textarea id="pitch" name="pitch"></textarea>
+
+<label class="">Mentor Name</label>
+<span class="error" id="mentorErr"></span>
+<input type="text" id="mentor_name" name="mentor_name">
+
+<label class="">Mentor Contact</label>
+<span class="error" id="mcontactErr"></span>
+<input type="text" id="mentor_contact" name="mentor_contact">
+
+<label class="required">Product Type</label>
+<span class="error" id="ptypeErr"></span>
+<select id="product_type" name="product_type">
+
+<option value="">Select</option>
+<option>Product-based</option>
+<option>Service-based</option>
+<option>Software</option>
+<option>Deep Tech / Technology-driven</option>
+<option>Social / Impact-based Product</option>
+<option>Hybrid Model (Product + Service)</option>
+
+
+</select>
+
+<label class="required">Sector</label>
+<span class="error" id="sectorErr"></span>
+<select id="sector" name="sector">
+<option value="">Select</option>
+<option>FinTech</option>
+<option>EdTech</option>
+<option>HealthTech & MedTech</option>
+<option>Agritech</option>
+<option>DeepTech & Engineering</option>
+<option>CleanTech & Sustainability</option>
+<option>Logistics & Supply Chain</option>
+<option>Social Impact/Innovation</option>
+<option>RetailTech & E-commerce</option>
+<option>RegTech (Regulatory Technology)</option>
+</select>
+
+<label class="required">Stage</label>
+<span class="error" id="stageErr"></span>
+<select id="stage" name="stage">
+<option value="">Select</option>
+<option>Pre-Seed stage.</option>
+<option>Seed stage.</option>
+<option>Early stage.</option>
+<option>Growth stage.</option>
+<option>Expansion stage.</option>
+<option>Exit stage.</option>
+</select>
+
+<label class="">DPIIT Registration Number</label>
+<span class="error" id="dpiitErr"></span>
+<input type="text" id="dpiit" name="dpiit_no">
+
+<label class="">Udyam Registration Number</label>
+<span class="error" id="udyamErr"></span>
+<input type="text" id="udyam" name="udyam_no">
+
+<label class="required">Project PPT Link</label>
+<span class="error" id="pptLinkErr"></span>
+
+<input 
+  type="url"
+  id="ppt"
+  name="ppt"
+  placeholder="Paste Google Drive link here">
+
+
+<small style="color:#4da3ff; display:block; margin-top:6px; font-size:13px;">
+Upload your PPT to Google Drive → Share → Anyone with link → Viewer  
+Paste the link above
+</small>
+
+
+
+
+
+
+<label class="required">Upload Your Photo</label>
+<span class="error" id="photoErr"></span>
+<input type="file" id="photo" name="photo">
+
+<!-- Services Needed -->
+  <label>Services Required from CED</label>
+
+<div class="checkbox-group">
+  <label>
+    <input type="checkbox" name="services[]" value="funding">
+    Funding
+  </label>
+
+  <label>
+    <input type="checkbox" name="services[]" value="industry_mentor">
+    Industry / Technology Mentor
+  </label>
+
+  <label>
+    <input type="checkbox" name="services[]" value="business_mentor">
+    Business Mentor
+  </label>
+
+  <label>
+    <input type="checkbox" name="services[]" value="prototyping">
+    Prototyping Facility
+  </label>
+
+  <label>
+    <input type="checkbox" name="services[]" value="coworking">
+    Co-Working Space
+  </label>
+
+  <label>
+    <input type="checkbox" name="services[]" value="interns">
+    Interns
+  </label>
+
+
+
+</div>
+
+
+
+  <div id="formMsg" style="margin-top:15px;font-weight:600;"></div>
+
+<button type="submit">Submit</button>
+</form>
+
+
+
+
+
+
+<script is:inline>
+let allApplications = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const form = document.getElementById("cedForm");
+  const formMsg = document.getElementById("formMsg");
+  const submitBtn = form.querySelector("button[type='submit']");
+
+  const nameErr   = document.getElementById("nameErr");
+  const mobileErr = document.getElementById("mobileErr");
+  const emailErr  = document.getElementById("emailErr");
+  const dpiitErr  = document.getElementById("dpiitErr");
+  const udyamErr  = document.getElementById("udyamErr");
+ 
+  const photoErr  = document.getElementById("photoErr");
+
+  if (!form || !formMsg) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    let valid = true;
+
+    const name   = document.getElementById("name");
+    const mobile = document.getElementById("mobile");
+    const email  = document.getElementById("email");
+    const dpiit  = document.getElementById("dpiit");
+    const udyam  = document.getElementById("udyam");
+    const pptLink = document.getElementById("ppt");
+    const pptLinkErr = document.getElementById("pptLinkErr");
+
+    const photoUpload = document.getElementById("photo");
+
+    const dpiitPattern = /^(DIPP|DPIIT)\d{5,7}$/;
+    const udyamPattern = /^UDYAM-[A-Z]{2}-\d{2}-\d{7}$/;
+
+    // Clear errors
+    [nameErr,mobileErr,emailErr,dpiitErr,udyamErr,pptLinkErr,photoErr]
+.forEach(el => el.innerHTML = "");
+    [name,mobile,email,dpiit,udyam].forEach(el => el.classList.remove("error-border"));
+
+    // Validation
+    if(!name.value.trim()){ valid=false; nameErr.innerHTML="Enter Name"; name.classList.add("error-border"); }
+    if(!/^\d{10}$/.test(mobile.value.trim())){ valid=false; mobileErr.innerHTML="10 digit mobile only"; mobile.classList.add("error-border"); }
+    if(!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email.value.trim())){ valid=false; emailErr.innerHTML="Only Gmail allowed"; email.classList.add("error-border"); }
+   
+    if(!pptLink.value.trim()){
+     valid=false;
+     pptLinkErr.innerHTML="Paste Google Drive PPT link";
+}
+    if(!photoUpload.files.length){ valid=false; photoErr.innerHTML="Upload Photo"; }
+
+    if(!valid) return;
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Saving...";
+
+    // ---------- FORM DATA ----------
+    const formData = new FormData(form);
+
+// 🔥 Force role field append
+const roleValue = document.getElementById("role").value;
+formData.set("role", roleValue);
+
+// 🔥 Fix services checkbox
+formData.delete("services[]");
+document.querySelectorAll('input[name="services[]"]:checked')
+.forEach(cb => {
+  formData.append("services[]", cb.value);
+});
+
+
+
+ 
+
+
+  
+
+  const API_URL =
+  location.hostname === "localhost"
+    ? "http://localhost:8000"
+    : "https://ced-backend-7uwz.onrender.com";
+
+
+    try{
+      
+
+      const res = await fetch(`${API_URL}/api/preincubation`, {
+      method: "POST",
+      body: formData
+      });
+
+
+
+      const data = await res.json();
+
+      if(res.ok){
+
+        formMsg.style.color = "green";
+        formMsg.innerHTML = "✔ Data Saved Successfully!";
+        form.reset();
+      }else{
+        throw new Error("Save Failed");
+      }
+
+    }catch(err){
+      console.log(err);
+      formMsg.style.color="red";
+      formMsg.innerHTML="✖ Save Failed!";
+    }finally{
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Submit";
+    }
+  });
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+.ced-form{
+  max-width:750px;
+  margin:40px auto;
+  padding:35px;
+  background:#ffffff;
+  border-radius:16px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
+  font-family:'Segoe UI',sans-serif;
+}
+
+.ced-form h3{
+  text-align:center;
+  margin-bottom:25px;
+  font-size:22px;
+  color:#333;
+}
+
+.ced-form label{
+  font-weight:600;
+  margin-top:14px;
+  display:block;
+  color:#222;
+}
+
+.ced-form label.required::after{
+  content:" *";
+  color:#d93025;
+}
+
+.ced-form input,
+.ced-form textarea,
+.ced-form select{
+  width:100%;
+  padding:11px 12px;
+  margin-top:6px;
+  border-radius:8px;
+  border:1px solid #cfcfcf;
+  font-size:15px;
+  transition:.25s;
+}
+
+.ced-form input:focus,
+.ced-form textarea:focus,
+.ced-form select:focus{
+  outline:none;
+  border-color:#7b61ff;
+  box-shadow:0 0 0 2px rgba(123,97,255,.15);
+}
+
+.ced-form textarea{ min-height:95px; }
+
+/* ---------- ERROR MESSAGE ---------- */
+.error{
+  color:#d93025;
+  font-size:13px;
+  margin:4px 0 6px 3px;
+  display:block;
+  font-weight:500;
+  animation:shake .25s ease;
+}
+
+/* ---------- INPUT ERROR BORDER ---------- */
+.error-border{
+  border:1.6px solid #d93025 !important;
+  background:#fff4f4;
+}
+
+/* ---------- CHECKBOX STYLE ---------- */
+.checkbox-group{
+  margin-top:8px;
+}
+
+.checkbox-group label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:500;
+  margin-bottom:6px;
+  cursor:pointer;
+}
+
+.checkbox-group input[type="checkbox"]{
+  width:16px;
+  height:16px;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+.ced-form button{
+  margin:25px auto 0;
+  display:block;
+  width:260px;
+  padding:13px;
+  background:linear-gradient(135deg,#d012ad,#7b2ff7);
+  color:#fff;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.ced-form button:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px rgba(123,47,247,.35);
+}
+
+.ced-wave-title{
+  margin:40px auto;
+  width:fit-content;
+  padding:26px 56px;
+
+  background:linear-gradient(
+    135deg,
+    #6d6af5,
+    #ec4899
+  );
+
+  border-radius:40px;
+  box-shadow:
+    
+
+  overflow:hidden;
+}
+
+
+/* letters */
+.ced-wave-title span{
+  display:inline-block;
+
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+
+  /* 👇 FIX */
+  color:#ffffff;
+
+  text-shadow:
+    0 2px 10px rgba(0,0,0,.35),
+    0 0 20px rgba(255,255,255,.35);
+
+  animation:wave 2.4s ease-in-out infinite;
+}
+
+
+/* wave delay per letter */
+.ced-wave-title span:nth-child(1){animation-delay:0s}
+.ced-wave-title span:nth-child(2){animation-delay:.05s}
+.ced-wave-title span:nth-child(3){animation-delay:.1s}
+.ced-wave-title span:nth-child(4){animation-delay:.15s}
+.ced-wave-title span:nth-child(5){animation-delay:.2s}
+.ced-wave-title span:nth-child(6){animation-delay:.25s}
+.ced-wave-title span:nth-child(7){animation-delay:.3s}
+.ced-wave-title span:nth-child(8){animation-delay:.35s}
+.ced-wave-title span:nth-child(9){animation-delay:.4s}
+.ced-wave-title span:nth-child(10){animation-delay:.45s}
+.ced-wave-title span:nth-child(11){animation-delay:.5s}
+.ced-wave-title span:nth-child(12){animation-delay:.55s}
+.ced-wave-title span:nth-child(13){animation-delay:.6s}
+.ced-wave-title span:nth-child(14){animation-delay:.65s}
+.ced-wave-title span:nth-child(15){animation-delay:.7s}
+.ced-wave-title span:nth-child(16){animation-delay:.75s}
+.ced-wave-title span:nth-child(17){animation-delay:.8s}
+.ced-wave-title span:nth-child(18){animation-delay:.85s}
+.ced-wave-title span:nth-child(19){animation-delay:.9s}
+.ced-wave-title span:nth-child(20){animation-delay:.95s}
+.ced-wave-title span:nth-child(21){animation-delay:1s}
+.ced-wave-title span:nth-child(22){animation-delay:1.05s}
+.ced-wave-title span:nth-child(23){animation-delay:1.1s}
+.ced-wave-title span:nth-child(24){animation-delay:1.15s}
+.ced-wave-title span:nth-child(25){animation-delay:1.2s}
+.ced-wave-title span:nth-child(26){animation-delay:1.25s}
+.ced-wave-title span:nth-child(27){animation-delay:1.3s}
+.ced-wave-title span:nth-child(28){animation-delay:1.35s}
+.ced-wave-title span:nth-child(29){animation-delay:1.4s}
+.ced-wave-title span:nth-child(30){animation-delay:1.45s}
+
+/* wave motion */
+@keyframes wave{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
+}
+
+/* spotlight sweep */
+.ced-wave-title::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(255,255,255,.6),
+    transparent 65%
+  );
+  transform:translateX(-100%);
+  animation:sweep 4s ease-in-out infinite;
+}
+
+@keyframes sweep{
+  0%{transform:translateX(-100%)}
+  50%{transform:translateX(100%)}
+  100%{transform:translateX(100%)}
+}
+
+
+
+
+/* ---------- SUCCESS / FAIL MESSAGE ---------- */
+#formMsg{
+  margin-top:16px;
+  text-align:center;
+  font-weight:600;
+  font-size:15px;
+}
+
+/* ---------- SHAKE ANIMATION ---------- */
+@keyframes shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-3px)}
+  50%{transform:translateX(3px)}
+  75%{transform:translateX(-3px)}
+  100%{transform:translateX(0)}
+}
+</style>

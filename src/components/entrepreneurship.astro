@@ -1,0 +1,440 @@
+
+
+
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+
+  <style>
+    .carousel-item {
+      height: 75vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    /* DARK OVERLAY */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5); /* Change opacity here */
+    }
+
+    .carousel-caption {
+      bottom: 150px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div id="cedCarousel" 
+       class="carousel slide carousel-fade"
+       data-bs-ride="carousel"
+       data-bs-interval="3000"
+       data-bs-pause="false">
+
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#cedCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#cedCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#cedCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- SLIDES -->
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active"
+           style="background-image:url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/meeting.jpg');"> 
+           
+        <div class="overlay"></div>
+
+        <div class="carousel-caption text-start">
+          <h1 class="text-white text-center">CED Workshops</h1>
+          <h1 class="lead text-white text-center">Centre for Entrepreneurship Development, Anna University.</h1>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item"
+           style="background-image:url('/assets/img/workshop8.webp');"> 
+        <div class="overlay"></div>
+
+        <div class="carousel-caption text-start">
+          <h1 class="text-white text-center">CED Workshops</h1>
+          <h3 class="lead text-white text-center">Centre for Entrepreneurship Development, Anna University.</h3>
+        </div>
+      </div>
+
+
+
+
+      <!-- Slide 3 -->
+      <div class="carousel-item"
+           style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/lounge.jpg');">
+        <div class="overlay"></div>
+
+        <div class="carousel-caption text-start">
+          <h1 cla<h1 class="text-white text-center">CED Workshops</h1>
+          <h3 class="lead text-white text-center">Centre for Entrepreneurship Development, Anna University.</h3>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#cedCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#cedCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Bootstrap JS (WORKING IN ASTRO) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<!-- HEADER -->
+<section 
+  class="py-5 text-white text-center"
+  
+>
+  <div class="container">
+    <h4 class="display-14 fw-bold mt-4 text-secondary">The Centre for Entrepreneurship Development (CED) conducts a wide range of Technical, Innovation, and Entrepreneurship Workshops designed to empower students, faculty, startups, and professionals with hands-on skills and real-world knowledge.
+Our workshops integrate technology, design thinking, innovation, prototyping, and entrepreneurial skills, helping participants transform ideas into tangible outcomes.
+</h4>
+    
+  </div>
+</section>
+
+
+
+
+
+<section class="pt-5 pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-blog card-plain">
+          <div class="position-relative">
+            <a class="d-block blur-shadow-image">
+              <img src="/assets/img/workshop2.jpeg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+            </a>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-blog card-plain">
+          <div class="position-relative">
+            <a class="d-block blur-shadow-image">
+              <img src="/assets/img/workshop1.jpeg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+            </a>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-blog card-plain">
+          <div class="position-relative">
+            <a class="d-block blur-shadow-image">
+              <img src="/assets/img/workshop3.jpeg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+            </a>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+      
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- INTRO -->
+<div class="container py-8">
+
+  <div class="d-flex flex-column gap-5">
+
+    <!-- SECTION 1 -->
+    <div class="p-4 rounded-4 shadow-sm bg-light border">
+      <div class="row align-items-center g-4">
+
+        <!-- TEXT SIDE -->
+        <div class="col-md-7">
+          <h3 class="text-primary fw-bold mb-3">🚀 1. Capacity Building Workshops</h3>
+          <p>CED organizes Capacity Building Programs with institutions, industries, and government agencies.</p>
+
+          <div class="alert alert-primary fw-bold mt-3 text-white" style="background-color:#0d47a1;">
+            Recent Batch: 8th December 2025 – 15th December 2025
+          </div>
+
+          <h6 class="mt-4">A 6-day program for TNRISE employees included:</h6>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Innovation & Entrepreneurship</li>
+            <li class="list-group-item">Problem-Solving & Design Thinking</li>
+            <li class="list-group-item">Startup Ecosystem Orientation</li>
+            <li class="list-group-item">Project Implementation Skills</li>
+            <li class="list-group-item">Hands-on Learning Sessions</li>
+          </ul>
+
+          <h6 class="display-14 fw-bold mt-4">
+            Participants gained practical exposure and interactions with experts from industries,
+            startups, and the Makers Lab ecosystem.
+          </h6>
+        </div>
+
+        <!-- IMAGE SIDE -->
+        <div class="col-md-5 text-center">
+          <img
+            src="/assets/img/capacity2.jpg"
+            alt="Capacity Building Workshop"
+            class="img-fluid rounded-4 shadow-sm"
+            style="width:410px; height: 280px; object-fit: cover;"
+          />
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- SECTION 2 -->
+    <div class="p-4 rounded-4 shadow-sm bg-light border">
+      <div class="row align-items-center g-4">
+
+        <!-- TEXT -->
+        <div class="col-md-7">
+          <h3 class="text-primary fw-bold mb-3">🔌 2. IoT Workshops</h3>
+          <h6>Participants learn to design embedded IoT systems with sensors and cloud dashboards.</h6>
+
+          <h5 class="fw-bold mt-3">Key Topics Covered:</h5>
+          <ul class="list-group list-group-flush mt-4">
+            <li class="list-group-item">Introduction to IoT</li>
+            <li class="list-group-item">Sensor Integration & Data Acquisition</li>
+            <li class="list-group-item">Microcontroller Programming (Arduino/NodeMCU)</li>
+            <li class="list-group-item">Cloud Platforms & Dashboards</li>
+            <li class="list-group-item">Building Mini IoT Projects</li>
+          </ul>
+
+          <h6 class="display-14 fw-bold mt-4">
+            Ideal for engineering students, innovators, and early-stage startups working on digital or hardware solutions.
+          </h6>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="col-md-5 text-center">
+          <img
+            src="/assets/img/Iot.jpg"
+            alt="IoT Workshop"
+            class="img-fluid rounded-4 shadow-sm"
+            style="width:340px; height: 280px; object-fit: cover;"
+          />
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- SECTION 3 -->
+    <div class="p-4 rounded-4 shadow-sm bg-light border">
+      <div class="row align-items-center g-4">
+
+        <!-- TEXT -->
+        <div class="col-md-7">
+          <h3 class="text-primary fw-bold mb-3">🖨️ 3. 3D Printing & Rapid Prototyping</h3>
+          <h6>Hands-on training on 3D modelling, slicing, and real-time fabrication.</h6>
+
+          <h5 class="fw-bold mt-3">Focus Areas:</h5>
+          <ul class="list-group list-group-flush mt-4">
+            <li class="list-group-item">Basics of Additive Manufacturing</li>
+            <li class="list-group-item">3D Designing (Fusion 360 / TinkerCAD)</li>
+            <li class="list-group-item">Machine Operation & Slicing</li>
+            <li class="list-group-item">Prototype Development</li>
+            <li class="list-group-item">Real-Time Fabrication</li>
+          </ul>
+
+          <h6 class="display-14 fw-bold mt-4">
+            These workshops support product startups, student innovators, and Makers Lab users.
+          </h6>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="col-md-5 text-center">
+          <img
+            src="/assets/img/3D1.webp"
+            alt="3D Printing Workshop"
+            class="img-fluid rounded-4 shadow-sm"
+            style="width:340px; height: 280px; object-fit: cover;"
+          />
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- SECTION 4 -->
+    <div class="p-4 rounded-4 shadow-sm bg-light border">
+      <div class="row align-items-center g-4">
+
+        <!-- TEXT -->
+        <div class="col-md-7">
+          <h3 class="text-primary fw-bold mb-3">📊 4. Business Model Canvas Workshops</h3>
+          <h6>Structured sessions to convert ideas into market-ready business models.</h6>
+
+          <h5 class="fw-bold mt-4">Workshop Highlights:</h5>
+          <ul class="list-group list-group-flush mt-4">
+            <li class="list-group-item">Understanding Customer Segments</li>
+            <li class="list-group-item">Value Proposition Development</li>
+            <li class="list-group-item">Revenue & Cost Structure</li>
+            <li class="list-group-item">Identifying Key Activities & Resources</li>
+            <li class="list-group-item">Pitch Deck Preparation</li>
+          </ul>
+
+          <h6 class="display-14 fw-bold mt-4">
+            The workshop helps student teams, startups, and innovators refine their business ideas
+            for competitions, grants, and incubation programs.
+          </h6>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="col-md-5 text-center">
+          <img
+            src="/assets/img/business1.jpg"
+            alt="Business Model Canvas Workshop"
+            class="img-fluid rounded-4 shadow-sm"
+            style="width:340px; height: 280px; object-fit: cover;"
+          />
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+    <!-- SECTION 5 -->
+<div class="container mt-2 mb-5">
+
+
+  <div class="row justify-content-center">
+    <!-- 🔥 width increased -->
+    <div class="col-lg-14 col-md-12 col-12 mb-14">
+
+      <div class="p-4 p-md-5 rounded-4 shadow-sm bg-light border">
+        <h3 class="text-primary fw-bold mb-3">
+          💡 5. Technical & Entrepreneurial Workshops
+        </h3>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <h5 class="fw-bold mt-4">Technical Workshops</h5>
+            <ul class="list-group list-group-flush mt-4">
+              <li class="list-group-item">Robotics & Automation</li>
+              <li class="list-group-item">AI/ML Fundamentals</li>
+              <li class="list-group-item">Web & App Development</li>
+              <li class="list-group-item">AR/VR Prototyping</li>
+              <li class="list-group-item">PCB Design & Soldering</li>
+              <li class="list-group-item">Product Design & Prototyping</li>
+            </ul>
+
+            <h6 class="fw-bold mt-4">
+              These workshops equip participants with essential skills needed
+              for launching and scaling innovative ventures.
+            </h6>
+          </div>
+
+          <div class="col-md-6">
+            <h5 class="fw-bold mt-4">Entrepreneurial Workshops</h5>
+            <ul class="list-group list-group-flush mt-4">
+              <li class="list-group-item">Idea Generation</li>
+              <li class="list-group-item">Design Thinking</li>
+              <li class="list-group-item">Startup Funding & Schemes</li>
+              <li class="list-group-item">Innovation Management</li>
+              <li class="list-group-item">Market Research & Customer Discovery</li>
+              <li class="list-group-item">Pitching & Presentation Mastery</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<!-- AUDIENCE -->
+<div class="container my-5">
+
+  <div class="row justify-content-center">
+    <!-- 🔥 width increased -->
+    <div class="col-lg-14 col-md-12 col-12">
+
+
+      <div class="p-4 rounded-4 shadow-sm bg-light border">
+        <h3 class="text-primary fw-bold mb-3 text-center">
+          🎓 Who Can Attend?
+        </h3>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Engineering & Science Students</li>
+          <li class="list-group-item">Research Scholars</li>
+          <li class="list-group-item">Startup Founders</li>
+          <li class="list-group-item">Faculty Members</li>
+          <li class="list-group-item">Innovators & Entrepreneurs</li>
+          <li class="list-group-item">Corporate & Government Participants</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+    <!-- UPCOMING -->
+    <div 
+  class="alert fs-5 fw-bold text-center text-primary mt-6" 
+  
+>
+  📅 Upcoming Workshops:<br><br>
+  CED regularly updates its workshop calendar.<br>
+Stay tuned for announcements on upcoming technical and entrepreneurship workshops.
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+

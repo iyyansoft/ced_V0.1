@@ -1,0 +1,210 @@
+---
+import { onMount } from 'solid-js';
+import Typed from 'typed.js';
+
+// For any JavaScript code you need, you can write it here.
+// For instance, initializing the typed.js (if you're using it for text typing effect).
+const TypedComponent = () => {
+  let typedElement: HTMLSpanElement | null = null;
+
+onMount(() => {
+  const typed = new Typed('#typed', {
+    stringsElement: '#typed-strings',
+    typeSpeed: 50,
+    backSpeed: 50,
+    loop: true
+  });
+  return () => typed.destroy();  
+
+});
+
+};
+
+
+---
+
+
+<header class="bg-gradient-dark">
+
+
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+
+
+
+
+  <div class="page-header min-vh-80" style="background-image: url('../assets/img/office-dark.jpeg');">
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center mx-auto my-auto">
+          <h1 class="text-white">Who We Are? <span class="text-white" id="typed"></span></h1>
+          <p class="text-white mt-4">Centre for Entrepreneurship Development (CED). Anna University is carrying out various programs for kindling the entrepreneurship inspirations of the Engineering College students of Tamil Nadu State.
+
+Centre for Entrepreneurship Development (CED) , Anna University has established a dedicated MAKERS LAB under the funding scheme of RUSA 2.0 to support and promote innovations and to translate ideas into prototype or products.
+
+The objective of CED Makers lab is to provide support for students and faculties of University Campus, Anna University to convert their startup idea into prototype.</p>
+        
+        
+  
+  
+  
+  
+<div class="social-icons mt-4">
+  <a
+    href="https://linkedin.com/company/centre-for-entrepreneurship-development-anna-university/"
+    target="_blank"
+    aria-label="LinkedIn"
+  >
+    <i class="fab fa-linkedin icon-linkedin"></i>
+  </a>
+
+  <a
+    href="https://x.com/CedUniversity"
+    target="_blank"
+    aria-label="X"
+  >
+    <i class="fab fa-x-twitter icon-x"></i>
+  </a>
+
+  <a
+    href="https://www.youtube.com/channel/UCEA9X9T88CqbPwlIy96g8yA"
+    target="_blank"
+    aria-label="YouTube"
+  >
+    <i class="fab fa-youtube icon-youtube"></i>
+  </a>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="position-absolute w-100 z-index-1 bottom-0">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="moving-waves">
+          <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40)" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+          <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+          <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+          <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,1)" />
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+
+
+
+
+<!-- -------- END HEADER 7 w/ text and video ------- -->
+<!-- Section with four info areas left & one card right with image and waves -->
+
+<!-- START Section Content W/ 2 images aside of icon title description -->
+<section class="py-7">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-8 order-2 order-md-2 order-lg-1">
+        <div class="position-relative ms-md-5 mb-0 mb-md-7 mb-lg-0 d-none d-md-block d-lg-block d-xl-block h-75">
+          <div class="bg-gradient-info w-100 h-100 border-radius-xl position-absolute"></div>
+          <img src="/assets/img/about/vision.jpg" class="w-100 border-radius-xl mt-6 ms-5 position-absolute" alt="">
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-12 ms-auto order-1 order-md-1 order-lg-1">
+        <div class="p-3 pt-0">
+            <div class="icon icon-shape bg-gradient-info rounded-circle shadow text-center mb-4">
+              <i class="fa fa-eye"></i>
+            </div>
+            <h4 class="text-gradient text-info mb-0">OUR VISION</h4>
+            
+            <p> CED was set up with a vision of driving Innovation and Entrepreneurship at Anna University. The objective is to Inspire, foster and nurture Innovation and Entrepreneurship amongst students and staff of Anna University for a Sustainable StartUp Ecosystem.</p>
+          
+          </div>
+      </div>
+    </div>
+    <div class="row mt-0 mt-md-5 mt-lg-8">
+      <div class="col-lg-5 col-md-12 me-auto">
+        <div class="p-3 pt-0">
+            <div class="icon icon-shape bg-gradient-warning rounded-circle shadow text-center mb-4">
+              <i class="fa fa-bullseye"></i>
+            </div>
+            <h4 class="text-gradient text-warning mb-0">OUR MISSION</h4>
+            <ul> 
+              <li> 
+            <p>To strengthen teaching and training activities for Innovation and Entrepreneurship.</p>
+          </li>
+          <li> 
+            <p>To establish well equipped infrastructure to support prototype  development.</p>
+          </li>
+          <li> 
+            <p>To support startups in terms of company registration, incubation, funding and product launch.</p>
+          </li>
+          <li> 
+            <p>To implement startup policies for student and faculty.</p>
+          </li>
+          <li> 
+            <p>To engage in capacity building for development of a sustainable Innovation and Entrepreneurship startup ecosystem at Anna University.</p>
+          </li>
+          <li> 
+            <p>To promote technology venture creation and management through experiential learning, skill building and importantly mindset shift.</p>
+          </li>
+          </ul>
+           
+          </div>
+      </div>
+      <div class="col-lg-6 col-md-8">
+        <div class="position-relative ms-md-5 d-none d-md-block d-lg-block d-xl-block h-75">
+          <div class="w-100 h-100 bg-gradient-warning border-radius-xl position-absolute" ></div>
+          <img src="/assets/img/about/mission.jpg" " class="w-100 border-radius-xl mt-6 ms-n5 position-absolute" alt="" ">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END Section Content -->
+
+<style>
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+/* common icon size */
+.social-icons i {
+  font-size: 32px;   
+  transition: transform 0.3s ease;
+}
+
+.social-icons i:hover {
+  transform: scale(1.15);
+}
+
+/* brand colours */
+.icon-linkedin {
+  color: #0d3053ff;
+}
+
+.icon-x {
+  color: #000000;
+}
+
+.icon-youtube {
+  color: #FF0000;
+}
+
+
+</style>
+

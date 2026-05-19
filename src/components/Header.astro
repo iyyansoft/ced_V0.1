@@ -1,0 +1,263 @@
+---
+/* Header component */
+---
+<style>
+*{
+  box-sizing:border-box;
+  font-family:system-ui;
+  margin:0;
+  padding:0;
+}
+
+/* ===== HERO ROOT ===== */
+.ced-view{
+  min-height:100vh;
+  display:flex;
+  align-items:center;        /* vertical center */
+  justify-content:center;    /* horizontal center */
+  overflow:hidden;           /* prevent horizontal scroll issues */
+
+  background:url("/assets/img/hero_bg.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+/* ===== HERO CONTAINER ===== */
+.ced-hero-wrap{
+  width:100%;
+  max-width:1200px;
+  display:grid;
+  grid-template-columns:420px 1fr;
+  gap:60px;
+  padding:80px 40px;
+  align-items:center;
+}
+
+/* ===== LEFT CONTENT ===== */
+.ced-hero-content{
+  max-width:460px;
+  padding-left:24px;
+  border-left:5px solid #250c70;
+}
+
+.ced-hero-content h1{
+  font-size:56px;
+  line-height:1.15;
+  color:#111827;
+}
+
+.ced-hero-content span{
+  color:#250c70;
+  font-size:50px;
+}
+
+.ced-hero-content p{
+  margin-top:18px;
+  color:#111827;
+  font-size:15px;
+  line-height:1.75;
+  max-width:400px;
+  font-weight:600;
+}
+
+/* ===== CTA ===== */
+.ced-hero-actions{
+  margin-top:28px;
+  display:flex;
+  gap:14px;
+}
+
+.ced-solid-btn{
+  padding:14px 30px;
+  font-size:15px;
+  font-weight:600;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  transition:all .25s ease;
+}
+
+.ced-solid-primary{
+  background:#D81B8C;
+  color:#fff;
+  box-shadow:0 8px 22px rgba(216,27,140,.35);
+}
+
+.ced-solid-primary:hover{
+  transform:translateY(-2px);
+}
+
+.ced-solid-secondary{
+  background:#F1F5F9;
+  color:#111827;
+}
+
+.ced-solid-secondary:hover{
+  transform:translateY(-2px);
+}
+
+/* ===== SLIDER ===== */
+.ced-slider-wrap{
+  position:relative;
+  height:360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.ced-slide-card{
+  position:absolute;
+  width:380px;
+  height:350px;
+  border-radius:28px;
+  overflow:hidden;
+  transition:.8s ease;
+}
+
+.ced-slide-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* SLIDE STATES */
+.ced-active{
+  transform:scale(1.1);
+  z-index:3;
+}
+.ced-prev{
+  transform:translateX(-260px) rotate(-6deg) scale(.95);
+  opacity:.7;
+}
+.ced-next{
+  transform:translateX(260px) rotate(6deg) scale(.95);
+  opacity:.7;
+}
+.ced-hide{
+  opacity:0;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:900px){
+  .ced-hero-wrap{
+    grid-template-columns:1fr;
+    padding:40px 20px;
+    text-align:center;
+    overflow-x:hidden;
+  }
+
+  .ced-hero-content{
+    border-left:none;
+    padding-left:0;
+    margin:auto;
+  }
+
+  .ced-hero-content h1{
+    font-size:40px;
+  }
+
+  .ced-hero-content span{
+    font-size:32px;
+  }
+
+  .ced-hero-content p{
+    font-size:15px;
+    margin:14px auto 0;
+  }
+
+  .ced-hero-actions{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .ced-slider-wrap{
+    height:280px;
+    margin-top:20px;
+  }
+
+  .ced-slide-card{
+    width:280px;
+    height:240px;
+  }
+
+  .ced-active{
+    transform:scale(1.05);
+    z-index:3;
+  }
+
+  .ced-prev{
+    transform:translateX(-80px) rotate(-4deg) scale(.9);
+    opacity:.7;
+  }
+
+  .ced-next{
+    transform:translateX(80px) rotate(4deg) scale(.9);
+    opacity:.7;
+  }
+}
+</style>
+
+<div class="ced-view">
+
+  <section class="ced-hero-wrap">
+
+    <!-- LEFT CONTENT -->
+    <div class="ced-hero-content">
+      <h1>
+        Discover <br>
+        <span>Startup Experiences</span>
+      </h1>
+
+      <p>
+        Centre for Entrepreneurship Development,<br>
+        Anna University. Explore innovation programs.
+      </p>
+
+      <div class="ced-hero-actions">
+        <button class="ced-solid-btn ced-solid-primary">
+          Explore Events
+        </button>
+        <button class="ced-solid-btn ced-solid-secondary">
+          View Featured
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT SLIDER -->
+    <div class="ced-slider-wrap">
+
+      <div class="ced-slide-card">
+        <img src="/assets/img/homeimg.jpeg" alt="">
+      </div>
+      <div class="ced-slide-card">
+        <img src="/assets/img/home1img.jpeg" alt="">
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script is:inline>
+const slides = document.querySelectorAll(".ced-slide-card");
+let current = 0;
+
+function render(){
+  slides.forEach((s,i)=>{
+    s.className = "ced-slide-card";
+    if(i === current) s.classList.add("ced-active");
+    else if(i === (current+1) % slides.length) s.classList.add("ced-next");
+    else if(i === (current-1+slides.length) % slides.length) s.classList.add("ced-prev");
+    else s.classList.add("ced-hide");
+  });
+}
+
+setInterval(()=>{
+  current = (current + 1) % slides.length;
+  render();
+},3000);
+
+render();
+</script>

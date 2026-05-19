@@ -1,0 +1,149 @@
+---
+const teamMembers = [
+  { name: 'Shri. R.Sivarajah', role: 'Mission Director & CEO, StartupTN.', img: '/assets/img/guest/sivarajah.png' },
+  { name: 'Dr. R.Sujatha', role: 'Principal-Entrepreneur Education, Wadhwani Entrepreneur', img: '/assets/img/guest/sujatha.jpg' },
+  { name: 'Dr. Anbu Rathinavel', role: 'CDO, Intellect Design Arena & Head and Co-founder, School of Design Thinking', img: '/assets/img/guest/anbu.jpg' },
+  { name: 'Shri. Vish Viswanathan', role: 'CEO, Anikode Management Consultants, Psychological Counselor', img: '/assets/img/guest/vish.jpg' },
+  { name: 'Shri. Thiyagaraja Guptha', role: 'Asst. Controller of Patents and Designs at Govt. of India', img: '/assets/img/guest/gupta.jpg' },
+  { name: 'Dr. Bijay Kumar Sahu', role: 'Regional Manager & Head, NRDC-Mo MSME-Intellectual Property Facilitation Centre (IPFC)', img: '/assets/img/guest/sahu.jpg' },
+  { name: 'Shri. S.Thangapandian	', role: 'Joint Controller of Patents and Designs at Govt. of India', img: '/assets/img/guest/thangapandian.jpg' },
+  { name: 'Dr. Sunil Shukla', role: 'Director General, EDII, Ahmedabad', img: '/assets/img/guest/sunil.jpg' },
+  { name: 'Dr. Satya Ranjan Acharya', role: 'Professor & Director, EDII, Ahmedabad', img: '/assets/img/guest/sathya.jpg' }
+];
+---
+
+<!-- START Teams w/ 4 cards in a row w/ image & name & function -->
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center">
+        <h4 class="text-gradient text-warning">Experts</h4>
+        <h2> Who Visited Us</h2>
+      </div>
+    </div>
+
+    <!-- Scroll Arrows and Scrollable Content -->
+    <div class="d-flex justify-content-between align-items-center">
+      <!-- Left Arrow -->
+      <button class="scroll-arrow" id="scroll-left">&#9664;</button>
+
+      <!-- Scrollable Team Cards Section -->
+      <div class="scroll-container" id="team-container">
+        {teamMembers.map((member) => (
+          <div class="card-container">
+            <div class="card card-profile card-plain">
+              <div class="card-body text-center bg-white shadow-lg border-radius-lg p-3">
+                <a href="javascript:;">
+                  <img class="profile-image" src={member.img} alt={member.name}>
+                </a>
+                <h5 class="mt-3 mb-1 d-md-block d-none">{member.name}</h5>
+                <p class="mb-1 d-md-none d-block text-sm font-weight-bold text-darker">{member.name}</p>
+                <p class="mb-0 text-xs font-weight-bolder text-warning text-gradient text-uppercase">{member.role}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Right Arrow -->
+      <button class="scroll-arrow" id="scroll-right">&#9654;</button>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">
+        <h2>Are you an Expert?</h2>
+        <p>Join our community of innovators! Register with the Centre for Entrepreneurship Development (CED) at Anna University and share your expertise to shape the future Entrepreneurs.</p>
+      </div>
+      <div class="col-lg-3 text-end d-flex flex-column justify-content-center mt-6">
+        <a href="/join" class="btn bg-gradient-warning mb-0 ms-lg-auto me-lg-0 me-auto mt-lg-0 mt-2">Join Us & Guide</a>
+      </div>
+      <div class="col-lg-2 text-end d-flex flex-column justify-content-center"></div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for Scroll functionality -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('team-container');
+    const scrollLeftBtn = document.getElementById('scroll-left');
+    const scrollRightBtn = document.getElementById('scroll-right');
+
+    // Ensure both buttons and the container exist
+    if (container && scrollLeftBtn && scrollRightBtn) {
+      // Manual scrolling
+      scrollLeftBtn.addEventListener('click', function() {
+        container.scrollBy({ left: -container.clientWidth, behavior: 'smooth' }); // Scroll left by the width of the visible cards
+      });
+
+      scrollRightBtn.addEventListener('click', function() {
+        container.scrollBy({ left: container.clientWidth, behavior: 'smooth' }); // Scroll right by the width of the visible cards
+      });
+    } else {
+      console.error('Scroll buttons or container not found');
+    }
+  });
+</script>
+
+<style>
+.scroll-container {
+  display: flex;
+  overflow-x: hidden; /* Hide the horizontal scrollbar */
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 10px;
+}
+
+.scroll-arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 15px;
+  color: #f0ad4e; /* Color for arrows */
+}
+
+.scroll-arrow:focus {
+  outline: none;
+}
+
+#team-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  max-width: 100%; /* Prevent overflow */
+}
+
+.card-container {
+  flex: 0 0 25%; /* Set to 25% of the container for 4 cards at a time */
+  max-width: 270px; /* Set a max-width for cards */
+  margin-right: 15px; /* Add space between cards */
+}
+
+.card-profile {
+  min-width: 270px; /* Ensure card size remains constant */
+}
+
+.profile-image {
+  max-width: 100%; /* Limit image width to container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Optional: Make the image circular */
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex: 0 0 50%; /* 2 cards for smaller screens */
+  }
+
+  .card-body {
+    padding: 1rem; /* Reduce padding on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    flex: 0 0 100%; /* 1 card for mobile screens */
+  }
+}
+</style>

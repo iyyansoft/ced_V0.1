@@ -1,0 +1,1697 @@
+
+
+<h2 class="title">Pre-Incubation Applications</h2>
+
+<div class="top-bar">
+  <input type="text" id="searchBox" placeholder="Search...">
+  <button id="downloadExcel">Filter</button>
+  <button class="logout-btn" id="logoutBtn">Logout</button>
+
+</div>
+
+
+<div class="table-wrap">
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Startup Name</th>
+        <th>Project Title</th>
+        <th>One-Sentence Pitch</th>
+         <th>PPT</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<!-- ================= Detail Modal ================= -->
+<div id="detailModal" class="modal-overlay">
+  <div class="excel-modal">
+    <button id="closeModal" class="modal-close">&times;</button>
+    <h3 class="modal-title">Application Details</h3>
+
+    <div class="excel-wrapper">
+      <table class="excel-table modern">
+  <thead>
+    <tr>
+      <th>FIELD NAME</th>
+      <th>SUBMITTED DETAILS</th>
+    </tr>
+  </thead>
+  <tbody id="modalContent"></tbody>
+</table>
+
+</div>
+
+    <div class="modal-actions">
+      <button class="btn-select">Select</button>
+      <button class="btn-reject">Reject</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= Download Modal ================= -->
+<div id="downloadModal" class="modal-overlay">
+  <div class="excel-modal" style="max-width:480px;">
+    <button id="closeDownloadModal" class="modal-close">&times;</button>
+    <h3 class="modal-title">Download Excel</h3>
+    
+
+  <div class="download-grid">
+  <button class="popup-download-btn" data-filter="all">Download All</button>
+<button class="popup-download-btn" data-filter="Pending">Pending Only</button>
+<button class="popup-download-btn" data-filter="Selected">Selected Only</button>
+<button class="popup-download-btn" data-filter="Rejected">Rejected Only</button>
+
+
+  <button class="download-btn btn-date" id="dateToggleBtn">
+    Download By Date
+  </button>
+</div>
+
+
+
+
+    <!-- ===== DATE BOX ===== -->
+    <div id="dateBox" class="date-box">
+      <input type="date" id="fromDate">
+      <input type="date" id="toDate">
+      <button class="btn-select btn-date" id="downloadByDateBtn">Download Now</button>
+
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center; margin:25px 0;">
+  <button id="downloadCurrentExcel" class="download-btn">
+    Download Shown Data
+  </button>
+</div>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+
+
+<div id="mailToast" class="mail-toast">Mail sent successfully ✅</div>
+
+
+
+
+
+
+<script>
+
+
+const API_URL =
+  location.hostname === "localhost"
+    ? "http://localhost:8000"
+    : "https://ced-backend-7uwz.onrender.com";
+
+
+
+
+
+
+
+let allApplications = [];
+
+function createTD(value){
+  const td = document.createElement("td");
+  td.textContent = value || "-";
+  return td;
+}
+
+function createPPT(file){
+  const td = document.createElement("td");
+
+  if(file){
+    const a = document.createElement("a");
+    a.href = `http://localhost:8000/uploads/${file}`;
+    a.textContent = "View";
+    a.target = "_blank";
+    td.appendChild(a);
+  } else {
+    td.textContent = "-";
+  }
+
+  return td;
+}
+
+
+
+
+function createStatus(status){
+  const td = document.createElement("td");
+
+  const span = document.createElement("span");
+  span.className = "status-cell";
+
+  const s = status || "Pending";
+  span.textContent = s;
+  applyStatusStyle(span, s);
+
+  td.appendChild(span);
+  return td;
+}
+
+
+
+
+
+function applyStatusStyle(cell, status){
+  cell.className = "status-cell";   // 🔥 full reset
+
+  if(status === "Selected") cell.classList.add("selected");
+  else if(status === "Rejected") cell.classList.add("rejected");
+  else cell.classList.add("pending");
+}
+
+
+
+
+function filterTable(status){
+  const rows = document.querySelectorAll("#dataTable tbody tr");
+
+  rows.forEach(row => {
+    const cell = row.querySelector(".status-cell");
+    if(!cell) return;
+
+    const rowStatus = cell.innerText.trim();
+
+    if(status === "all" || rowStatus === status){
+      row.style.display = "";
+    } else {
+      row.style.display = "none";
+    }
+  });
+}
+
+
+function downloadExcel(filter){
+
+  const tableRows = document.querySelectorAll("#dataTable tbody tr");
+
+  if(tableRows.length === 0){
+    alert("Table data not loaded yet!");
+    return;
+  }
+
+  let rows = [];
+
+  tableRows.forEach(row => {
+
+    const statusCell = row.querySelector(".status-cell");
+    if(!statusCell) return;
+
+    const status = statusCell.innerText.trim();
+
+    if(filter === "all" || status === filter){
+     const rawDate = row.dataset.date || "";
+const formattedDate = rawDate
+  ? new Date(rawDate).toLocaleDateString("en-GB")
+  : "";
+
+rows.push([
+  row.dataset.formattedId,
+  row._fullData.name || "",
+  row._fullData.email || "",
+  row._fullData.mobile || "",
+  row._fullData.role || "",
+  row._fullData.institute || "",
+  row._fullData.graduation_year || "",
+  row._fullData.startup_name || "",
+  row._fullData.startup_address || "",
+  row._fullData.project_title || "",
+  row._fullData.project_description || "",
+  row._fullData.pitch || "",
+  `${row._fullData.mentor_name || ""} ${row._fullData.mentor_contact || ""}`,
+  row._fullData.product_type || "",
+  row._fullData.sector || "",
+  row._fullData.stage || "",
+  row._fullData.dpiit_no || "",
+  row._fullData.udyam_no || "",
+  (row._fullData.services || []).join(" | "),
+  status,
+  formattedDate
+]);
+
+    }
+  });
+
+  if(rows.length === 0){
+    alert("No matching data found!");
+    return;
+  }
+
+  let csv = "ID,Name,Email,Mobile,Role,Institute,GradYear,Startup,StartupAddress,ProjectTitle,ProjectDesc,Pitch,Mentor,ProductType,Sector,Stage,DPIIT,UDYAM,Services,Status,AppliedDate\n";
+
+  rows.forEach(r => csv += r.map(v => `"${v.replace(/"/g,'""')}"`).join(",") + "\n");
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = window.URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.style.display = "none";
+  a.href = url;
+  a.download = `PreIncubation_${filter}_Data.csv`;
+
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  window.URL.revokeObjectURL(url);
+
+  document.getElementById("downloadModal").classList.remove("show");
+}
+
+
+document.getElementById("downloadByDateBtn").addEventListener("click", function () {
+
+  const from = document.getElementById("fromDate").value;
+  const to   = document.getElementById("toDate").value;
+
+  if(!from || !to){
+    alert("Select both From & To date");
+    return;
+  }
+
+  let rows = [];
+
+  document.querySelectorAll("#dataTable tbody tr").forEach(row => {
+
+    const rowDate = row.dataset.date;
+    if(!rowDate) return;
+
+    if(rowDate >= from && rowDate <= to){
+
+      const status = row.querySelector(".status-cell").innerText.trim();
+
+      rows.push([
+        row.dataset.formattedId,
+        row._fullData.name || "",
+        row._fullData.email || "",
+        row._fullData.mobile || "",
+        row._fullData.role || "",
+        row._fullData.institute || "",
+        row._fullData.graduation_year || "",
+        row._fullData.startup_name || "",
+        row._fullData.startup_address || "",
+        row._fullData.project_title || "",
+        row._fullData.project_description || "",
+        row._fullData.pitch || "",
+        `${row._fullData.mentor_name || ""} ${row._fullData.mentor_contact || ""}`,
+        row._fullData.product_type || "",
+        row._fullData.sector || "",
+        row._fullData.stage || "",
+        row._fullData.dpiit_no || "",
+        row._fullData.udyam_no || "",
+        (row._fullData.services || []).join(" | "),
+        status,
+        rowDate
+      ]);
+    }
+  });
+
+  if(rows.length === 0){
+    alert("No data found between selected dates");
+    return;
+  }
+
+  let csv = "ID,Name,Email,Mobile,Role,Institute,GradYear,Startup,StartupAddress,ProjectTitle,ProjectDesc,Pitch,Mentor,ProductType,Sector,Stage,DPIIT,UDYAM,Services,Status,AppliedDate\n";
+
+  rows.forEach(r => {
+    csv += r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",") + "\n";
+  });
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `PreIncubation_${from}_to_${to}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  document.getElementById("downloadModal").classList.remove("show");
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+
+
+
+    const modal = document.getElementById("detailModal");
+  const closeModalBtn = document.getElementById("closeModal");
+
+  closeModalBtn.addEventListener("click", (e) => {
+    e.stopPropagation();   // 🔥 very important
+    modal.classList.remove("show");
+  });
+
+  // Background click → close
+  modal.addEventListener("click", () => {
+    modal.classList.remove("show");
+  });
+
+  // Modal box click → close aagakoodadhu
+  document.querySelector(".excel-modal").addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+
+ 
+
+async function updateStatusInDB(appId, status){
+
+  console.log("Updating:", appId, status);   // DEBUG
+
+  const res = await fetch(`${API_URL}/api/update-status`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      application_id: appId,
+      status: status
+    })
+  });
+
+  const data = await res.json();
+  console.log("Update Response:", data);
+}
+
+
+
+  let activeRow = null;
+
+  const tbody = document.querySelector("#dataTable tbody");
+ 
+  const modalContent = document.getElementById("modalContent");
+ 
+
+
+
+
+const downloadExcelBtn = document.getElementById("downloadExcel");
+const downloadModal = document.getElementById("downloadModal");
+const closeDownloadModal = document.getElementById("closeDownloadModal");
+
+downloadExcelBtn.addEventListener("click", () => {
+  downloadModal.classList.add("show");
+});
+
+closeDownloadModal.addEventListener("click", () => {
+  downloadModal.classList.remove("show");
+});
+
+
+
+
+document.querySelectorAll(".popup-download-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.filter;
+    downloadExcel(filter);     // ⭐ only client CSV
+    downloadModal.classList.remove("show");
+  });
+});
+
+
+document.getElementById("downloadCurrentExcel").addEventListener("click", () => {
+  downloadExcel("all");
+});
+
+
+
+
+
+try {
+
+  const res = await fetch(`${API_URL}/api/preincubation`);
+  const data = await res.json();
+
+  
+
+
+
+
+  tbody.innerHTML = "";   // 🔥 clear old rows
+
+  data.forEach((d, index) => {
+
+    const tr = document.createElement("tr");
+    tr._fullData = d;
+    tr.dataset.status = d.status || "Pending";
+
+
+    // ===== DATE STORE =====
+    const appliedDate = d.created_at || d.createdAt || "";
+    tr.dataset.date = appliedDate ? appliedDate.split("T")[0] : "";
+
+    // ===== ID FORMAT =====
+    const formattedId = d.application_id;   // ⭐ DB original ID
+    tr.dataset.formattedId = formattedId;
+
+
+    // ===== TD CELLS =====
+    const idTd = document.createElement("td");
+    idTd.textContent = formattedId;
+
+    const nameTd = document.createElement("td");
+    nameTd.textContent = d.name || "-";
+
+    const startupTd = document.createElement("td");
+    startupTd.textContent = d.startup_name || "-";
+
+    const projectTd = document.createElement("td");
+    projectTd.textContent = d.project_title || "-";
+
+    const pitchTd = document.createElement("td");
+    pitchTd.textContent = d.pitch || "-";
+
+   const pptTd = document.createElement("td");
+
+if(d.ppt){
+  const a = document.createElement("a");
+  a.href = d.ppt;
+  a.target = "_blank";
+  a.textContent = "View";
+  a.onclick = e => e.stopPropagation();
+  pptTd.appendChild(a);
+} else {
+  pptTd.textContent = "-";
+}
+
+
+
+    const statusTd = document.createElement("td");
+
+    let currentStatus = d.status;
+
+if (!currentStatus || currentStatus === "" || currentStatus === "undefined") {
+  currentStatus = "Pending";
+}
+
+
+const badge = document.createElement("span");
+badge.classList.add("status-cell");
+
+badge.textContent = currentStatus;
+applyStatusStyle(badge, currentStatus);
+
+// important
+tr.dataset.status = currentStatus;
+
+
+
+
+statusTd.appendChild(badge);
+
+
+    // ===== APPEND INTO ROW =====
+    tr.append(idTd, nameTd, startupTd, projectTd, pitchTd, pptTd, statusTd);
+
+    tbody.appendChild(tr);
+
+    tr.addEventListener("click", () => {
+
+  activeRow = tr;
+  modal.classList.add("show");
+
+
+console.log("====== PHOTO DEBUG ======");
+console.log("PHOTO FIELD:", d.photo);
+console.log("API_URL:", API_URL);
+console.log("FULL DATA:", d);
+
+
+  modalContent.innerHTML = `
+<tr><td>Application ID</td><td>${tr.dataset.formattedId}</td></tr>
+<tr><td>Name</td><td>${d.name || "-"}</td></tr>
+<tr><td>Email</td><td>${d.email || "-"}</td></tr>
+<tr><td>Mobile</td><td>${d.mobile || "-"}</td></tr>
+<tr><td>Role</td><td>${d.role || "-"}</td></tr>
+<tr><td>Institute</td><td>${d.institute || "-"}</td></tr>
+<tr><td>Graduation Year</td><td>${d.graduation_year || "-"}</td></tr>
+
+<tr><td>Startup Name</td><td>${d.startup_name || "-"}</td></tr>
+<tr><td>Startup Address</td><td>${d.startup_address || "-"}</td></tr>
+
+<tr><td>Project Title</td><td>${d.project_title || "-"}</td></tr>
+<tr><td>Project Description</td><td>${d.project_description || "-"}</td></tr>
+<tr><td>One-Sentence Pitch</td><td>${d.pitch || "-"}</td></tr>
+<tr><td>Mentor Name</td><td>${d.mentor_name || "-"}</td></tr>
+<tr><td>Mentor Contact</td><td>${d.mentor_contact || "-"}</td></tr>
+
+<tr><td>Product Type</td><td>${d.product_type || "-"}</td></tr>
+<tr><td>Sector</td><td>${d.sector || "-"}</td></tr>
+<tr><td>Stage</td><td>${d.stage || "-"}</td></tr>
+
+<tr><td>DPIIT No</td><td>${d.dpiit_no || "-"}</td></tr>
+<tr><td>Udyam No</td><td>${d.udyam_no || "-"}</td></tr>
+<tr><td>Services</td><td>${(d.services || []).join(", ") || "-"}</td></tr>
+
+
+<tr>
+  <td>PPT</td>
+  <td>
+    ${
+      d.ppt && d.ppt.trim() !== ""
+        ? `<a 
+              href="${d.ppt}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style="color:#4da3ff;font-weight:600;">
+              🔗 View PPT
+           </a>`
+        : "No PPT Uploaded"
+    }
+  </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr><td>Photo</td>
+<td>
+  ${
+    d.photo
+      ? `<img 
+  src="${API_URL}${d.photo}"
+  class="popup-photo"
+  style="width:120px;height:auto;border-radius:8px;"
+  onerror="this.outerHTML='Image Not Found in Server'"
+>
+`
+      : "No Photo Uploaded"
+  }
+</td></tr>
+
+
+
+
+
+
+
+
+<tr><td>Applied Date</td><td>${tr.dataset.date || "-"}</td></tr>
+<tr><td>Status</td><td>${d.status || "Pending"}</td></tr>
+`;
+});
+
+  });
+
+  allApplications = data;
+
+}catch(err){
+  alert("API Connection Failed");
+  console.error(err);
+}
+
+
+
+
+
+document.querySelector(".btn-select").onclick = async (e) => {
+  e.stopPropagation();
+
+  if(!activeRow) return;
+
+  const badge = activeRow.querySelector(".status-cell");
+  const appId = activeRow.dataset.formattedId;
+
+  badge.textContent = "Selected";
+  applyStatusStyle(badge, "Selected");
+
+  await updateStatusInDB(appId,"Selected");
+
+  activeRow._fullData.status = "Selected";
+  activeRow.dataset.status = "Selected";
+
+  // 🔥 MAIL SEND HERE
+  sendStatusMail(activeRow._fullData, "Selected");
+
+  document.getElementById("detailModal").classList.remove("show");
+};
+
+
+
+
+
+document.querySelector(".btn-reject").onclick = async (e) => {
+  e.stopPropagation();
+
+  if(!activeRow) return;
+
+  const badge = activeRow.querySelector(".status-cell");
+  const appId = activeRow.dataset.formattedId;
+
+  badge.textContent = "Rejected";
+  applyStatusStyle(badge, "Rejected");
+
+  await updateStatusInDB(appId,"Rejected");
+
+  activeRow._fullData.status = "Rejected";
+  activeRow.dataset.status = "Rejected";
+
+
+  // 🔥 MAIL SEND HERE
+  sendStatusMail(activeRow._fullData, "Rejected");
+
+  document.getElementById("detailModal").classList.remove("show");
+};
+
+
+
+
+
+
+
+
+const searchBox = document.getElementById("searchBox");
+
+searchBox.addEventListener("keyup", function () {
+  const keyword = this.value.toLowerCase();
+  const rows = document.querySelectorAll("#dataTable tbody tr");
+
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    row.style.display = text.includes(keyword) ? "" : "none";
+  });
+});
+
+
+
+
+
+document.querySelectorAll(".download-grid .btn-select[data-filter]")
+.forEach(btn=>{
+  btn.addEventListener("click", function(){
+    const status = this.getAttribute("data-filter");
+    filterTable(status);
+  });
+});
+
+document.getElementById("dateToggleBtn")
+.addEventListener("click", ()=>{
+  document.getElementById("dateBox").classList.toggle("show");
+});
+
+
+document.querySelectorAll("#downloadModal .download-btn[data-filter]")
+.forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    const status = this.dataset.filter;
+    filterTable(status);   // ✅ main table filter
+    document.getElementById("downloadModal").classList.remove("show");
+  });
+});
+
+
+
+
+
+document.getElementById("logoutBtn").addEventListener("click", function () {
+
+  // 🔥 session / login clear panna (optional but good)
+  sessionStorage.clear();
+  localStorage.clear();
+
+  // 🔁 CED Home page ku redirect
+  window.location.href = "/";   // or "/index.html" or "/ced-home.html"
+});
+
+
+
+
+
+function sendStatusMail(appData, status){
+
+  emailjs.send(
+    "service_l6kne7m",         // Service ID
+    "template_mrf48su",        // Template ID
+    {
+      to_email: appData.email,
+      name: appData.name,
+      status: status
+    },
+    "yzeQ8l1jNlCdv61Fl"        // ⭐ PUBLIC KEY MUST HERE
+  )
+  .then(function(response){
+
+    const toast = document.getElementById("mailToast");
+    toast.innerText = "Mail sent successfully to " + appData.email + " ✅";
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+      toast.classList.remove("show");
+    }, 3000);
+
+    console.log("Mail sent!", response.status, response.text);
+
+  }, function(error){
+    console.error("Mail failed", error);
+    alert("❌ Mail sending failed: " + error.text);
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap');
+
+body{
+  font-family:'Inter', sans-serif;
+  background:#f3f6fb;
+  margin:0;
+}
+
+
+/* ===== TITLE ===== */
+.title{
+  text-align:center;
+  margin-top:38px;     /* 👈 konjam keela move */
+  
+  font-size:34px;
+  font-weight:800;
+  letter-spacing:1px;
+
+  margin-bottom:30px;
+
+  background:linear-gradient(135deg,#7b2ff7,#ff2fcf);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:none;    /* ❌ shadow remove */
+}
+
+
+
+/* ===== TOP BAR ===== */
+.top-bar{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.logout-btn{
+  position:absolute;
+  right:22px;
+  bottom:100%;
+  transform:translateY(-50%);
+
+  padding:10px 16px;
+  border:none;
+  border-radius:30px;
+
+  background:linear-gradient(135deg,#ff4fd8,#7b2ff7);
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.1px;
+
+  cursor:pointer;
+  box-shadow:
+  
+    inset 0 0 0 2px rgba(255,255,255,.25);
+
+  transition:all .35s cubic-bezier(.22,1.4,.36,1);
+}
+
+/* Hover Effect */
+.logout-btn:hover{
+  transform:translateY(-50%) scale(1.1);
+ 
+}
+
+/* Click Effect */
+.logout-btn:active{
+  transform:translateY(-50%) scale(.92);
+  box-shadow:0 6px 14px rgba(123,47,247,.45);
+}
+
+
+
+
+#searchBox{
+  width:240px;
+  padding:12px 22px;
+  border-radius:30px;
+  border:none;
+  outline:none;
+  font-size:15px;
+  font-weight:500;
+  color:#333;
+
+  background:#ffffff;
+  box-shadow:
+    0 6px 18px rgba(0,0,0,.12),
+    inset 0 0 0 1px rgba(123,47,247,.15);
+
+  transition:.3s;
+}
+
+#searchBox:focus{
+  box-shadow:
+    0 0 0 3px rgba(123,47,247,.25),
+    0 12px 25px rgba(123,47,247,.35);
+}
+
+
+#downloadExcel{
+  padding:12px 16px;
+  border:none;
+  border-radius:28px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  color:#fff;
+
+  background:linear-gradient(135deg,#7b2ff7,#ff2fcf);
+  box-shadow:
+    
+    inset 0 0 0 2px rgba(255,255,255,.25);
+
+  transition:.35s cubic-bezier(.22,1.4,.36,1);
+}
+
+#downloadExcel:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:
+   
+   
+}
+
+
+
+
+/* ===== WRAPPER ===== */
+.table-wrap{
+  width:96%;
+  margin:30px auto;
+  background:#eaf6ea;
+  padding:10px;
+  border-radius:18px;
+  box-shadow:0 18px 45px rgba(0,0,0,.10);
+  border:1px solid #cfe6cf;
+  overflow-x:auto;   /* ⭐ important */
+}
+
+
+/* ===== TABLE ===== */
+#dataTable{
+  width:100%;
+  border-collapse:separate;     /* ⭐ MUST */
+  border-spacing:0 16px;        /* ⭐ only vertical gap */
+  table-layout:fixed;
+  background:transparent;
+}
+
+
+
+
+/* ===== HEADER ===== */
+#dataTable thead th{
+  background:#a7d3ae;
+  color:#1f3b1f;
+  padding:18px 6px;
+  font-weight:800;
+  font-size:16px;
+  text-align:center;
+  border:2px solid #7cab82;
+}
+
+
+#dataTable tbody td{
+  background:#a9d4ac;
+  border:2px solid #7cab82;
+  padding:14px 12px;
+  font-weight:600;
+  text-align:center;
+  color:#143314;
+}
+
+
+#dataTable tbody tr{
+  border-bottom:14px solid #eaf6ea;   /* ⭐ row gap */
+}
+
+
+
+
+
+
+
+/* ===== COLUMN WIDTH ADJUST ===== */
+#dataTable th:nth-child(1),
+#dataTable td:nth-child(1){ width:60px; }   /* ID */
+
+#dataTable th:nth-child(2),
+#dataTable td:nth-child(2){ width:90px; }   /* Name */
+
+#dataTable th:nth-child(3),
+#dataTable td:nth-child(3){ width:140px; }   /* Startup Name */
+
+#dataTable th:nth-child(4),
+#dataTable td:nth-child(4){ width:150px; }   /* Project Title */
+
+#dataTable th:nth-child(5),
+#dataTable td:nth-child(5){ width:240px; }   /* One-Sentence Pitch */
+
+#dataTable th:nth-child(6),
+#dataTable td:nth-child(6){ width:40px; text-align:center; } /* PPT */
+
+#dataTable th:nth-child(7),
+#dataTable td:nth-child(7){ width:50px; text-align:center; } /* Status */
+
+
+
+
+/* ===== STATUS BADGE BASE ===== */
+.status-cell{
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  display:inline-block;
+  min-width:90px;
+  text-align:center;
+}
+
+/* Pending */
+.status-cell.pending{
+  background:#fff3cd;
+  color:#856404;
+}
+
+/* Selected */
+.status-cell.selected{
+  background:#d4f8e8;
+  color:#0f5132;
+}
+
+/* Rejected */
+.status-cell.rejected{
+  background:#f8d7da;
+  color:#842029;
+}
+
+
+
+#dataTable td .status-cell{
+  background: inherit;
+}
+
+#dataTable td .status-cell.pending{
+  background:linear-gradient(135deg,#fff3cd,#ffe69c) !important;
+}
+#dataTable td .status-cell.selected{
+  background:linear-gradient(135deg,#d4f8e8,#9ef0c3) !important;
+}
+#dataTable td .status-cell.rejected{
+  background:linear-gradient(135deg,#f8d7da,#f1aeb5) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===== SAME SIZE IMAGE BOX ===== */
+
+.popup-photo{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+  border:2px solid #7b2ff7;
+}
+
+.popup-link{
+  color:#7b2ff7;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.popup-link:hover{
+  text-decoration:underline;
+}
+
+.no-data{
+  color:#999;
+  font-size:13px;
+}
+
+.photo-box{
+  width:72px;
+  height:72px;
+  margin:auto;
+  border-radius:10px;
+  overflow:hidden;
+  border:2px solid #7b2ff7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+}
+
+/* IMAGE PERFECT FIT */
+.photo-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* NO IMAGE */
+.photo-box.no-img{
+  background:#eee;
+  color:#999;
+  font-size:11px;
+}
+
+/* ===== MODAL BACKDROP ===== */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);   /* clean dark overlay */
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  display: none;
+}
+
+.modal-overlay.show{
+  display:flex;
+}
+
+
+.status-cell.pending,
+.status-cell.selected,
+.status-cell.rejected{
+  background-clip: padding-box !important;
+}
+
+
+/* ===== MODAL BOX ===== */
+
+
+.excel-wrapper{
+  max-height:420px;
+  overflow-y:auto;
+  border-radius:20px;
+  border:1px solid #cfe6cf;
+  background:#eef7ef;
+  padding:8px;
+}
+
+
+.excel-table.modern{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0 10px;        /* ⭐ row gap like main table */
+  font-size:16px;
+  table-layout:fixed;
+}
+
+.excel-table.modern thead th{
+  background:#9ccaa3;
+  color:#1f3b1f;
+  padding:14px 18px;
+ font-size:18px !important;     /* 🔽 reduce text size */
+ padding:10px 14px !important;     /* 🔽 reduce height */
+  border:2px solid #7cab82;
+  text-align:center;
+}
+
+.excel-table.modern thead th:first-child{
+  border-top-left-radius:14px;
+}
+.excel-table.modern thead th:last-child{
+  border-top-right-radius:14px;
+}
+
+@keyframes modalPop{
+  from{transform:scale(.75) translateY(80px);opacity:0}
+  to{transform:scale(1) translateY(0);opacity:1}
+}
+
+/* ===== TITLE ===== */
+.modal-title{
+  text-align:center;
+  font-size:26px;
+  font-weight:700;
+  margin-bottom:14px;
+  color:#333;
+}
+
+/* ===== CLOSE BUTTON – PREMIUM STYLE ===== */
+.modal-close{
+  position:absolute;
+  top:20px;
+  right:26px;
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  cursor:pointer;
+
+  background:linear-gradient(135deg,#ff4fd8,#7b2ff7);
+  color:#fff;
+  font-size:26px;
+  font-weight:900;
+  line-height:1;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    0 10px 28px rgba(123,47,247,.55),
+    inset 0 0 0 2px rgba(255,255,255,.25);
+
+  transition:all .35s cubic-bezier(.22,1.4,.36,1);
+  z-index:50;
+  font-family:Arial, sans-serif;
+}
+
+/* Hover Effect – Glow & Rotate */
+.modal-close:hover{
+  transform:rotate(180deg) scale(1.15);
+  box-shadow:
+    0 16px 40px rgba(255,47,207,.75),
+    0 0 0 6px rgba(123,47,247,.18);
+}
+
+
+
+/* Click Effect */
+.modal-close:active{
+  transform:scale(.9);
+  box-shadow:0 6px 14px rgba(123,47,247,.45);
+}
+
+
+.excel-modal{
+  width:90%;
+  max-width:780px;
+  max-height:85vh;
+  background:#ffffff;
+  border-radius:16px;
+  padding:28px 32px 22px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
+  position:relative;
+}
+
+#detailModal .btn-select,
+#detailModal .btn-reject{
+  background:linear-gradient(135deg,#ff2fcf,#b026ff) !important;  /* your pink color */
+  color:#ffffff !important;
+
+  border:none !important;
+}
+
+/* Hover */
+#detailModal .btn-select:hover,
+#detailModal .btn-reject:hover{
+  background:linear-gradient(135deg,#e600a9,#8b00ff) !important;
+}
+
+/* Click */
+#detailModal .btn-select:active,
+#detailModal .btn-reject:active{
+  transform:scale(.94);
+ 
+}
+
+
+
+
+
+#detailModal .excel-table.modern tbody td{
+  padding:16px 18px;
+  text-align:left;
+  font-size:16px;
+  background:#f3faf3;
+  border:2px solid #a7cfae;
+  vertical-align:middle;
+}
+
+
+
+
+#detailModal .excel-table.modern{
+  width:100%;
+  border-collapse:separate !important;   /* ⭐ MUST */
+  border-spacing:0 16px !important;      /* ⭐ ROW GAP */
+  table-layout:fixed;
+}
+
+
+
+/* ===== POPUP FIELD – VALUE PERFECT CENTER ===== */
+
+
+#detailModal .excel-table thead th{
+  text-align:center;
+  font-size:20px;
+  background:#a7d3ae;
+  color:#1f3b1f;
+  border:2px solid #7cab82;
+  padding:12px;
+}
+
+#detailModal .excel-table tbody tr{
+  background:#f4fbf4;
+}
+
+#detailModal .excel-table tbody td{
+  border:2px solid #a7cfae;
+  padding:14px 18px;
+  text-align:center;
+  font-size:16px;
+  background:#f3faf3;
+}
+
+/* FIELD column */
+#detailModal .excel-table tbody td:first-child{
+  color:#065f46;
+  font-weight:600;
+}
+
+/* VALUE column */
+#detailModal .excel-table tbody td:last-child{
+  color:#111827;
+}
+
+
+
+
+
+
+
+
+/* ===== PHOTO ===== */
+.popup-photo{
+  width:200px;
+  height:200px;
+  object-fit:cover;
+  border-radius:24px;
+  border:3px solid #7b2ff7;
+  box-shadow:0 14px 35px rgba(123,47,247,.45);
+}
+
+/* ===== DOWNLOAD BUTTON ===== */
+.popup-link{
+  display:inline-block;
+  padding:10px 22px;
+  background:linear-gradient(135deg,#7b2ff7,#ff2fcf);
+  color:#fff;
+  border-radius:28px;
+  font-weight:700;
+  font-size:15px;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(123,47,247,.45);
+}
+.popup-link:hover{
+  transform:translateY(-3px);
+}
+
+/* ===== NO DATA ===== */
+.no-data{
+  color:#aaa;
+  font-size:15px;
+}
+
+.modal-actions{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding-top:14px;
+  border-top:1px solid #ddd;
+}
+
+/* ===== COMMON BUTTON STYLE ===== */
+.modal-actions button{
+  min-width:150px;
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  font-family:'Poppins', sans-serif;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:.5px;
+  cursor:pointer;
+  transition:all .35s cubic-bezier(.22,1.4,.36,1);
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+
+/* ===== SELECT BUTTON ===== */
+.btn-select{
+  background:#22c55e;
+  color:#fff;
+  border:none;
+  padding:10px 26px;
+  border-radius:20px;
+  font-weight:600;
+}
+
+
+.btn-select:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 14px 35px rgba(0,200,83,.45);
+}
+
+/* ===== REJECT BUTTON ===== */
+.btn-reject{
+  background:#ef4444;
+  color:#fff;
+  border:none;
+  padding:10px 26px;
+  border-radius:20px;
+  font-weight:600;
+}
+
+.btn-reject:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 14px 35px rgba(255,23,68,.45);
+}
+
+/* ===== CLICK EFFECT ===== */
+.modal-actions button:active{
+  transform:scale(.92);
+  box-shadow:0 6px 14px rgba(0,0,0,.25);
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== download popup ===== */
+#downloadModal{
+  background:linear-gradient(135deg,rgba(139,0,255,.55),rgba(0,0,0,.75));
+  backdrop-filter:blur(18px);
+}
+
+
+
+@keyframes glassPop{
+  from{transform:scale(.7) rotateX(25deg);opacity:0}
+  to{transform:scale(1) rotateX(0);opacity:1}
+}
+
+/* ===== TITLE ===== */
+#downloadModal .modal-title{
+  font-size:42px;
+  font-weight:900;
+  margin-bottom:45px;
+  background:linear-gradient(135deg,#7b2ff7,#ff2fcf,#00f2fe);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== GRID ===== */
+.download-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+
+/* ===== GREEN BUTTONS ===== */
+.download-grid .btn-select{
+  padding:15px 18px;
+  font-size:16px;
+  border-radius:22px;
+  
+  box-shadow:
+    0 14px 40px rgba(0,230,118,.6),
+    inset 0 0 0 2px rgba(255,255,255,.25);
+  transition:.4s cubic-bezier(.22,1.4,.36,1);
+}
+
+.download-grid .btn-select:hover{
+  transform:translateY(-6px) scale(1.08);
+  box-shadow:
+    0 22px 65px rgba(0,230,118,.9),
+    0 0 20px rgba(0,230,118,.8);
+}
+
+/* ===== ORANGE DATE BUTTON ===== */
+.btn-date{
+  grid-column:1/-1;
+  background:linear-gradient(135deg,#ffb300,#ff6f00)!important;
+  color:#000!important;
+  font-weight:800;
+  box-shadow:
+    0 14px 40px rgba(255,179,0,.6),
+    0 0 0 2px rgba(255,255,255,.25);
+}
+
+.btn-date:hover{
+  box-shadow:
+    0 22px 65px rgba(255,179,0,.9),
+    0 0 22px rgba(255,193,7,.8);
+}
+
+/* ===== CLOSE BUTTON ===== */
+#downloadModal .modal-close{
+  width:50px;
+  height:50px;
+  font-size:28px;
+  background:linear-gradient(135deg,#ff2fcf,#7b2ff7);
+  box-shadow:0 12px 30px rgba(255,47,207,.7);
+}
+
+/* ===== REMOVE ALL BLACK BORDERS / RINGS ===== */
+.download-grid .btn-select,
+.btn-date{
+  border: none !important;
+  outline: none !important;
+  box-shadow:
+    0 14px 40px rgba(0,230,118,.6),
+    inset 0 1px 0 rgba(255,255,255,.35) !important;
+}
+
+/* Focus / Active time black ring remove */
+.download-grid .btn-select:focus,
+.download-grid .btn-select:active,
+.btn-date:focus,
+.btn-date:active{
+  outline: none !important;
+  box-shadow:
+    0 14px 40px rgba(0,230,118,.6),
+    0 0 18px rgba(0,230,118,.7) !important;
+}
+
+/* Orange button override */
+.btn-date{
+  box-shadow:
+    0 14px 40px rgba(255,179,0,.6),
+    0 0 18px rgba(255,193,7,.7) !important;
+}
+
+
+
+@keyframes popupZoom{
+  from{transform:scale(.85);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.date-box{
+  margin-top:25px;
+  display:none;
+  gap:12px;
+  justify-content:center;
+  flex-direction:column;
+  align-items:center;
+}
+.date-box.show{ display:flex; }
+
+.date-box input{
+  padding:8px 12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  width:200px;
+}
+
+#downloadModal .excel-modal{
+  pointer-events: auto;
+}
+
+#downloadModal{
+  pointer-events: auto;
+}
+
+
+.download-grid button{
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+
+/* 🔥 FORCE ALL DOWNLOAD BUTTONS CLICKABLE */
+#downloadModal,
+#downloadModal *{
+  pointer-events: auto !important;
+}
+
+#downloadModal::before,
+#downloadModal::after,
+#downloadModal .excel-modal::before,
+#downloadModal .excel-modal::after{
+  pointer-events: none !important;
+}
+
+/* Buttons always on top */
+.download-grid button{
+  position: relative;
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+}
+
+
+.download-btn{
+  background:linear-gradient(135deg,#00c853,#64dd17);
+  color:#fff;
+  border:none;
+  border-radius:22px;
+  padding:15px 18px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.applied-date{
+  margin-top:12px;
+  padding:6px 14px;
+  display:inline-block;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:600;
+  color:#7b2ff7;
+  background:linear-gradient(135deg,#f3e7ff,#e0cfff);
+  box-shadow:0 4px 10px rgba(123,47,247,.25);
+}
+
+
+.mail-toast{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:#fff;
+  padding:14px 22px;
+  border-radius:30px;
+  font-weight:600;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  opacity:0;
+  transform:translateY(20px);
+  transition:.4s ease;
+  z-index:99999;
+}
+
+.mail-toast.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+
+.popup-download-btn{
+  padding:15px 20px;
+  font-size:16px;
+  font-weight:700;
+  border-radius:22px;
+  border:none;
+  cursor:pointer;
+  color:#ffffff;
+
+  background:linear-gradient(135deg,#00c853,#64dd17);
+  box-shadow:
+    0 14px 40px rgba(0,200,83,.6),
+    inset 0 1px 0 rgba(255,255,255,.35);
+
+  transition:all .35s cubic-bezier(.22,1.4,.36,1);
+  position:relative;
+  z-index:99999;
+}
+
+/* Hover effect */
+.popup-download-btn:hover{
+  transform:translateY(-6px) scale(1.08);
+  box-shadow:
+    0 22px 65px rgba(0,230,118,.9),
+    0 0 20px rgba(0,230,118,.8);
+}
+
+/* Click effect */
+.popup-download-btn:active{
+  transform:scale(.92);
+  box-shadow:0 8px 20px rgba(0,200,83,.6);
+}
+
+/* Focus black ring remove */
+.popup-download-btn:focus{
+  outline:none;
+  box-shadow:
+    0 14px 40px rgba(0,230,118,.6),
+    0 0 18px rgba(0,230,118,.7);
+}
+
+
+
+
+</style>

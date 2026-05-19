@@ -1,0 +1,140 @@
+---
+/* Astro page – Book Your Slot */
+---
+
+<section class="center-section">
+  <div class="form-container">
+    <h2>Book Your Slot</h2>
+
+    <label>Name</label>
+    <input id="name" />
+
+    <label>Email</label>
+    <input id="email" type="email" />
+
+    <label>Campus</label>
+    <select id="campus">
+      <option value="">Select Campus</option>
+      <option>CEG</option>
+      <option>ACTech</option>
+      <option>MIT</option>
+      <option>SAP</option>
+    </select>
+
+    <label>Department</label>
+    <input id="department" />
+
+    <label>Year of Study</label>
+    <input id="year" />
+
+    <label>Service</label>
+    <select id="service">
+      <option value="">Select Service</option>
+      <option>FDM - 3D Printer</option>
+      <option>SLA - 3D Printer</option>
+      <option>PCB Printer</option>
+      <option>Laser Cutting</option>
+    </select>
+
+    <label>Date</label>
+    <input type="date" id="date" />
+
+    <button id="submitBtn">Book Slot</button>
+    <div id="status"></div>
+  </div>
+</section>
+
+<style>
+.center-section{
+  display:flex;
+  justify-content:center;
+  margin-top:40px;
+}
+.form-container{
+  background:#fff;
+  padding:25px;
+  width:340px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+label{
+  display:block;
+  margin-top:14px;
+  font-weight:600;
+}
+input, select{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  border-radius:8px;
+  border:1px solid #bbb;
+}
+button{
+  margin-top:22px;
+  width:100%;
+  padding:12px;
+  background:#d63384;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+}
+#status{
+  margin-top:15px;
+  text-align:center;
+  font-weight:600;
+}
+</style>
+
+<script is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js";
+  script.onload = () => emailjs.init("hsO1pjq6OYjwGpPJR");
+  document.head.appendChild(script);
+
+  document.getElementById("submitBtn").addEventListener("click", sendMail);
+
+  function sendMail(){
+    const params = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      campus: document.getElementById("campus").value,
+      department: document.getElementById("department").value,
+      year: document.getElementById("year").value,
+      service: document.getElementById("service").value,
+      date: document.getElementById("date").value
+    };
+
+    if(!params.name || !params.email || !params.service || !params.date){
+      showMsg("Please fill required fields", "red");
+      return;
+    }
+
+    emailjs.send(
+      "service_l5uk9aj",
+      "template_xb4p59w",
+      params
+    ).then(() => {
+      showMsg("Slot booked successfully! Email sent.", "green");
+      clearForm();
+    }).catch((err) => {
+      console.error(err);
+      showMsg("Failed to send email. Check EmailJS template.", "red");
+    });
+  }
+
+  function showMsg(msg, color){
+    const el = document.getElementById("status");
+    el.innerText = msg;
+    el.style.color = color;
+  }
+
+  function clearForm(){
+    ["name","email","campus","department","year","service","date"]
+      .forEach(id => document.getElementById(id).value = "");
+  }
+});
+</script>

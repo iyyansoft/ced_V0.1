@@ -1,0 +1,207 @@
+---
+// VideoSection.astro
+
+const videoUrl1 =
+  "https://res.cloudinary.com/dlhl3okan/video/upload/v1778737926/ivp1_meqtdu.mp4";
+
+const videoUrl2 =
+  "https://res.cloudinary.com/dcelalv7i/video/upload/v1778820344/WhatsApp_Video_2026-05-15_at_10.14.51_AM_uwulmz.mp4";
+
+// THUMBNAIL IMAGE
+const thumbnail =
+  "/assets/img/videothamnail.png";
+---
+
+<section class="video-wrapper-section">
+
+  <!-- TOP TEXT -->
+  <div class="top-content">
+
+    <p class="small-title">Testimonials</p>
+
+    <h1>
+      What Our <span>Users</span> Are Saying.
+    </h1>
+
+  </div>
+
+  <!-- VIDEOS -->
+  <div class="video-section">
+
+    <!-- FIRST VIDEO -->
+    <div class="video-card">
+
+      <video
+        controls
+        muted
+        playsinline
+        preload="metadata"
+        poster={thumbnail}
+      >
+        <source src={videoUrl1} type="video/mp4" />
+      </video>
+
+      <div class="video-content center-content">
+        <h2>PLUMRXBIO</h2>
+        <p>Salonica D</p>
+      </div>
+
+    </div>
+
+    <!-- SECOND VIDEO -->
+    <div class="video-card">
+
+      <video
+        controls
+        muted
+        playsinline
+        preload="metadata"
+       
+      >
+        <source src={videoUrl2} type="video/mp4" />
+      </video>
+
+      <div class="video-content center-content">
+        <h2>Quick Glow</h2>
+        <p>Semmozhi</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+  .video-wrapper-section {
+    width: 100%;
+
+    background: linear-gradient(
+      135deg,
+      #f8fafc 0%,
+      #eef2ff 50%,
+      #f1f5f9 100%
+    );
+
+    padding: 60px 20px;
+  }
+
+  /* TOP TEXT */
+
+  .top-content {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .small-title {
+    font-size: 18px;
+    color: #94a3b8;
+    margin-bottom: 15px;
+  }
+
+  .top-content h1 {
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #0f172a;
+  }
+
+  .top-content h1 span {
+    color: #22c55e;
+  }
+
+  /* VIDEO SECTION */
+
+  .video-section {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .video-card {
+    width: 380px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 26px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.08),
+      0 0 20px rgba(255,255,255,0.3);
+  }
+
+  .video-card video {
+    width: 100%;
+    height: 500px;
+
+    object-fit: cover;
+    display: block;
+
+    background: black;
+  }
+
+  .video-content {
+    padding: 22px;
+  }
+
+  .video-content h2 {
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #0f172a;
+
+    margin-bottom: 8px;
+  }
+
+  .video-content p {
+    color: #64748b;
+    font-size: 17px;
+  }
+
+  .center-content {
+    text-align: center;
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 768px) {
+
+    .video-wrapper-section {
+      padding: 50px 15px;
+    }
+
+    .top-content h1 {
+      font-size: 34px;
+    }
+
+    .video-card {
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .video-card video {
+      height: 380px;
+    }
+
+    .video-content h2 {
+      font-size: 24px;
+    }
+
+    .video-content p {
+      font-size: 15px;
+    }
+
+  }
+
+</style>

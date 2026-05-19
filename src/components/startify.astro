@@ -1,0 +1,94 @@
+<div
+  style="
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 50% 30%, #2d2250 0%, #1a1833 100%);
+    box-shadow: 0 8px 32px 0 rgba(68, 0, 128, 0.12);
+    padding: 3rem 3rem 0 3rem;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+  "
+>
+  <!-- Animated Blooming Flowers -->
+  <div style="position: absolute; inset: 0; pointer-events: none; z-index: 0;">
+    <!-- (all your SVG flowers here, unchanged) -->
+  </div>
+
+  <!-- Main Content -->
+  <h1 style="color: #fff; margin-bottom: 1rem; z-index: 3;">CED INTERNSHIP PROGRAM</h1>
+  <p
+    style="
+      font-size: 2rem;
+      text-align: center;
+      max-width: 600px;
+      color: #e0e0ff;
+      font-weight: 500;
+      z-index: 3;
+    "
+  >
+    Soon we'll be updating it.  
+    <br />
+    Startify updates will be posted on <strong>23-Sep-2025</strong>.
+  </p>
+
+  <!-- PDF Download Button -->
+  <a
+    href="/assets/startify.pdf"
+    download
+    style="
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.9rem 2.2rem;
+      background: linear-gradient(90deg, #a18fff 0%, #ff6b9d 100%);
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 2rem;
+      box-shadow: 0 4px 16px rgba(161,143,255,0.18);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      z-index: 3;
+    "
+    onmouseover="this.style.background='linear-gradient(90deg,#ff6b9d 0%,#a18fff 100%)';this.style.transform='scale(1.04)'"
+    onmouseout="this.style.background='linear-gradient(90deg,#a18fff 0%,#ff6b9d 100%)';this.style.transform='scale(1)'"
+  >
+    Download Startify PDF
+  </a>
+
+  <!-- Wave Footer -->
+  <div style="width: 100%; position: absolute; bottom: 0; left: 0; z-index: 2;">
+    <svg viewBox="0 0 1440 240" width="100%" height="240" fill="none">
+      <path
+        fill="#23244a"
+        fill-opacity="1"
+        d="M0,64L60,85.3C120,107,240,149,360,149.3C480,149,600,107,720,101.3C840,96,960,128,1080,149.3C1200,171,1320,181,1380,186.7L1440,192L1440,240L1380,240C1320,240,1200,240,1080,240C960,240,840,240,720,240C600,240,480,240,360,240C240,240,120,240,60,240L0,240Z"
+      ></path>
+    </svg>
+  </div>
+
+  <style>
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+      p {
+        font-size: 1.1rem !important;
+        max-width: 95vw !important;
+        margin-bottom: 1rem !important;
+      }
+      a[download] {
+        font-size: 1rem !important;
+        padding: 0.7rem 1.5rem !important;
+      }
+      svg[viewBox="0 0 1440 240"] {
+        height: 80px !important;
+      }
+    }
+  </style>
+</div>

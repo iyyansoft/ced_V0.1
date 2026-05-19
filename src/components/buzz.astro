@@ -1,0 +1,730 @@
+<style>
+/* ===== IMAGE WRAPPER ===== */
+.img-wrapper {
+  width: 100% !important;
+  height: 300px !important;           /* 👈 FIXED HEIGHT FOR ALL */
+  overflow: hidden !important;
+  border-radius: 12px;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: #f5f5f5;
+}
+
+/* ===== IMAGE CONTROL – MAIN FIX ===== */
+.beneficiary-img {
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;       /* 👈 HERO LINE */
+  object-position: center !important;
+
+  aspect-ratio: 4/3 !important;       /* 👈 FORCE RATIO */
+
+  display: block !important;
+}
+
+/* ===== CARD HEIGHT FIX ===== */
+.beneficiary-card {
+  height: 640px !important;           /* 👈 ALL CARDS SAME */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+/* ===== HOVER ZOOM ===== */
+.img-wrapper:hover .beneficiary-img {
+  transform: scale(1.03);
+  transition: 0.3s ease;
+}
+
+/* ===== TITLE ===== */
+.beneficiary-card h5 {
+  min-height: 70px;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* ===== TEXT GAP ===== */
+.beneficiary-card p {
+  margin-bottom: 8px;
+}
+
+/* ===== CARD HOVER ===== */
+.beneficiary-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .img-wrapper {
+    height: 220px !important;
+  }
+
+  .beneficiary-card {
+    min-height: auto !important;
+  }
+}
+
+
+</style>
+
+<section class="py-5">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-10 mx-auto text-center">
+        <h2 class="fw-bold mb-4"></h2>
+      </div>
+    </div>
+
+
+
+
+    <div class="row g-3 mt-2">
+      
+      <!-- CARD 1 -->
+     <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/vi2.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="fw-bold text-primary"> INNOVATE Kanchi – Edition 1</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+     The Director of CEDAU participated in the event conducted by StartupTN.
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date: 10 December 2025</span>
+    </p>
+
+    
+
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location: Kancheepuram</span>
+    </p>
+
+  </div>
+</div>
+
+
+      <!-- CARD 2 -->
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/iv7.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Incubation Manager Program</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+      The Director of CEDAU participated in the event conducted by StartupTN.
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:3, 4, 5 December 2025</span>
+    </p>
+
+    <p class="fw-bold">
+       📍 <span class="text-dark">Location: Ooty</span>
+      
+    </p>
+
+  </div>
+</div>
+
+
+
+
+      <!-- CARD 3 -->
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/iv9.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">CII Southern Region CSR & Affirmative Action Conclave.</h5>
+
+     <p class="fw-bold text-secondary mb-1">
+      Dr. G. S. Mahalakshmi, Director of CEDAU, and Er. Arun Kumar R participated in the event. 
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date: 4 November 2025</span>
+    </p>
+
+    
+
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location: Ramada Plaza, Chennai</span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+      <!-- CARD 4 -->
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/iv12.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">TN Govt. School Student's Visit to Makers Lab</h5>
+
+
+    <p class="fw-bold text-secondary mb-1">
+     The Tamil Nadu School Education Department organized an exposure visit for government school students to the Makers Lab at CEDAU, Anna University.  
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:2025 </span>
+    </p>
+
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location: Makers Lab, CEDAU - Chennai</span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+
+      <!-- CARD 5 -->
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/iv10.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Women Entrepreneur Identification Camp</h5>
+
+
+     <p class="fw-bold text-secondary mb-1">
+      Er. Arun Kumar R participated in the event. 
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date: 13 November 2025</span>
+    </p>
+
+    
+
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location: Chengalpattu</span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+
+     <!-- CARD 6 -->
+     
+     <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/iv16.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Startup Singam – Entrepreneur Interaction</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+      Dr. G. S. Mahalakshmi, Director of CEDAU, and Er. Arun Kumar R participated in the event. 
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:15 November-2025</span>
+    </p>
+
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:Rayapettah</span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+      
+
+
+
+
+      <!-- CARD -7 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/iv20.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Meet and Greet</h5>
+
+
+    <p class="fw-bold text-secondary mb-1">
+      Dr. G. S. Mahalakshmi, Director of CEDAU, and Er. Arun Kumar R meet with Ms.Asha Ajith  Project Director TnWeSafe  and COO - TNRTP
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date: 22-oct-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location: TNRTP Sidco-Chennai </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+ <!-- CARD 8 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/iv21.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Startify 3.0 – Finals</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+       Dr. G. S. Mahalakshmi, Director of CEDAU, along with her team, organized the Startify 3.0 – TNGSS Finals. 
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date: 9th October-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:codissia trade fair complex-Coimbatore </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+ <!-- CARD 9 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/iv23.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Change Make a Dialogue-Startify</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+      Er. Arun Kumar R  from CEDAU  and its Team as been organaised the Pree event of TNGSS. 
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:8th Oct-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:NIT-Coimbatore </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+<!-- CARD 10 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/iv24.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Collabration Event</h5>
+
+
+    <p class="fw-bold text-secondary mb-1">
+      Er. Arun Kumar R participated in the Urban Systems Innovation Networking Event.
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:7th Oct-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:British Deputy High Commission-Chennai
+ </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+<!-- CARD 11 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/ev1.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Capacity Building Program</h5>
+
+
+    <p class="fw-bold text-secondary mb-1">
+      CEDAU Anna University conducted a six-day Capacity Building Program for the TN Rise Execution Team.
+    </p>
+
+
+    <p class="fw-bold text-secondary mb-1">
+      
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:7th to 12 and 15th DEC-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:CEDAU-Chennai
+ </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+<!-- CARD 12 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/ev2.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">NGO Collabration  Event</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+      
+
+Er. Arun Kumar R delivered an awareness session on Entrepreneurship and startup creation to over 30 NGO leaders, with a focus on rural innovation inclusivity.
+
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:20th Nov-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:Saint Thomas Charitable And Educational Trust - Perundurai
+ </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+<!-- CARD 13 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/ev3.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Expert Visit</h5>
+
+
+    <p class="fw-bold text-secondary mb-1">
+      
+      Professor Ashok Jhunjhunwala (Padma Shri) visited CEDAU and appreciated the facilities while witnessing students transforming ideas into entrepreneurial prototypes using our innovation ecosystem.
+
+
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:18th Nov-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:CEDAU-Chennai
+ </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- CARD 14 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/ev4.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Meet and Greet</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+      
+     Dr. G. S. Mahalakshmi, Director of CEDAU, met Mr. Thiru Sivaraja Ramanathan, Mission Director and CEO of StartupTN, to discuss collaboration opportunities across Tamil Nadu and submitted the Startify 3.0 Impact Report.
+
+
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:4th  Nov-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:StartupTN-Chennai
+ </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- CARD 16 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/ev6.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Startify 3.O Pre event Event-Instaventure</h5>
+
+
+    <p class="fw-bold text-secondary mb-1">
+    CED conducted the Startify 3.0 pre-event, InstaVenture – AI, At Sri Eshwar College of Engineering, Coimbatore.
+      
+    </p>
+
+
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:7th Oct-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:Coimbatore
+ </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- CARD 20 -->
+ 
+<div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/ev10.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Launching of the Startify 3.0 Impact Report.</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+      
+
+Dr. G. S. Mahalakshmi,Director of CEDAU, launched the Startify 3.0 Impact Report in the presence of MSME Minister Thiru T. M. Anbarasu.
+ 
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:24th Oct-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:Startup TN-Chennai
+    </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- CARD 21 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/ev12.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Collabration</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+      Sowmiya from Arjun Vision Tech Solutions visited CED to explore opportunities for future collaboration. 
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:27th Oct-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location: CEDAU-Chennai
+ </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- CARD 23 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/ev14.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Collabration</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+      A team from the Hands in Hands NGO visited CEDAU to discuss opportunities for future collaboration.
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:27th Nov-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:British Deputy High Commission-Chennai
+ </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+<!-- CARD 24 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/ev15.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Collabration</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+      Representatives from St. Thomas Charitable Education Trust visited CED to explore collaboration opportunities. 
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:29th Nov-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:British Deputy High Commission-Chennai
+ </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- CARD 26 -->
+ 
+      <div class="col-lg-4 col-md-6 col-12">
+  <div class="card beneficiary-card border-0 shadow-sm p-3 rounded-4 text-center">
+
+    <div class="img-wrapper">
+      <img src="/assets/img/ev17.jpeg" class="beneficiary-img">
+    </div>
+
+    <h5 class="mt-3 fw-bold text-primary">Collabration Event</h5>
+
+    <p class="fw-bold text-secondary mb-1">
+      Er. Arun Kumar R participated in the event. 
+    </p>
+
+    <p class="mt-2 mb-1 fw-bold">
+      📅 <span class="text-dark">Date:7th Oct-2025 </span>
+    </p>
+    <p class="fw-bold">
+      📍 <span class="text-dark">Location:British Deputy High Commission-Chennai
+ </span>
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+</section>

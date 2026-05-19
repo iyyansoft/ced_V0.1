@@ -1,0 +1,1627 @@
+﻿
+
+<style>
+:root{
+  --green:#15803d;
+  --green-soft:#ecfdf5;
+  --text:#1f2937;
+  --muted:#64748b;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Inter, system-ui;
+}
+
+body{
+  background:linear-gradient(to bottom,#f8fafc,#eef2f6);
+  color:var(--text);
+  line-height:1.8;
+}
+
+/* ===== LIVING HERO ===== */
+/* ================= HERO LAYOUT (DARK) ================= */
+.hero-poster{
+  position:relative;
+  display:grid;
+  grid-template-columns:120px 1.2fr 1fr;
+  gap:80px;
+  align-items:center;
+  padding:120px 80px;
+  perspective:1500px;
+
+  /* DARK BACKGROUND */
+  background:
+    radial-gradient(circle at 15% 20%, rgba(34,197,94,.25), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(22,163,74,.25), transparent 50%),
+    linear-gradient(to bottom right, #020617, #020617);
+
+  overflow:hidden;
+}
+
+/* floating dark blobs */
+.hero-poster::before,
+.hero-poster::after{
+  content:"";
+  position:absolute;
+  width:460px;
+  height:460px;
+  background:#14532d;
+  filter:blur(160px);
+  opacity:.45;
+  z-index:0;
+  animation:heroBgFloat 20s ease-in-out infinite;
+}
+
+.hero-poster::before{
+  top:-160px;
+  left:-160px;
+}
+
+.hero-poster::after{
+  bottom:-160px;
+  right:-160px;
+  animation-delay:6s;
+}
+
+@keyframes heroBgFloat{
+  0%{transform:translate(0,0)}
+  50%{transform:translate(100px,80px)}
+  100%{transform:translate(0,0)}
+}
+
+/* keep content above bg */
+.hero-poster > *{
+  position:relative;
+  z-index:2;
+}
+
+/* ================= VERTICAL IMPRENT ================= */
+.imprent-vertical{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:88px;
+  font-weight:900;
+  letter-spacing:12px;
+  color:#22c55e;
+  line-height:1;
+  min-height:520px;
+  opacity:.8;
+}
+
+/* ================= HERO TEXT ================= */
+.hero-content h1{
+  line-height:1.05;
+}
+
+.hero-content .line1{
+  display:block;
+  font-size:42px;
+  font-weight:700;
+  color:#86efac;
+  margin-bottom:18px;
+}
+
+.hero-content .line2{
+  display:block;
+  font-size:88px;
+  font-weight:900;
+  color:#f8fafc;
+}
+
+.accent-line{
+  width:320px;
+  height:6px;
+  margin:30px 0 22px;
+  border-radius:6px;
+  background:linear-gradient(90deg,#22c55e,#86efac);
+}
+
+.hero-tagline{
+  font-size:20px;
+  font-weight:700;
+  color:#86efac;
+}
+
+/* ================= IMAGE CARD ================= */
+.hero-card{
+  position:relative;
+  background:#020617;
+  border-radius:36px;
+  padding:12px;
+  height:450px;
+  width:600px;
+
+  box-shadow:
+    0 40px 90px rgba(0,0,0,.6),
+    inset 0 0 0 1px rgba(34,197,94,.15);
+
+  overflow:hidden;
+
+  animation:imageFloat3D 8s ease-in-out infinite;
+  transition:transform .6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow .6s ease;
+  transform-style:preserve-3d;
+}
+
+/* floating animation */
+@keyframes imageFloat3D{
+  0%{transform:translateY(0) rotateX(2deg) rotateY(-2deg)}
+  50%{transform:translateY(-20px) rotateX(-2deg) rotateY(2deg)}
+  100%{transform:translateY(0) rotateX(2deg) rotateY(-2deg)}
+}
+
+/* hover lift */
+.hero-card:hover{
+  transform:translateY(-18px) scale(1.05) rotateX(5deg) rotateY(5deg);
+  box-shadow:
+    -20px 80px 180px rgba(0,0,0,.75),
+    inset 0 0 0 1px rgba(34,197,94,.4);
+}
+
+/* neon green sweep */
+.hero-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(34,197,94,.18),
+    transparent 70%
+  );
+  opacity:0;
+  transition:.6s;
+}
+
+.hero-card:hover::after{
+  opacity:1;
+}
+
+/* image zoom */
+.hero-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:26px;
+  transition:transform .7s ease;
+}
+
+.hero-card:hover img{
+  transform:scale(1.06);
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  .hero-poster{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding:80px 24px;
+  }
+
+  .imprent-vertical{
+    writing-mode:horizontal-tb;
+    transform:none;
+    font-size:36px;
+    min-height:auto;
+    margin-bottom:30px;
+  }
+
+  .hero-content .line2{
+    font-size:56px;
+  }
+
+  .hero-card{
+    width:100%;
+    height:360px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== RESOURCES GRID (COMPACT) ===== */
+.resources-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;                /* 🔻 28px → 20px */
+  max-width:900px;         /* 🔻 width slightly reduce */
+  margin:0 auto;
+  perspective:1200px;
+  
+}
+
+/* card */
+.resource-card{
+  background:#ffffff;
+  padding:22px 20px;       /* 🔻 34px 26px → compact */
+  border-radius:22px;      /* 🔻 */
+  text-align:center;
+
+  box-shadow:0 14px 36px rgba(0,0,0,.1);
+  transition:.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style:preserve-3d;
+}
+
+.resource-card:hover{
+  transform:translateY(-8px) scale(1.05) rotateX(8deg) rotateY(-5deg);
+  box-shadow:-12px 25px 60px rgba(0,0,0,.2);
+}
+
+/* icon */
+.resource-icon{
+  font-size:30px;          /* 🔻 36px → 30px */
+  display:block;
+  margin-bottom:12px;     /* 🔻 */
+}
+
+/* text */
+.resource-card p{
+  font-weight:700;
+  font-size:15px;         /* 🔻 slightly smaller */
+  color:#15803d;
+}
+
+/* mobile */
+@media(max-width:900px){
+  .resources-grid{
+    grid-template-columns:1fr 1fr;
+    gap:16px;              /* 🔻 */
+  }
+
+  .resource-card{
+    padding:20px 18px;
+  }
+}
+
+
+
+/* ================= PAGE ================= */
+.page{
+  max-width:1150px;
+  margin:auto;
+  padding:120px 20px 160px;
+}
+
+/* ================= PANEL ================= */
+.panel{
+  background:linear-gradient(to bottom right,#fff,var(--green-soft));
+  border-radius:32px;
+  padding:70px 60px;
+  
+  box-shadow:0 30px 80px rgba(0,0,0,.1);
+}
+
+.panel.alt{
+  background:linear-gradient(to bottom right,var(--green-soft),#fff);
+}
+
+.panel h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:50px;
+  font-weight:900;
+}
+
+/* section height kammi */
+.compact-timeline{
+  padding:35px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= HORIZONTAL TIMELINE ================= */
+.timeline-strip{
+  position:relative;
+  overflow:hidden;
+  padding:60px 40px;
+
+  background:
+    linear-gradient(135deg,#f8fafc,#ffffff);
+}
+
+/* soft background glow */
+.timeline-strip::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(34,197,94,.15), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(134,239,172,.15), transparent 50%);
+  z-index:0;
+}
+
+.timeline-strip > *{
+  position:relative;
+  z-index:2;
+}
+
+.timeline-strip h2{
+  text-align:center;
+  font-size:30px;
+  font-weight:900;
+  margin-bottom:40px;
+  color:#0f172a;
+}
+
+/* ================= TRACK ================= */
+.timeline-track{
+  max-width:1000px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  position:relative;
+  perspective:1200px;
+}
+
+/* connector line */
+.timeline-track::before{
+  content:"";
+  position:absolute;
+  top:34px;
+  left:10%;
+  right:10%;
+  height:3px;
+  background:linear-gradient(to right,#22c55e,#86efac);
+  z-index:0;
+}
+
+/* ================= STEP ================= */
+.track-step{
+  background:#ffffff;
+  padding:24px 22px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 14px 36px rgba(0,0,0,.08);
+  transition:.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style:preserve-3d;
+}
+
+.track-step:hover{
+  transform:translateY(-10px) scale(1.03) rotateX(6deg) rotateY(4deg);
+  box-shadow:-10px 28px 75px rgba(0,0,0,.18);
+}
+
+/* dot */
+.track-dot{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#16a34a;
+  color:#fff;
+  font-weight:800;
+  font-size:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 14px;
+  box-shadow:0 0 14px rgba(22,163,74,.5);
+  position:relative;
+  z-index:2;
+}
+
+/* text */
+.track-step h3{
+  font-size:17px;
+  font-weight:900;
+  margin-bottom:8px;
+  color:#15803d;
+}
+
+.track-step p{
+  font-size:14.5px;
+  color:#475569;
+  line-height:1.6;
+}
+
+.track-step span{
+  display:block;
+  margin-top:6px;
+  font-weight:700;
+  color:#0f172a;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  .timeline-track{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .timeline-track::before{
+    display:none;
+  }
+}
+
+
+
+
+
+
+
+/* ===== UPDATED SCOPE PILL STYLE ===== */
+.scope-pills{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:16px;
+  max-width:900px;
+  margin:0 auto;
+  perspective:1000px;
+}
+
+.scope-pill{
+  padding:14px 28px;
+  border-radius:30px;
+
+  /* DEFAULT – GREEN */
+  background:#15803d;
+  color:#ffffff;
+  border:2px solid #15803d;
+
+  font-weight:700;
+  box-shadow:0 10px 28px rgba(21,128,61,.25);
+  transition:all .4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style:preserve-3d;
+}
+
+/* HOVER – WHITE INSIDE */
+.scope-pill:hover{
+  background:#ffffff;
+  color:#15803d;
+  border-color:#15803d;
+  box-shadow:0 20px 45px rgba(21,128,61,.4);
+  transform:translateY(-6px) scale(1.1) rotateX(12deg);
+}
+
+
+
+
+
+
+/* ================= TRAINING ACCORDION ================= */
+.accordion{
+  background:#fff;
+  border-radius:26px;
+  box-shadow:0 18px 45px rgba(0,0,0,.1);
+  overflow:hidden;
+  margin-bottom:26px;
+}
+
+.acc-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:28px 34px;
+  cursor:pointer;
+}
+
+.acc-left{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.acc-badge{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#16a34a,#22c55e);
+  color:#fff;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.acc-head strong{
+  font-size:22px;
+  color:var(--green);
+}
+
+.acc-icon{
+  font-size:28px;
+  font-weight:800;
+}
+
+.acc-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+  padding:0 36px;
+}
+
+.accordion.active .acc-body{
+  padding:20px 36px 34px;
+}
+
+/* ===== TEMPLATE CHECKLIST STYLE ===== */
+/* ===== RIBBON TEMPLATE STYLE ===== */
+.template-ribbon-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:32px;
+  margin-top:20px;
+  perspective:1200px;
+}
+
+.ribbon-card{
+  position:relative;
+  background:#ffffff;
+  padding:44px 36px 36px;
+  border-radius:28px;
+  box-shadow:0 20px 55px rgba(0,0,0,.1);
+  transition:.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style:preserve-3d;
+}
+
+.ribbon-card:hover{
+  transform:translateY(-10px) scale(1.03) rotateX(5deg) rotateY(-3deg);
+  box-shadow:-15px 35px 90px rgba(0,0,0,.2);
+}
+
+/* corner ribbon */
+.ribbon{
+  position:absolute;
+  top:18px;
+  right:-10px;
+  background:#dcfce7;
+  color:#15803d;
+  padding:6px 18px;
+  font-size:13px;
+  font-weight:800;
+  border-radius:0 14px 14px 0;
+}
+
+/* heading */
+.ribbon-card h3{
+  font-size:22px;
+  font-weight:900;
+  color:#15803d;
+  margin-bottom:18px;
+}
+
+/* list */
+.ribbon-card ul{
+  padding-left:20px;
+}
+
+.ribbon-card li{
+  margin-bottom:10px;
+  font-weight:600;
+  color:#334155;
+}
+
+/* mobile */
+@media(max-width:900px){
+  .template-ribbon-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+
+/* ===================================================== */
+/* ===== TRAINING STRUCTURE – AURORA BACKGROUND ======== */
+/* ===================================================== */
+
+/* =====================================================
+   TRAINING STRUCTURE – SCOPED ACCORDION ONLY
+   ===================================================== */
+
+.training-structure{
+  padding:60px 40px;
+  background:linear-gradient(135deg,#020617,#000000);
+  border-radius:28px;
+}
+
+/* heading */
+.training-structure h2{
+  text-align:center;
+  font-size:34px;
+  font-weight:900;
+  color:#f8fafc;
+  margin-bottom:36px;
+}
+
+/* ================= ACCORDION BOX ================= */
+.training-structure .accordion{
+  background:linear-gradient(135deg,#020617,#020b1c);
+  border:1px solid rgba(34,197,94,.35);
+  border-radius:18px;
+  margin-bottom:14px;
+  overflow:hidden;
+  transition:box-shadow .2s ease,border .2s ease;
+}
+
+.training-structure .accordion:hover{
+  box-shadow:0 0 0 1px rgba(34,197,94,.45);
+}
+
+/* ================= HEADER ================= */
+.training-structure .acc-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 22px;
+  cursor:pointer;
+}
+
+.training-structure .acc-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+/* number badge */
+.training-structure .acc-badge{
+  width:32px;
+  height:32px;
+  border-radius:8px;
+  background:#22c55e;
+  color:#022c22;
+  font-size:14px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* title text */
+.training-structure .acc-head strong{
+  font-size:16px;
+  font-weight:700;
+  color:#f8fafc;
+}
+
+/* plus icon */
+.training-structure .acc-icon{
+  font-size:20px;
+  font-weight:900;
+  color:#86efac;
+  transition:transform .2s ease;
+}
+
+.training-structure .accordion.active .acc-icon{
+  transform:rotate(45deg);
+}
+
+/* ================= BODY (TEXT FIX HERE) ================= */
+.training-structure .acc-body{
+  max-height:0;
+  overflow:hidden;
+
+  padding:0 22px;
+
+  font-size:14.5px;
+  line-height:1.8;   /* 🔥 TEXT CUT FIX */
+  color:#c7f9cc;
+
+  transition:max-height .25s ease;
+}
+
+/* open state */
+.training-structure .accordion.active .acc-body{
+  padding:14px 22px 20px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  .training-structure{
+    padding:40px 18px;
+  }
+
+  .training-structure h2{
+    font-size:26px;
+  }
+
+  .training-structure .acc-head strong{
+    font-size:15px;
+  }
+
+  .training-structure .acc-body{
+    font-size:14px;
+  }
+}
+
+
+/* ================= OBJECTIVE SECTION ================= */
+/* ===== OBJECTIVE ALT STYLE ===== */
+.obj-alt-grid{
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:60px;
+  perspective:1500px;
+}
+
+/* Objective Highlight */
+.obj-highlight{
+  background:linear-gradient(135deg,#16a34a,#22c55e);
+  color:#fff;
+  border-radius:32px;
+  padding:60px 50px;
+  box-shadow:0 30px 70px rgba(0,0,0,.15);
+  transition:transform .5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow .5s ease;
+  transform-style:preserve-3d;
+}
+
+.obj-highlight:hover{
+  transform:translateY(-12px) scale(1.02) rotateX(4deg) rotateY(-2deg);
+  box-shadow:-18px 45px 90px rgba(0,0,0,.25);
+}
+
+.obj-badge{
+  background:rgba(255,255,255,.2);
+  display:inline-block;
+  padding:8px 18px;
+  border-radius:20px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:26px;
+}
+
+.obj-highlight h3{
+  font-size:30px;
+  margin-bottom:22px;
+}
+
+.obj-highlight p{
+  font-size:18px;
+  line-height:1.7;
+}
+
+/* Programme Stack */
+.prog-stack{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+  position:relative;
+  padding-left:30px;
+  perspective:1000px;
+}
+
+.prog-stack::before{
+  content:"";
+  position:absolute;
+  left:6px;
+  top:0;
+  width:4px;
+  height:100%;
+  background:#bbf7d0;
+  border-radius:4px;
+}
+
+.prog-card{
+  background:#fff;
+  padding:28px 32px;
+  border-radius:24px;
+  box-shadow:0 20px 50px rgba(0,0,0,.1);
+  position:relative;
+  transition:.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style:preserve-3d;
+}
+.prog-card:hover{
+  transform:translateX(10px) rotateY(-5deg) scale(1.02);
+  box-shadow:-10px 25px 60px rgba(0,0,0,.15);
+}
+
+.prog-dot{
+  position:absolute;
+  left:-38px;
+  top:28px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#22c55e;
+  border:4px solid #ecfdf5;
+}
+
+.prog-card ul{
+  padding-left:20px;
+}
+
+/* Mobile */
+@media(max-width:900px){
+  .obj-alt-grid{
+    grid-template-columns:1fr;
+  }
+  .prog-stack{
+    padding-left:0;
+  }
+  .prog-stack::before{
+    display:none;
+  }
+  .prog-dot{
+    display:none;
+  }
+}
+
+/* =====================================
+   PDF – ELEGANT FLOATING STYLE
+   ===================================== */
+
+/* =====================================
+   REMOVE PANEL BACKGROUND – FAQ ONLY
+   ===================================== */
+
+.faq-clean{
+  background:transparent !important;
+  box-shadow:none !important;
+  border:none !important;
+
+  padding:40px 0 !important;
+}
+
+/* if parent has alt / gray bg */
+.faq-clean.panel,
+.faq-clean.panel.alt{
+  background:transparent !important;
+}
+
+/* =====================================
+   OPTIONAL: CENTER + CLEAN LOOK
+   ===================================== */
+
+.faq-clean{
+  text-align:center;
+}
+
+/* small accent line */
+.pdf-divider{
+  display:block;
+  width:90px;
+  height:4px;
+  margin:0 auto 24px;
+  border-radius:4px;
+  background:linear-gradient(90deg,#22c55e,#86efac);
+}
+
+/* heading */
+.faq-clean h2{
+  font-size:30px;
+  font-weight:900;
+  color:#052e16;
+  margin-bottom:26px;
+}
+
+/* =====================================
+   BUTTON (NO BACKGROUND DIV FEEL)
+   ===================================== */
+
+.pdf-glow{
+  display:inline-block;
+  padding:14px 44px;
+
+  font-size:17px;
+  font-weight:800;
+  color:#15803d;
+  text-decoration:none;
+
+  border-radius:40px;
+  border:2px solid rgba(34,197,94,.45);
+
+  transition:.35s ease;
+}
+
+.pdf-glow:hover{
+  background:#22c55e;
+  color:#fff;
+  box-shadow:
+    0 0 20px rgba(34,197,94,.45),
+    0 0 40px rgba(34,197,94,.25);
+
+  transform:translateY(-3px);
+}
+
+/* mobile */
+@media(max-width:900px){
+  .faq-clean h2{
+    font-size:22px;
+  }
+}
+
+
+
+
+
+/* ================= FOOTER ================= */
+footer{
+  text-align:center;
+  margin-top:160px;
+  padding-top:30px;
+  border-top:1px solid #e5e7eb;
+  color:var(--muted);
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:80px 20px;}
+  .hero-vertical{writing-mode:horizontal-tb;transform:none;font-size:32px;}
+  .hero-image{height:260px;}
+  .panel{padding:50px 24px;}
+  .template-grid,
+  .objective-grid{grid-template-columns:1fr;}
+}
+
+
+/* ===== TEMPLATE FEATURE CARDS ===== */
+/* ===== TEMPLATE GRID ===== */
+.template-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:32px;
+  margin-top:20px;
+}
+
+/* ===== TEMPLATE CARD ===== */
+.template-card{
+  background:#ffffff;
+  padding:42px 36px;
+  border-radius:30px;
+  box-shadow:0 22px 55px rgba(0,0,0,.1);
+  position:relative;
+  transition:.35s ease;
+  overflow:hidden;
+}
+
+/* top light-green strip */
+.template-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:8px;
+  background:linear-gradient(90deg,#86efac,#22c55e);
+}
+
+/* badge */
+.template-badge{
+  display:inline-block;
+  background:#dcfce7;
+  color:#15803d;
+  font-size:13px;
+  font-weight:800;
+  padding:6px 14px;
+  border-radius:14px;
+  margin-bottom:18px;
+}
+
+/* heading */
+.template-card h3{
+  font-size:22px;
+  font-weight:900;
+  color:#15803d;
+  margin-bottom:18px;
+}
+
+/* list */
+.template-card ul{
+  padding-left:20px;
+}
+
+.template-card li{
+  margin-bottom:10px;
+  color:#334155;
+  font-weight:600;
+}
+
+/* hover effect */
+.template-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 35px 90px rgba(0,0,0,.15);
+}
+
+/* mobile */
+@media(max-width:900px){
+  .template-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* ================= SUBMISSION SECTION ================= */
+/* ================= SUBMISSION – DARK (COMPACT) ================= */
+.submission-dark{
+  position:relative;
+  padding:60px 60px;   /* height reduced */
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at 15% 25%, rgba(34,197,94,.18), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(22,163,74,.18), transparent 50%),
+    linear-gradient(135deg, #020617, #000000);
+}
+
+/* animated background blobs */
+.submission-dark::before,
+.submission-dark::after{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  background:#022c22;
+  filter:blur(150px);
+  opacity:.5;
+  z-index:0;
+  animation:darkFloat 20s ease-in-out infinite;
+}
+
+.submission-dark::before{
+  top:-180px;
+  left:-180px;
+}
+
+.submission-dark::after{
+  bottom:-180px;
+  right:-180px;
+  animation-delay:6s;
+}
+
+@keyframes darkFloat{
+  0%{transform:translate(0,0)}
+  50%{transform:translate(90px,70px)}
+  100%{transform:translate(0,0)}
+}
+
+/* keep content above bg */
+.submission-dark > *{
+  position:relative;
+  z-index:2;
+}
+
+/* ================= HEADING ================= */
+.submission-dark h2{
+  text-align:center;
+  font-size:32px;
+  font-weight:900;
+  letter-spacing:1px;
+  color:#f8fafc;
+  margin-bottom:40px; /* reduced */
+}
+
+/* ================= GRID ================= */
+.submission-progress{
+  max-width:900px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;   /* compact */
+}
+
+/* ================= CARD ================= */
+.progress-item{
+  display:flex;
+  align-items:center;
+  gap:18px;
+
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(14px);
+
+  padding:22px 30px;  /* reduced height */
+  border-radius:26px;
+  border-left:6px solid #22c55e;
+
+  box-shadow:0 22px 60px rgba(0,0,0,.7);
+  transition:.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style:preserve-3d;
+}
+
+.progress-item:hover{
+  transform:translateY(-10px) scale(1.03) rotateX(5deg) rotateY(-5deg);
+  box-shadow:-15px 45px 120px rgba(0,0,0,.9);
+}
+
+/* ================= ICON ================= */
+.progress-icon{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+
+  background:rgba(34,197,94,.15);
+  color:#22c55e;
+  font-size:22px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:2px solid rgba(34,197,94,.45);
+  box-shadow:0 0 16px rgba(34,197,94,.4);
+}
+
+/* ================= TEXT ================= */
+.progress-item p{
+  font-size:16px;
+  font-weight:800;
+  color:#e5e7eb;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  .submission-progress{
+    grid-template-columns:1fr;
+  }
+
+  .submission-dark{
+    padding:50px 20px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero-poster">
+
+  <!-- Vertical Continuous Typing IMPRENT -->
+  <div class="imprent-vertical" id="imprentType"></div>
+
+  <!-- Hero Text -->
+  <div class="hero-content">
+    <h1>
+      <span class="line1">Every Village</span>
+      <span class="line2">Has a Story</span>
+    </h1>
+
+    <div class="accent-line"></div>
+
+    <p class="hero-tagline">You Make It Digital!!</p>
+  </div>
+
+  <!-- Poster Image -->
+  <div class="hero-card">
+    <img src="assets/img/IMPRENT.jpeg" alt="IMPRENT Poster">
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OBJECTIVE & PROGRAMME STRUCTURE -->
+
+<section class="panel alt">
+  <h2>OBJECTIVE & PROGRAMME STRUCTURE</h2>
+
+  <div class="obj-alt-grid">
+
+    <!-- OBJECTIVE -->
+    <div class="obj-highlight">
+      <div class="obj-badge">OBJECTIVE</div>
+      <h3>Building Rural-to-Startup Pathways</h3>
+      <p>
+        To create a continuous pipeline from rural digital storytelling to
+        entrepreneurial problem-solving, leading to startup ideas grounded in
+        real community needs.
+      </p>
+    </div>
+
+    <!-- PROGRAMME STRUCTURE -->
+    <div class="prog-stack">
+
+      <div class="prog-card">
+        <span class="prog-dot"></span>
+        <p>
+          <strong>IMPRENT (Impacting Rural Entrepreneurship)</strong> is a
+          student-driven initiative anchored by the Centre for Entrepreneurship
+          Development (CED), Anna University.
+        </p>
+      </div>
+
+      <div class="prog-card">
+        <span class="prog-dot"></span>
+        <p>
+          Colleges across Tamil Nadu document rural and micro-enterprises through
+          structured digital storytelling and ethical field engagement.
+        </p>
+      </div>
+
+      <div class="prog-card">
+        <span class="prog-dot"></span>
+        <ul>
+          <li>Institutional digital repositories</li>
+          <li>State-level showcases & hackathons</li>
+         
+        </ul>
+      </div>
+
+      <div class="prog-card">
+        <span class="prog-dot"></span>
+        <p>
+          The programme bridges rural realities with entrepreneurial thinking,
+          transforming grassroots challenges into actionable startup opportunities.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="panel alt timeline-strip">
+  <h2>TIMELINE (TENTATIVE)</h2>
+
+  <div class="timeline-track">
+
+    <div class="track-step">
+      <div class="track-dot">1</div>
+      <h3>DIGITAL RURAL PROFILING</h3>
+      <p>Faculty nomination · Online training · Village visits<br><span>FEB 2026</span></p>
+    </div>
+
+    <div class="track-step">
+      <div class="track-dot">2</div>
+      <h3>VISUAL STORYTELLING</h3>
+      <p>Short films & posters · Faculty review<br><span>MAR 2026</span></p>
+    </div>
+
+    <div class="track-step">
+      <div class="track-dot">3</div>
+      <h3>STATE LEVEL HACKATHON</h3>
+      <p>College events · State recognition<br><span>APR 2026</span></p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- SCOPE -->
+<section class="panel alt">
+  <h2>SCOPE OF INTERVIEWS</h2>
+
+  <div class="scope-pills">
+    <span class="scope-pill">Rural Entrepreneurs</span>
+    <span class="scope-pill">Micro-Enterprises</span>
+    <span class="scope-pill">Indigenous Practices</span>
+    <span class="scope-pill">Enterprise Processes</span>
+    <span class="scope-pill">Challenges</span>
+    <span class="scope-pill">Problem Statements</span>
+  </div>
+</section>
+
+
+
+
+<!-- TRAINING STRUCTURE -->
+<section class="panel training-structure">
+
+
+  <h2>TRAINING STRUCTURE</h2>
+   <div class="training-lines"></div>
+
+  <div class="training-content">
+
+    <div class="accordion">
+      <div class="acc-head">
+        <div class="acc-left">
+          <div class="acc-badge">1</div>
+          <strong>Programme Purpose & Context</strong>
+        </div>
+        <span class="acc-icon">+</span>
+      </div>
+      <div class="acc-body">
+        Programme objectives, MSME relevance and storytelling value.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head">
+        <div class="acc-left">
+          <div class="acc-badge">2</div>
+          <strong>MSME Engagement & Ethics</strong>
+        </div>
+        <span class="acc-icon">+</span>
+      </div>
+      <div class="acc-body">
+        Ethical engagement and professional interviewing practices.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head">
+        <div class="acc-left">
+          <div class="acc-badge">3</div>
+          <strong>Content Documentation Framework</strong>
+        </div>
+        <span class="acc-icon">+</span>
+      </div>
+      <div class="acc-body">
+        Entrepreneur profile, journey, strengths and challenges.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head">
+        <div class="acc-left">
+          <div class="acc-badge">4</div>
+          <strong>Mobile Filming Techniques</strong>
+        </div>
+        <span class="acc-icon">+</span>
+      </div>
+      <div class="acc-body">
+        Lighting, framing, audio capture and B-roll usage.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head">
+        <div class="acc-left">
+          <div class="acc-badge">5</div>
+          <strong>AI-Assisted Editing</strong>
+        </div>
+        <span class="acc-icon">+</span>
+      </div>
+      <div class="acc-body">
+        Subtitles, noise reduction and transitions.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head">
+        <div class="acc-left">
+          <div class="acc-badge">6</div>
+          <strong>Final Output & Submission</strong>
+        </div>
+        <span class="acc-icon">+</span>
+      </div>
+      <div class="acc-body">
+        Submission standards and formats.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<!-- RESOURCES -->
+<section class="panel alt">
+  <h2>RESOURCES</h2>
+
+  <div class="resources-grid">
+
+    <div class="resource-card">
+      <span class="resource-icon">🎥</span>
+      <p>Sample reference videos</p>
+    </div>
+
+    <div class="resource-card">
+      <span class="resource-icon">📘</span>
+      <p>Short learning modules</p>
+    </div>
+
+    <div class="resource-card">
+      <span class="resource-icon">✂️</span>
+      <p>Editing tutorials</p>
+    </div>
+
+    <div class="resource-card">
+      <span class="resource-icon">🤖</span>
+      <p>AI tool usage guides</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TEMPLATES -->
+<section class="panel">
+  <h2>TEMPLATES</h2>
+
+  <div class="template-grid">
+
+    <div class="template-card">
+      <span class="template-badge">Template 1</span>
+      <h3>Interview Question Template</h3>
+      <ul>
+        <li>Founder background</li>
+        <li>Business journey</li>
+        <li>Key challenges</li>
+        <li>Unique aspects</li>
+        <li>Future goals</li>
+      </ul>
+    </div>
+
+    <div class="template-card">
+      <span class="template-badge">Template 2</span>
+      <h3>Editing Structure Template</h3>
+      <ul>
+        <li>Opening hook</li>
+        <li>Journey</li>
+        <li>Challenges</li>
+        <li>Vision</li>
+        <li>Closing</li>
+      </ul>
+    </div>
+
+    <div class="template-card">
+      <span class="template-badge">Template 3</span>
+      <h3>Submission Format Template</h3>
+      <ul>
+        <li>Video specifications</li>
+        <li>File naming</li>
+        <li>Business summary</li>
+        <li>Key insights</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+<!-- SUBMISSION -->
+<!-- SUBMISSION REQUIREMENTS -->
+<section class="submission-dark">
+  <h2>SUBMISSION REQUIREMENTS</h2>
+
+  <div class="submission-progress">
+
+    <div class="progress-item">
+      <span class="progress-icon">🎬</span>
+      <p>Final edited video</p>
+    </div>
+
+    <div class="progress-item">
+      <span class="progress-icon">📄</span>
+      <p>Business summary</p>
+    </div>
+
+    <div class="progress-item">
+      <span class="progress-icon">⚠️</span>
+      <p>Identified challenges</p>
+    </div>
+
+    <div class="progress-item">
+      <span class="progress-icon">📈</span>
+      <p>Suggested growth opportunities</p>
+    </div>
+
+    <div class="progress-item">
+      <span class="progress-icon">🖼️</span>
+      <p>Visual poster (Tamil / English)</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="panel faq-clean">
+  <span class="pdf-divider"></span>
+  <h2>IMPRENT – FAQ</h2>
+
+  <a href="/assets/pdf/imprent_faq.pdf"
+     target="_blank"
+     class="pdf-glow">
+    Open FAQ PDF
+  </a>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<script>
+document.querySelectorAll(".acc-head").forEach(head => {
+  head.addEventListener("click", () => {
+    const accordion = head.parentElement;
+    const body = accordion.querySelector(".acc-body");
+
+    // close others (optional – remove if not needed)
+    document.querySelectorAll(".accordion").forEach(item => {
+      if(item !== accordion){
+        item.classList.remove("active");
+        item.querySelector(".acc-body").style.maxHeight = null;
+      }
+    });
+
+    // toggle current
+    accordion.classList.toggle("active");
+
+    if(accordion.classList.contains("active")){
+      body.style.maxHeight = body.scrollHeight + "px"; // ✅ FULL HEIGHT
+    }else{
+      body.style.maxHeight = null;
+    }
+  });
+});
+
+
+
+  const text = "IMPRENT";
+  const target = document.getElementById("imprentType");
+  let index = 0;
+
+  function typeLoop(){
+    if(index < text.length){
+      target.textContent += text[index];
+      index++;
+    }else{
+      target.textContent = "";
+      index = 0;
+    }
+  }
+
+  setInterval(typeLoop, 250); // typing speed
+
+</script>
+
+
+</body>
+</html>

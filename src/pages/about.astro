@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AboutComponent from "../components/About.astro";
+---
+
+<Layout title="CED Anna University">
+    <section>
+        <AboutComponent/>
+         
+    </section>
+</Layout>
+
+<style>
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 10px;
+}
+
+.scroll-arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 15px;
+  color: #f0ad4e; /* Color for arrows */
+}
+
+.scroll-arrow:focus {
+  outline: none;
+}
+
+#team-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.card-profile {
+  min-width: 240px;
+}
+
+</style>
+
+<script>
+const container = document.getElementById('team-container');
+
+
+
+</script>
