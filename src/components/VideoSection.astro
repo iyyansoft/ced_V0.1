@@ -1,81 +1,166 @@
 ---
 // VideoSection.astro
 
-const videoUrl1 =
-  "https://res.cloudinary.com/dlhl3okan/video/upload/v1778737926/ivp1_meqtdu.mp4";
+const videos = [
 
-const videoUrl2 =
-  "https://res.cloudinary.com/dcelalv7i/video/upload/v1778820344/WhatsApp_Video_2026-05-15_at_10.14.51_AM_uwulmz.mp4";
+  {
+    url: "https://res.cloudinary.com/dlhl3okan/video/upload/v1778737926/ivp1_meqtdu.mp4",
 
-// THUMBNAIL IMAGE
-const thumbnail =
-  "/assets/img/videothamnail.png";
+    thumbnail: "/assets/img/thamnail1.png",
+
+    title: "PLUMRXBIO",
+
+    name: "Salonica D",
+  },
+
+  {
+    url: "https://res.cloudinary.com/dcelalv7i/video/upload/v1778820344/WhatsApp_Video_2026-05-15_at_10.14.51_AM_uwulmz.mp4",
+
+    thumbnail:
+      "/assets/img/thamnail2.png",
+
+    title: "Quick Glow",
+
+    name: "Semmozhi",
+  },
+
+  {
+    url: "https://res.cloudinary.com/dcelalv7i/video/upload/v1779267488/WhatsApp_Video_2026-05-19_at_11.06.21_AM_x69lqo.mp4",
+
+    thumbnail:
+      "/assets/img/thamnail3.png",
+
+    title: "Anand",
+
+    name: "CEO",
+  },
+
+  {
+    url: "https://res.cloudinary.com/dcelalv7i/video/upload/v1779267974/WhatsApp_Video_2026-05-20_at_11.15.33_AM_fppjio.mp4",
+
+    thumbnail:
+      "/assets/img/thamnail4.png",
+
+    title: "PRAVIOT",
+
+    name: "praveen B B",
+  },
+
+];
 ---
 
 <section class="video-wrapper-section">
 
-  <!-- TOP TEXT -->
+  <!-- TOP CONTENT -->
+
   <div class="top-content">
 
-    <p class="small-title">Testimonials</p>
+    <p class="small-title">
+      Testimonials
+    </p>
 
     <h1>
-      What Our <span>Users</span> Are Saying.
+      What Our <span>Users</span> Are Saying
     </h1>
 
   </div>
 
-  <!-- VIDEOS -->
-  <div class="video-section">
+  <!-- VIDEO SCROLL -->
 
-    <!-- FIRST VIDEO -->
-    <div class="video-card">
+  <h3>Video Stories</h3>
 
-      <video
-        controls
-        muted
-        playsinline
-        preload="metadata"
-        poster={thumbnail}
-      >
-        <source src={videoUrl1} type="video/mp4" />
-      </video>
+  <div class="video-scroll">
 
-      <div class="video-content center-content">
-        <h2>PLUMRXBIO</h2>
-        <p>Salonica D</p>
-      </div>
+    {
+      videos.map((video) => (
 
-    </div>
+        <div class="video-card">
 
-    <!-- SECOND VIDEO -->
-    <div class="video-card">
+          <video
+            controls
+            muted
+            playsinline
+            preload="metadata"
+            poster={video.thumbnail}
+          >
 
-      <video
-        controls
-        muted
-        playsinline
-        preload="metadata"
-       
-      >
-        <source src={videoUrl2} type="video/mp4" />
-      </video>
+            <source
+              src={video.url}
+              type="video/mp4"
+            />
 
-      <div class="video-content center-content">
-        <h2>Quick Glow</h2>
-        <p>Semmozhi</p>
-      </div>
+          </video>
 
-    </div>
+          <div class="video-content">
+
+            <h2>
+              {video.title}
+            </h2>
+
+            <p>
+              {video.name}
+            </p>
+
+          </div>
+
+        </div>
+
+      ))
+    }
 
   </div>
 
 </section>
 
+<script>
+
+  const videos = document.querySelectorAll("video");
+
+  const cards = document.querySelectorAll(".video-card");
+
+  videos.forEach((video, index) => {
+
+    video.addEventListener("play", () => {
+
+      // STOP OTHER VIDEOS
+
+      videos.forEach((otherVideo, otherIndex) => {
+
+        if (otherVideo !== video) {
+
+          otherVideo.pause();
+
+          cards[otherIndex].classList.remove("active");
+
+        }
+
+      });
+
+      // ACTIVE VIDEO
+
+      cards[index].classList.add("active");
+
+    });
+
+    // REMOVE ACTIVE CLASS
+
+    video.addEventListener("pause", () => {
+
+      cards[index].classList.remove("active");
+
+    });
+
+  });
+
+</script>
+
 <style>
 
   .video-wrapper-section {
+
     width: 100%;
+
+    padding: 90px 20px;
 
     background: linear-gradient(
       135deg,
@@ -84,79 +169,155 @@ const thumbnail =
       #f1f5f9 100%
     );
 
-    padding: 60px 20px;
+    overflow: hidden;
   }
 
-  /* TOP TEXT */
+  /* TOP CONTENT */
 
   .top-content {
+
     text-align: center;
-    margin-bottom: 50px;
+
+    margin-bottom: 70px;
   }
 
   .small-title {
-    font-size: 18px;
+
+    font-size: 20px;
+
     color: #94a3b8;
-    margin-bottom: 15px;
+
+    margin-bottom: 14px;
   }
 
   .top-content h1 {
-    font-size: 58px;
+
+    font-size: 60px;
+
     font-weight: 800;
+
     line-height: 1.1;
+
     color: #0f172a;
   }
 
   .top-content h1 span {
+
     color: #22c55e;
   }
 
-  /* VIDEO SECTION */
+  /* VIDEO SCROLL */
 
-  .video-section {
-    width: 100%;
+  .video-scroll {
 
     display: flex;
-    justify-content: center;
+
     align-items: center;
 
-    gap: 40px;
-    flex-wrap: wrap;
+    gap: 28px;
+
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+
+    padding: 40px 10px;
+
+    scroll-behavior: smooth;
   }
 
-  .video-card {
-    width: 380px;
+  .video-scroll::-webkit-scrollbar {
 
-    background: rgba(255, 255, 255, 0.75);
+    display: none;
+  }
+
+  /* VIDEO CARD */
+
+  .video-card {
+
+    min-width: 290px;
+
+    max-width: 290px;
+
+    height: 520px;
+
+    flex-shrink: 0;
+
+    scroll-snap-align: center;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    background: rgba(255,255,255,0.95);
 
     backdrop-filter: blur(10px);
-
-    border-radius: 26px;
-    overflow: hidden;
 
     border: 1px solid rgba(255,255,255,0.5);
 
     box-shadow:
-      0 10px 30px rgba(0,0,0,0.08),
-      0 0 20px rgba(255,255,255,0.3);
+      0 12px 35px rgba(0,0,0,0.10);
+
+    transition: all 0.4s ease;
+
+    transform: scale(0.94);
   }
+
+  /* ACTIVE VIDEO */
+
+  .video-card.active {
+
+    min-width: 360px;
+
+    max-width: 360px;
+
+    height: 650px;
+
+    transform: scale(1);
+
+    z-index: 99;
+
+    box-shadow:
+      0 30px 70px rgba(0,0,0,0.22);
+  }
+
+  /* VIDEO */
 
   .video-card video {
-    width: 100%;
-    height: 500px;
 
-    object-fit: cover;
-    display: block;
+    width: 100%;
+
+    height: 80%;
+
+    object-fit: contain;
 
     background: black;
+
+    display: block;
   }
 
+  /* CONTENT */
+
   .video-content {
+
+    height: 20%;
+
     padding: 22px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
   }
 
   .video-content h2 {
+
     font-size: 30px;
+
     font-weight: 700;
 
     color: #0f172a;
@@ -165,12 +326,10 @@ const thumbnail =
   }
 
   .video-content p {
-    color: #64748b;
-    font-size: 17px;
-  }
 
-  .center-content {
-    text-align: center;
+    font-size: 18px;
+
+    color: #64748b;
   }
 
   /* MOBILE */
@@ -178,27 +337,62 @@ const thumbnail =
   @media (max-width: 768px) {
 
     .video-wrapper-section {
-      padding: 50px 15px;
+
+      padding: 60px 15px;
     }
 
     .top-content h1 {
-      font-size: 34px;
+
+      font-size: 36px;
+    }
+
+    .small-title {
+
+      font-size: 16px;
+    }
+
+    .video-scroll {
+
+      gap: 18px;
+
+      padding: 20px 5px;
     }
 
     .video-card {
-      width: 100%;
-      max-width: 340px;
+
+      min-width: 250px;
+
+      max-width: 250px;
+
+      height: 450px;
+    }
+
+    .video-card.active {
+
+      min-width: 310px;
+
+      max-width: 310px;
+
+      height: 560px;
     }
 
     .video-card video {
-      height: 380px;
+
+      height: 78%;
+    }
+
+    .video-content {
+
+      height: 22%;
     }
 
     .video-content h2 {
+
       font-size: 24px;
     }
 
     .video-content p {
+
       font-size: 15px;
     }
 
