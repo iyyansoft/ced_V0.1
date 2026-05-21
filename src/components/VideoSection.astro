@@ -5,42 +5,37 @@ const videos = [
 
   {
     url: "https://res.cloudinary.com/dlhl3okan/video/upload/v1778737926/ivp1_meqtdu.mp4",
-
     thumbnail: "/assets/img/thamnail1.png",
-
     title: "PLUMRXBIO",
-
     name: "Salonica D",
   },
 
   {
     url: "https://res.cloudinary.com/dcelalv7i/video/upload/v1778820344/WhatsApp_Video_2026-05-15_at_10.14.51_AM_uwulmz.mp4",
-
     thumbnail: "/assets/img/thamnail2.png",
-
     title: "Quick Glow",
-
     name: "Semmozhi",
   },
 
   {
     url: "https://res.cloudinary.com/dcelalv7i/video/upload/v1779267488/WhatsApp_Video_2026-05-19_at_11.06.21_AM_x69lqo.mp4",
-
     thumbnail: "/assets/img/thamnail3.png",
-
     title: "Vision Solve",
-
     name: "Vijaya Krishnan",
   },
 
   {
     url: "https://res.cloudinary.com/dcelalv7i/video/upload/v1779267974/WhatsApp_Video_2026-05-20_at_11.15.33_AM_fppjio.mp4",
-
     thumbnail: "/assets/img/thamnail4.png",
-
     title: "PRAVIOT",
-
     name: "Praveen B B",
+  },
+
+  {
+    url: "https://res.cloudinary.com/dcelalv7i/video/upload/v1779362093/WhatsApp_Video_2026-05-21_at_4.39.19_PM_w8ndc0.mp4",
+    thumbnail: "/assets/img/thumnail5.png",
+    title: "AnimalTradeX",
+    name: "Dr. K. Saravanan",
   },
 
 ];
@@ -62,7 +57,7 @@ const videos = [
 
   </div>
 
-  <!-- VIDEO HEADING -->
+  <!-- HEADING -->
 
   <h3 class="video-heading">
     Video Stories
@@ -123,7 +118,7 @@ const videos = [
 
     video.addEventListener("play", () => {
 
-      // STOP OTHER VIDEOS
+      // PAUSE OTHER VIDEOS
 
       videos.forEach((otherVideo, otherIndex) => {
 
@@ -161,7 +156,7 @@ const videos = [
 
     width: 100%;
 
-    padding: 90px 20px;
+    padding: 90px 0;
 
     background: linear-gradient(
       135deg,
@@ -180,6 +175,8 @@ const videos = [
     text-align: center;
 
     margin-bottom: 60px;
+
+    padding: 0 20px;
   }
 
   .small-title {
@@ -226,21 +223,25 @@ const videos = [
 
     display: flex;
 
-    justify-content: center;
-
     align-items: center;
 
     gap: 24px;
 
     overflow-x: auto;
 
-    padding: 20px 10px;
+    overflow-y: hidden;
+
+    padding: 20px 30px;
 
     scroll-behavior: smooth;
 
     scrollbar-width: none;
 
     flex-wrap: nowrap;
+
+    width: 100%;
+
+    box-sizing: border-box;
   }
 
   .video-scroll::-webkit-scrollbar {
@@ -252,23 +253,15 @@ const videos = [
 
   .video-card {
 
-    width: 23%;
-
-    min-width: 260px;
-
-    max-width: 300px;
+    flex: 0 0 300px;
 
     height: 500px;
-
-    flex-shrink: 0;
 
     border-radius: 30px;
 
     overflow: hidden;
 
     background: rgba(255,255,255,0.95);
-
-    backdrop-filter: blur(10px);
 
     border: 1px solid rgba(255,255,255,0.5);
 
@@ -280,26 +273,20 @@ const videos = [
     transform: scale(0.96);
   }
 
-  /* ACTIVE VIDEO CARD */
+  /* ACTIVE VIDEO */
 
   .video-card.active {
 
-    transform: scale(1.08);
-
-    width: 26%;
-
-    min-width: 320px;
-
-    max-width: 340px;
+    flex: 0 0 340px;
 
     height: 560px;
+
+    transform: scale(1.02);
 
     box-shadow:
       0 25px 60px rgba(0,0,0,0.22);
 
-    z-index: 99;
-
-    transition: all 0.4s ease;
+    z-index: 999;
   }
 
   /* VIDEO */
@@ -332,6 +319,8 @@ const videos = [
     flex-direction: column;
 
     justify-content: center;
+
+    background: white;
   }
 
   .video-content h2 {
@@ -352,35 +341,13 @@ const videos = [
     color: #64748b;
   }
 
-  /* LAPTOP VIEW */
-
-  @media (max-width: 1200px) {
-
-    .video-card {
-
-      width: 30%;
-
-      min-width: 240px;
-    }
-
-    .video-card.active {
-
-      min-width: 300px;
-
-      max-width: 320px;
-
-      height: 530px;
-    }
-
-  }
-
   /* TABLET VIEW */
 
   @media (max-width: 768px) {
 
     .video-wrapper-section {
 
-      padding: 60px 15px;
+      padding: 60px 0;
     }
 
     .top-content h1 {
@@ -400,39 +367,23 @@ const videos = [
 
     .video-scroll {
 
-      justify-content: flex-start;
-
       gap: 18px;
 
-      padding: 20px 5px;
+      padding: 20px 15px;
     }
 
     .video-card {
 
-      width: 250px;
-
-      min-width: 250px;
+      flex: 0 0 250px;
 
       height: 450px;
     }
 
     .video-card.active {
 
-      min-width: 280px;
-
-      max-width: 280px;
+      flex: 0 0 280px;
 
       height: 500px;
-    }
-
-    .video-content h2 {
-
-      font-size: 22px;
-    }
-
-    .video-content p {
-
-      font-size: 14px;
     }
 
   }
@@ -453,18 +404,14 @@ const videos = [
 
     .video-card {
 
-      width: 220px;
-
-      min-width: 220px;
+      flex: 0 0 220px;
 
       height: 400px;
     }
 
     .video-card.active {
 
-      min-width: 250px;
-
-      max-width: 250px;
+      flex: 0 0 250px;
 
       height: 450px;
     }
