@@ -89,13 +89,9 @@ const videos = [
 
           <div class="video-content">
 
-            <h2>
-              {video.title}
-            </h2>
+            <h2>{video.title}</h2>
 
-            <p>
-              {video.name}
-            </p>
+            <p>{video.name}</p>
 
           </div>
 
@@ -138,7 +134,7 @@ const videos = [
 
     });
 
-    // REMOVE ACTIVE CLASS
+    // REMOVE ACTIVE CARD
 
     video.addEventListener("pause", () => {
 
@@ -210,9 +206,9 @@ const videos = [
 
     text-align: center;
 
-    font-size: 30px;
+    font-size: 32px;
 
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 
     color: #0f172a;
   }
@@ -231,17 +227,13 @@ const videos = [
 
     overflow-y: hidden;
 
-    padding: 20px 30px;
+    padding: 20px 40px;
 
     scroll-behavior: smooth;
 
     scrollbar-width: none;
 
-    flex-wrap: nowrap;
-
-    width: 100%;
-
-    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
   }
 
   .video-scroll::-webkit-scrollbar {
@@ -253,15 +245,19 @@ const videos = [
 
   .video-card {
 
-    flex: 0 0 300px;
+    flex: 0 0 calc((100% - 96px) / 4.5);
 
-    height: 500px;
+    max-width: 320px;
+
+    min-width: 260px;
+
+    height: 520px;
 
     border-radius: 30px;
 
     overflow: hidden;
 
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.96);
 
     border: 1px solid rgba(255,255,255,0.5);
 
@@ -270,23 +266,19 @@ const videos = [
 
     transition: all 0.4s ease;
 
-    transform: scale(0.96);
+    transform: scale(0.97);
   }
 
-  /* ACTIVE VIDEO */
+  /* ACTIVE CARD */
 
   .video-card.active {
-
-    flex: 0 0 340px;
-
-    height: 560px;
 
     transform: scale(1.02);
 
     box-shadow:
       0 25px 60px rgba(0,0,0,0.22);
 
-    z-index: 999;
+    z-index: 99;
   }
 
   /* VIDEO */
@@ -325,7 +317,7 @@ const videos = [
 
   .video-content h2 {
 
-    font-size: 24px;
+    font-size: 22px;
 
     font-weight: 700;
 
@@ -341,7 +333,19 @@ const videos = [
     color: #64748b;
   }
 
-  /* TABLET VIEW */
+  /* LAPTOP */
+
+  @media (max-width: 1200px) {
+
+    .video-card {
+
+      flex: 0 0 calc((100% - 48px) / 3.5);
+
+    }
+
+  }
+
+  /* TABLET */
 
   @media (max-width: 768px) {
 
@@ -352,43 +356,31 @@ const videos = [
 
     .top-content h1 {
 
-      font-size: 38px;
-    }
-
-    .small-title {
-
-      font-size: 16px;
+      font-size: 40px;
     }
 
     .video-heading {
 
-      font-size: 24px;
+      font-size: 26px;
     }
 
     .video-scroll {
 
-      gap: 18px;
+      padding: 20px 16px;
 
-      padding: 20px 15px;
+      gap: 18px;
     }
 
     .video-card {
 
-      flex: 0 0 250px;
+      flex: 0 0 260px;
 
-      height: 450px;
-    }
-
-    .video-card.active {
-
-      flex: 0 0 280px;
-
-      height: 500px;
+      height: 460px;
     }
 
   }
 
-  /* MOBILE VIEW */
+  /* MOBILE */
 
   @media (max-width: 480px) {
 
@@ -409,11 +401,14 @@ const videos = [
       height: 400px;
     }
 
-    .video-card.active {
+    .video-content h2 {
 
-      flex: 0 0 250px;
+      font-size: 20px;
+    }
 
-      height: 450px;
+    .video-content p {
+
+      font-size: 14px;
     }
 
   }
