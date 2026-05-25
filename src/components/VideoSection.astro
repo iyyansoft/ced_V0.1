@@ -57,7 +57,7 @@ const videos = [
     </p>
 
     <h1>
-      What Our <span>Beneficiaries</span> Are Saying
+      What Our <span>Users</span> Are Saying
     </h1>
 
   </div>
@@ -232,7 +232,7 @@ const videos = [
 
     overflow-y: hidden;
 
-    padding: 20px 40px;
+    padding: 80px 40px 100px;
 
     scroll-behavior: smooth;
 
@@ -243,7 +243,7 @@ const videos = [
     scrollbar-color: #d8b4fe rgba(0,0,0,0.08);
   }
 
-  /* PREMIUM MILD SCROLLBAR */
+  /* PREMIUM SCROLLBAR */
 
   .video-scroll::-webkit-scrollbar {
 
@@ -290,28 +290,30 @@ const videos = [
 
     overflow: hidden;
 
-    background: rgba(255,255,255,0.96);
+    background: #fff;
 
     border: 1px solid rgba(255,255,255,0.5);
 
     box-shadow:
       0 12px 35px rgba(0,0,0,0.10);
 
-    transition: all 0.4s ease;
+    transition:
+      transform 0.7s ease,
+      box-shadow 0.7s ease;
 
-    transform: scale(0.97);
+    transform: scale(0.92);
   }
 
   /* ACTIVE CARD */
 
   .video-card.active {
 
-    transform: scale(1.02);
+    transform: scale(1.05);
 
     box-shadow:
-      0 25px 60px rgba(0,0,0,0.22);
+      0 35px 90px rgba(0,0,0,0.30);
 
-    z-index: 99;
+    z-index: 999;
   }
 
   /* VIDEO */
@@ -324,9 +326,22 @@ const videos = [
 
     object-fit: contain;
 
-    background: black;
+    object-position: center;
+
+    background: #000;
 
     display: block;
+
+    border-radius: 30px 30px 0 0;
+
+    transition: transform 0.8s ease;
+  }
+
+  /* VIDEO ZOOM */
+
+  .video-card.active video {
+
+    transform: scale(1.03);
   }
 
   /* CONTENT */
@@ -346,6 +361,8 @@ const videos = [
     justify-content: center;
 
     background: white;
+
+    border-radius: 0 0 30px 30px;
   }
 
   .video-content h2 {
@@ -399,7 +416,7 @@ const videos = [
 
     .video-scroll {
 
-      padding: 20px 16px;
+      padding: 70px 16px 90px;
 
       gap: 18px;
     }
@@ -409,6 +426,16 @@ const videos = [
       flex: 0 0 260px;
 
       height: 460px;
+    }
+
+    .video-card.active {
+
+      transform: scale(1.04);
+    }
+
+    .video-card.active video {
+
+      transform: scale(1.02);
     }
 
   }
@@ -447,6 +474,16 @@ const videos = [
     .video-scroll::-webkit-scrollbar {
 
       height: 5px;
+    }
+
+    .video-card.active {
+
+      transform: scale(1.02);
+    }
+
+    .video-card.active video {
+
+      transform: scale(1.01);
     }
 
   }
