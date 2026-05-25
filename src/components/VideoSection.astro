@@ -1,6 +1,4 @@
 ---
-// VideoSection.astro
-
 const videos = [
 
   {
@@ -38,9 +36,9 @@ const videos = [
     name: "Dr. K. Saravanan",
   },
 
-    {
-    url: "https://res.cloudinary.com/dcelalv7i/video/upload/v1779519185/WhatsApp_Video_2026-05-23_at_11.41.06_AM_wy4c35.mp4",
-    thumbnail: "/assets/img/thamnail6.png",
+  {
+    url: "https://res.cloudinary.com/dcelalv7i/video/upload/v1779692399/WhatsApp_Video_2026-05-25_at_12.23.17_PM_t9ibhw.mp4",
+    thumbnail: "/assets/img/thamnail7.png",
     title: "Svachh Water Filter",
     name: "Kota Nageshwar",
   },
@@ -59,7 +57,7 @@ const videos = [
     </p>
 
     <h1>
-      What Our <span>Users</span> Are Saying
+      What Our <span>Beneficiaries</span> Are Saying
     </h1>
 
   </div>
@@ -238,14 +236,42 @@ const videos = [
 
     scroll-behavior: smooth;
 
-    scrollbar-width: none;
-
     -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+
+    scrollbar-color: #d8b4fe rgba(0,0,0,0.08);
   }
+
+  /* PREMIUM MILD SCROLLBAR */
 
   .video-scroll::-webkit-scrollbar {
 
-    display: none;
+    height: 8px;
+  }
+
+  .video-scroll::-webkit-scrollbar-track {
+
+    background: rgba(0,0,0,0.08);
+
+    border-radius: 20px;
+  }
+
+  .video-scroll::-webkit-scrollbar-thumb {
+
+    background: linear-gradient(
+      90deg,
+      #c4b5fd,
+      #ddd6fe,
+      #e9d5ff
+    );
+
+    border-radius: 20px;
+  }
+
+  .video-scroll::-webkit-scrollbar-thumb:hover {
+
+    background: #d8b4fe;
   }
 
   /* VIDEO CARD */
@@ -416,6 +442,11 @@ const videos = [
     .video-content p {
 
       font-size: 14px;
+    }
+
+    .video-scroll::-webkit-scrollbar {
+
+      height: 5px;
     }
 
   }
