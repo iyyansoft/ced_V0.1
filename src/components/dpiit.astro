@@ -47,35 +47,83 @@
 
 
 <div class="col-lg-10">
-<section class="py-3">
-  <div class="container">
-    <div class="row justify-space-between py-2">
-      <div class="col-lg-4 ms-auto">
-        <div class="nav-wrapper position-relative">
-          <ul class="nav  nav-fill flex-column p-1 me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <li class="nav-item">
-              <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#2025-26" role="tab" aria-controls="v-pills-home" aria-selected="true">2025-26</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#2024-25" role="tab" aria-controls="v-pills-profile" aria-selected="false">2024-25</a>
-            </li>
+  <div class="row justify-content-between py-2">
+    <div class="col-lg-3">
+      <div class="nav-wrapper position-relative">
+        <ul class="nav nav-fill flex-column p-1 me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <li class="nav-item">
+            <a class="nav-link active" id="v-pills-new-tab" data-bs-toggle="pill" href="#2026-27" role="tab" aria-controls="v-pills-new" aria-selected="true">2026-27</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="v-pills-home-tab" data-bs-toggle="pill" href="#2025-26" role="tab" aria-controls="v-pills-home" aria-selected="false">2025-26</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#2024-25" role="tab" aria-controls="v-pills-profile" aria-selected="false">2024-25</a>
+          </li>
 
-            <li class="nav-item">
-              <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#2023-24" role="tab" aria-controls="v-pills-messages" aria-selected="false">2023-24</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#2023-24" role="tab" aria-controls="v-pills-messages" aria-selected="false">2023-24</a>
+          </li>
 
-            <li class="nav-item">
-              <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#2022-23" role="tab" aria-controls="v-pills-settings" aria-selected="false">2022-23</a>
-            </li>
-              <li class="nav-item">
-              <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#2021-22" role="tab" aria-controls="v-pills-settings" aria-selected="false">2021-22</a>
-            </li>
-          </ul>
-        </div>
+          <li class="nav-item">
+            <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#2022-23" role="tab" aria-controls="v-pills-settings" aria-selected="false">2022-23</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="v-pills-settings-21-tab" data-bs-toggle="pill" href="#2021-22" role="tab" aria-controls="v-pills-settings" aria-selected="false">2021-22</a>
+          </li>
+        </ul>
       </div>
-      <div class="col-lg-8 me-auto my-auto text-start">
-        <div class="tab-content" id="v-pills-tabContent">
-          <div class="tab-pane fade show active" id="2025-26" role="tabpanel" aria-labelledby="v-pills-home-tab">
+    </div>
+
+    <div class="col-lg-9 text-start">
+      <div class="tab-content" id="v-pills-tabContent">
+        <!-- 2026-27 Section -->
+        <div class="tab-pane fade show active" id="2026-27" role="tabpanel" aria-labelledby="v-pills-new-tab">
+          <div class="table-responsive">
+            <table class="table table-pricing">
+              <thead class="text-light">
+                <tr>
+                  <th class="ps-2">
+                    <h6 class="mb-0">Venture Name</h6>
+                  </th>
+                  <th class="text-center">
+                    <h6 class="font-weight-bold">Year of recognition</h6>
+                  </th>
+                  <th class="text-center">
+                    <h6 class="font-weight-bold">DPIIT No.</h6>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="py-3">
+                    <span class="text-xs">NextGen Robotics Private Limited</span>
+                  </td>
+                  <td class="text-center py-3">
+                    <span class="text-xs text-dark font-weight-normal">2026-27</span>
+                  </td>
+                  <td class="text-center py-3">
+                    <span class="text-xs text-dark font-weight-normal">DIPP224589</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3">
+                    <span class="text-xs">Quantum Leap Systems</span>
+                  </td>
+                  <td class="text-center py-3">
+                    <span class="text-xs text-dark font-weight-normal">2026-27</span>
+                  </td>
+                  <td class="text-center py-3">
+                    <span class="text-xs text-dark font-weight-normal">DIPP238912</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 2025-26 Section -->
+        <div class="tab-pane fade" id="2025-26" role="tabpanel" aria-labelledby="v-pills-home-tab">
           <div class="table-responsive">
           <table class="table table-pricing">
             <thead class="text-light">
@@ -101,10 +149,10 @@
     <span class="text-xs">Motor-X India Mobility Pvt. Ltd.</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2025-26</i>
+    <span class="text-xs text-dark font-weight-normal">2025-26</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP208345</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP208345</span>
   </td>
 </tr>
 
@@ -138,10 +186,10 @@
     <span class="text-xs">Evoxia Labs India Pvt. Ltd.</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP174945</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP174945</span>
   </td>
 </tr>
 <tr>
@@ -149,10 +197,10 @@
     <span class="text-xs">Digipolis Technologies Private limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP184951</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP184951</span>
   </td>
 </tr>
 <tr>
@@ -160,10 +208,10 @@
     <span class="text-xs">Bugbysterslabs Private limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP148569</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP148569</span>
   </td>
 </tr>
 <tr>
@@ -171,10 +219,10 @@
     <span class="text-xs">Jedik Motors</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP153330</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP153330</span>
   </td>
 </tr>
 <tr>
@@ -182,10 +230,10 @@
     <span class="text-xs">Skypler AI Technologies Private limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP145679</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP145679</span>
   </td>
 </tr>
 <tr>
@@ -193,10 +241,10 @@
     <span class="text-xs">Sky Spectacle Drone Shows Private Limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP142632</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP142632</span>
   </td>
 </tr>
 <tr>
@@ -204,10 +252,10 @@
     <span class="text-xs">Fabrula Private limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP169164</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP169164</span>
   </td>
 </tr>
 <tr>
@@ -215,10 +263,10 @@
     <span class="text-xs">Netzero E-Waste India Private limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP136753</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP136753</span>
   </td>
 </tr>
 <tr>
@@ -226,10 +274,10 @@
     <span class="text-xs">MACHKG ICT LLP</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP128710</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP128710</span>
   </td>
 </tr>
 <tr>
@@ -237,10 +285,10 @@
     <span class="text-xs">Ecourja Innovations (OPC) Private limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP196207</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP196207</span>
   </td>
 </tr>
 <tr>
@@ -248,10 +296,10 @@
     <span class="text-xs">Sumit Healthtech Private limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP54974</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP54974</span>
   </td>
 </tr>
 <tr>
@@ -259,10 +307,10 @@
     <span class="text-xs">SpritOn Innovations LLP</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP139201</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP139201</span>
   </td>
 </tr>
 <tr>
@@ -270,10 +318,10 @@
     <span class="text-xs">Telspell Dictation Technologies Private limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2024-25</i>
+    <span class="text-xs text-dark font-weight-normal">2024-25</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP189577</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP189577</span>
   </td>
 </tr>
 
@@ -308,10 +356,10 @@
     <span class="text-xs">Value1 Tech Innovations Private Limitted</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP137801</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP137801</span>
   </td>
 </tr>
 <tr>
@@ -319,10 +367,10 @@
     <span class="text-xs">Tiden Mobility Private Limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP134640</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP134640</span>
   </td>
 </tr>
 <tr>
@@ -330,10 +378,10 @@
     <span class="text-xs">BRZA Tech / Service Geni</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP145442</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP145442</span>
   </td>
 </tr>
 <tr>
@@ -341,10 +389,10 @@
     <span class="text-xs">Servicewired Technology Solutions Private Limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP131779</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP131779</span>
   </td>
 </tr>
 <tr>
@@ -352,10 +400,10 @@
     <span class="text-xs">Samruva Technologies</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP143715</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP143715</span>
   </td>
 </tr>
 <tr>
@@ -363,10 +411,10 @@
     <span class="text-xs">Al-Zira</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP156154</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP156154</span>
   </td>
 </tr>
 <tr>
@@ -374,10 +422,10 @@
     <span class="text-xs">NOQU</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP152400</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP152400</span>
   </td>
 </tr>
 <tr>
@@ -385,10 +433,10 @@
     <span class="text-xs">TriOx</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP150330</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP150330</span>
   </td>
 </tr>
 <tr>
@@ -396,10 +444,10 @@
     <span class="text-xs">Reneonix Private Limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP156887</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP156887</span>
   </td>
 </tr>
 <tr>
@@ -407,10 +455,10 @@
     <span class="text-xs">Chittam Private Limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP142286</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP142286</span>
   </td>
 </tr>
 <tr>
@@ -418,10 +466,10 @@
     <span class="text-xs">INFINTIN MOBILITY SOLUTIONS PVT LTD</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP155855</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP155855</span>
   </td>
 </tr>
 <tr>
@@ -429,10 +477,10 @@
     <span class="text-xs">Tamizh</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP145562</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP145562</span>
   </td>
 </tr>
 <tr>
@@ -440,10 +488,10 @@
     <span class="text-xs">GyanMatrix Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP153511</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP153511</span>
   </td>
 </tr>
 <tr>
@@ -451,10 +499,10 @@
     <span class="text-xs">ETASMART PVT LTD</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP145336</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP145336</span>
   </td>
 </tr>
 <tr>
@@ -462,10 +510,10 @@
     <span class="text-xs">GECA INNOTECH PVT LTD</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP141392</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP141392</span>
   </td>
 </tr>
 
@@ -474,10 +522,10 @@
     <span class="text-xs">Thermo Desalyn Innovation Technology Pvt Ltd (aka.</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP150269</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP150269</span>
   </td>
 </tr>
 
@@ -486,10 +534,10 @@
     <span class="text-xs">Climatequant</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPPI58253</i>
+    <span class="text-xs text-dark font-weight-normal">DIPPI58253</span>
   </td>
 </tr>
 <tr>
@@ -497,10 +545,10 @@
     <span class="text-xs">D-Rube Labs and Research Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP123275</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP123275</span>
   </td>
 </tr>
 <tr>
@@ -508,10 +556,10 @@
     <span class="text-xs">Ausmit technology pvt. ltd.</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2023-24</i>
+    <span class="text-xs text-dark font-weight-normal">2023-24</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP155726</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP155726</span>
   </td>
 </tr>
 
@@ -546,10 +594,10 @@
     <span class="text-xs">Vividobots Private Limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP81921</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP81921</span>
   </td>
 </tr>
 <tr>
@@ -557,10 +605,10 @@
     <span class="text-xs">TRIZ AI Private Limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP81704</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP81704</span>
   </td>
 </tr>
 <tr>
@@ -568,10 +616,10 @@
     <span class="text-xs">Sharkitude Private Limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP82453</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP82453</span>
   </td>
 </tr>
 <tr>
@@ -579,10 +627,10 @@
     <span class="text-xs">Instagood Tech Solutions Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP81356</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP81356</span>
   </td>
 </tr>
 <tr>
@@ -590,10 +638,10 @@
     <span class="text-xs">IM Robonix</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP95130</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP95130</span>
   </td>
 </tr>
 <tr>
@@ -601,10 +649,10 @@
     <span class="text-xs">Harvtech</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP101548</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP101548</span>
   </td>
 </tr>
 <tr>
@@ -612,10 +660,10 @@
     <span class="text-xs">Aatral ESP</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP113070</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP113070</span>
   </td>
 </tr>
 <tr>
@@ -623,10 +671,10 @@
     <span class="text-xs">Ecocharm</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP98377</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP98377</span>
   </td>
 </tr>
 <tr>
@@ -634,10 +682,10 @@
     <span class="text-xs">Spacetug</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP106519</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP106519</span>
   </td>
 </tr>
 <tr>
@@ -645,10 +693,10 @@
     <span class="text-xs">AtumX Innovations</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP117659</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP117659</span>
   </td>
 </tr>
 <tr>
@@ -656,10 +704,10 @@
     <span class="text-xs">MEINE Electric Automotives Pvt. Ltd.</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP118941</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP118941</span>
   </td>
 </tr>
 <tr>
@@ -667,10 +715,10 @@
     <span class="text-xs">Zech Innovation (OPC) Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP108716</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP108716</span>
   </td>
 </tr>
 <tr>
@@ -678,10 +726,10 @@
     <span class="text-xs">REUDE</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP113120</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP113120</span>
   </td>
 </tr>
 <tr>
@@ -689,10 +737,10 @@
     <span class="text-xs">Mithron India Smart Service Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP112063</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP112063</span>
   </td>
 </tr>
 <tr>
@@ -700,10 +748,10 @@
     <span class="text-xs">Seinilam Agri Business Culture Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP115933</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP115933</span>
   </td>
 </tr>
 <tr>
@@ -711,10 +759,10 @@
     <span class="text-xs">Teraact City</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP121920</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP121920</span>
   </td>
 </tr>
 <tr>
@@ -722,10 +770,10 @@
     <span class="text-xs">Xact Dignotek Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP136234</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP136234</span>
   </td>
 </tr>
 <tr>
@@ -733,10 +781,10 @@
     <span class="text-xs">Micha Lifesciences Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP39007</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP39007</span>
   </td>
 </tr>
 
@@ -745,10 +793,10 @@
     <span class="text-xs">Maasta</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2022-23</i>
+    <span class="text-xs text-dark font-weight-normal">2022-23</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP125853</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP125853</span>
   </td>
 </tr>
 
@@ -783,10 +831,10 @@
     <span class="text-xs">Fititout Solutions</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2021-22</i>
+    <span class="text-xs text-dark font-weight-normal">2021-22</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP78649</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP78649</span>
   </td>
 </tr>
 <tr>
@@ -794,10 +842,10 @@
     <span class="text-xs">Destratum Solutions Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2021-22</i>
+    <span class="text-xs text-dark font-weight-normal">2021-22</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP98045</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP98045</span>
   </td>
 </tr>
 <tr>
@@ -805,10 +853,10 @@
     <span class="text-xs">Blinc Smart Home Solutions Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2021-22</i>
+    <span class="text-xs text-dark font-weight-normal">2021-22</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP94680</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP94680</span>
   </td>
 </tr>
 <tr>
@@ -816,10 +864,10 @@
     <span class="text-xs">Hedvuk Private Limited</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2021-22</i>
+    <span class="text-xs text-dark font-weight-normal">2021-22</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP89342</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP89342</span>
   </td>
 </tr>
 <tr>
@@ -827,10 +875,10 @@
     <span class="text-xs">Primas Bioscience Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2021-22</i>
+    <span class="text-xs text-dark font-weight-normal">2021-22</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP39862</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP39862</span>
   </td>
 </tr>
 <tr>
@@ -838,10 +886,10 @@
     <span class="text-xs">Genprotic Biopharma Pvt Ltd</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2021-22</i>
+    <span class="text-xs text-dark font-weight-normal">2021-22</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP76511</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP76511</span>
   </td>
 </tr>
 
@@ -850,10 +898,10 @@
     <span class="text-xs">Small Acts Tech Pvt Ltd (mSiren)</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">2021-22</i>
+    <span class="text-xs text-dark font-weight-normal">2021-22</span>
   </td>
   <td class="text-center py-3">
-    <i class="fas fa-check text-primary text-xs">DIPP50280</i>
+    <span class="text-xs text-dark font-weight-normal">DIPP50280</span>
   </td>
 </tr>
 
@@ -865,8 +913,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
        
       </div>
     </div>
