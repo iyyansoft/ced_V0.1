@@ -1,264 +1,1962 @@
 ---
-/* Header component */
+/* Redesigned Premium Header component - Next-Gen Creative Tech Layout */
 ---
+
+<!-- Load Google Fonts for premium typography -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@400;600;700;800;900&family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;600;700&family=Urbanist:wght@700;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
 <style>
-*{
-  box-sizing:border-box;
-  font-family:system-ui;
-  margin:0;
-  padding:0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* ===== HERO ROOT ===== */
-.ced-view{
-  min-height:100vh;
-  display:flex;
-  align-items:center;        /* vertical center */
-  justify-content:center;    /* horizontal center */
-  overflow:hidden;           /* prevent horizontal scroll issues */
+.ced-view {
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #ced4e0;
+  /* Premium subtle dot matrix tech background and soft pastel radial blends */
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(254, 127, 75, 0.22) 0%, rgba(0, 0, 0, 0) 50%),
+    radial-gradient(circle at 45% 75%, rgba(213, 27, 138, 0.20) 0%, rgba(0, 0, 0, 0) 45%),
+    radial-gradient(circle at 50% 50%, rgba(250, 251, 252, 0.4) 0%, #ced4e0 100%);
+  position: relative;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #12101a;
+  padding: 60px 40px 60px 40px;
+}
 
-  background:url("/assets/img/hero_bg.jpg");
+/* ===== 3D NEON WARP TUNNEL & GRID BACKGROUND ===== */
+.tech-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  perspective: 800px;
+  background-color: #fafbfc;
+}
 
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+/* Faint digital stardust grid */
+.tech-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(rgba(18, 16, 26, 0.035) 1px, transparent 1px),
+    radial-gradient(rgba(211, 27, 138, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  mask-image: radial-gradient(circle, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
+  opacity: 0.85;
+}
+
+/* Animated Glowing Tech Blobs */
+.tech-glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(130px);
+  opacity: 0.65;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.blob-1 {
+  top: -10%;
+  left: 15%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(254, 127, 75, 0.65) 0%, transparent 85%);
+  animation: floatBlob1 25s ease-in-out infinite alternate;
+}
+.blob-2 {
+  bottom: -5%;
+  right: 12%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(213, 27, 138, 0.55) 0%, transparent 85%);
+  animation: floatBlob2 28s ease-in-out infinite alternate;
+}
+
+@keyframes floatBlob1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(80px, -60px) scale(1.15); }
+}
+@keyframes floatBlob2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-90px, 70px) scale(1.2); }
+}
+
+/* Infinite 3D Cyber Grid Floor */
+.cyber-grid-floor {
+  position: absolute;
+  bottom: -15%;
+  left: -50%;
+  width: 200%;
+  height: 75%;
+  background-image: 
+    linear-gradient(to right, rgba(211, 27, 138, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(211, 27, 138, 0.12) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: rotateX(72deg);
+  transform-origin: 50% 100%;
+  animation: gridScroll 16s linear infinite;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 15%, transparent 85%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 15%, transparent 85%);
+  opacity: 0.8;
+  z-index: 1;
+}
+@keyframes gridScroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 400px; }
+}
+
+/* 3D Warp Tunnel Rings */
+.tunnel-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  margin-top: -300px;
+  margin-left: -300px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  background: 
+    linear-gradient(#fafbfc, #fafbfc) padding-box, 
+    linear-gradient(135deg, rgba(224, 40, 152, 0.3) 0%, rgba(254, 127, 75, 0.3) 100%) border-box;
+  box-shadow: 0 0 25px rgba(224, 40, 152, 0.12);
+  pointer-events: none;
+  z-index: 2;
+  transform: translate3d(0, 0, -800px);
+  opacity: 0;
+  animation: tunnelTravel 8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+/* Staggered ring travel delays */
+.ring-1 { animation-delay: 0s; }
+.ring-2 { animation-delay: -1.6s; }
+.ring-3 { animation-delay: -3.2s; }
+.ring-4 { animation-delay: -4.8s; }
+.ring-5 { animation-delay: -6.4s; }
+
+@keyframes tunnelTravel {
+  0% {
+    transform: translate3d(0, 0, -800px) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(0, 0, 300px) rotate(45deg);
+    opacity: 0;
+    filter: blur(5px);
+  }
+}
+
+/* Floating 3D Wireframe Geometries */
+.cube-3d {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 2;
+}
+.cube-3d .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(254, 127, 75, 0.4);
+  background: rgba(254, 127, 75, 0.03);
+  box-shadow: inset 0 0 10px rgba(254, 127, 75, 0.1);
+}
+.cube-3d .front  { transform: rotateY(0deg) translateZ(40px); }
+.cube-3d .back   { transform: rotateY(180deg) translateZ(40px); }
+.cube-3d .left   { transform: rotateY(-90deg) translateZ(40px); }
+.cube-3d .right  { transform: rotateY(90deg) translateZ(40px); }
+.cube-3d .top    { transform: rotateX(90deg) translateZ(40px); }
+.cube-3d .bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+.cube-1 {
+  top: 15%;
+  left: 8%;
+  animation: spinFloat1 18s linear infinite;
+}
+.cube-2 {
+  bottom: 25%;
+  left: 45%;
+  animation: spinFloat2 24s linear infinite;
+}
+.cube-3 {
+  top: 20%;
+  right: 10%;
+  animation: spinFloat3 20s linear infinite;
+}
+.cube-3 .face {
+  border-color: rgba(211, 27, 138, 0.45);
+  background: rgba(211, 27, 138, 0.03);
+  box-shadow: inset 0 0 10px rgba(211, 27, 138, 0.1);
+}
+
+@keyframes spinFloat1 {
+  0% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.7, 0.7, 0.7); }
+  50% { transform: translate3d(10px, -20px, 40px) rotateX(180deg) rotateY(90deg) rotateZ(45deg) scale3d(0.7, 0.7, 0.7); }
+  100% { transform: translate3d(0, 0, 0) rotateX(360deg) rotateY(360deg) rotateZ(360deg) scale3d(0.7, 0.7, 0.7); }
+}
+@keyframes spinFloat2 {
+  0% { transform: translate3d(0, 0, 0) rotateX(45deg) rotateY(0deg) rotateZ(0deg) scale3d(0.5, 0.5, 0.5); }
+  50% { transform: translate3d(-15px, 20px, -30px) rotateX(225deg) rotateY(180deg) rotateZ(180deg) scale3d(0.5, 0.5, 0.5); }
+  100% { transform: translate3d(0, 0, 0) rotateX(405deg) rotateY(360deg) rotateZ(360deg) scale3d(0.5, 0.5, 0.5); }
+}
+@keyframes spinFloat3 {
+  0% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(45deg) rotateZ(0deg) scale3d(0.9, 0.9, 0.9); }
+  50% { transform: translate3d(-20px, -15px, 60px) rotateX(90deg) rotateY(225deg) rotateZ(-45deg) scale3d(0.9, 0.9, 0.9); }
+  100% { transform: translate3d(0, 0, 0) rotateX(360deg) rotateY(405deg) rotateZ(0deg) scale3d(0.9, 0.9, 0.9); }
+}
+
+/* 3D Startup Growth Columns (Valuation/Success Chart) */
+.startup-chart-3d {
+  position: absolute;
+  bottom: 22%;
+  left: 6%;
+  width: 120px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) rotateZ(30deg);
+  display: flex;
+  gap: 15px;
+  z-index: 2;
+}
+.chart-bar-3d {
+  position: relative;
+  width: 20px;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+.bar-column {
+  transform-origin: bottom;
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 80px;
+  transform-style: preserve-3d;
+}
+.bar-column .face {
+  position: absolute;
+  width: 20px;
+  height: 80px;
+  background: rgba(254, 127, 75, 0.15);
+  border: 1px solid rgba(254, 127, 75, 0.6);
+}
+.bar-column .front  { transform: rotateY(0deg) translateZ(10px); }
+.bar-column .back   { transform: rotateY(180deg) translateZ(10px); }
+.bar-column .left   { transform: rotateY(-90deg) translateZ(10px); }
+.bar-column .right  { transform: rotateY(90deg) translateZ(10px); }
+.bar-column .top    { width: 20px; height: 20px; transform: rotateX(90deg) translateZ(10px); background: rgba(254, 127, 75, 0.45); }
+
+.bar-1 .bar-column { animation: barGrow1 4s ease-in-out infinite alternate; }
+.bar-2 .bar-column { animation: barGrow2 4s ease-in-out infinite alternate; }
+.bar-3 .bar-column { animation: barGrow3 4s ease-in-out infinite alternate; }
+
+@keyframes barGrow1 { 0% { transform: scaleY(0.7); } 100% { transform: scaleY(1.2); } }
+@keyframes barGrow2 { 0% { transform: scaleY(0.8); } 100% { transform: scaleY(1.3); } }
+@keyframes barGrow3 { 0% { transform: scaleY(0.6); } 100% { transform: scaleY(1.4); } }
+
+/* 3D Gear of Innovation (Ideation Engine) */
+.gear-assembly-3d {
+  position: absolute;
+  top: 15%;
+  right: 6%;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  animation: gearOrbit 30s ease-in-out infinite;
+  z-index: 2;
+}
+.gear-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: gearSpin 12s linear infinite;
+}
+.gear-disc {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(213, 27, 138, 0.6);
+  background: rgba(213, 27, 138, 0.05);
+  top: 10px;
+  left: 10px;
+  transform-style: preserve-3d;
+}
+.gear-tooth {
+  position: absolute;
+  width: 16px;
+  height: 24px;
+  border: 1px solid rgba(213, 27, 138, 0.6);
+  background: rgba(213, 27, 138, 0.1);
+  top: 38px;
+  left: 42px;
+  transform-style: preserve-3d;
+}
+.tooth-1 { transform: rotate(0deg) translateY(-40px); }
+.tooth-2 { transform: rotate(45deg) translateY(-40px); }
+.tooth-3 { transform: rotate(90deg) translateY(-40px); }
+.tooth-4 { transform: rotate(135deg) translateY(-40px); }
+.tooth-5 { transform: rotate(180deg) translateY(-40px); }
+.tooth-6 { transform: rotate(225deg) translateY(-40px); }
+.tooth-7 { transform: rotate(270deg) translateY(-40px); }
+.tooth-8 { transform: rotate(315deg) translateY(-40px); }
+
+@keyframes gearSpin {
+  0% { transform: rotateY(25deg) rotateX(15deg) rotateZ(0deg); }
+  100% { transform: rotateY(25deg) rotateX(15deg) rotateZ(360deg); }
+}
+@keyframes gearOrbit {
+  0% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-10px, 15px, 30px); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* 3D Launching Startup Rocket */
+.rocket-container-3d {
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  width: 60px;
+  height: 120px;
+  transform-style: preserve-3d;
+  animation: rocketFloat 10s ease-in-out infinite;
+  z-index: 2;
+}
+.rocket-body-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(20deg) rotateY(-35deg) rotateZ(15deg);
+}
+.rocket-hull {
+  position: absolute;
+  width: 24px;
+  height: 60px;
+  border: 1px solid rgba(254, 127, 75, 0.6);
+  background: rgba(254, 127, 75, 0.03);
+  left: 18px;
+  top: 30px;
+  transform-style: preserve-3d;
+}
+.hull-f { transform: rotateY(0deg) translateZ(12px); }
+.hull-b { transform: rotateY(180deg) translateZ(12px); }
+.hull-l { transform: rotateY(-90deg) translateZ(12px); }
+.hull-r { transform: rotateY(90deg) translateZ(12px); }
+
+.rocket-nose {
+  position: absolute;
+  width: 24px;
+  height: 30px;
+  left: 18px;
+  top: 0;
+  transform-style: preserve-3d;
+}
+.nose-face {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 30px solid rgba(211, 27, 138, 0.15);
+  border-bottom-color: rgba(211, 27, 138, 0.6);
+  transform-origin: 50% 100%;
+}
+.nose-f { transform: rotateY(0deg) translateZ(12px) rotateX(22deg); }
+.nose-b { transform: rotateY(180deg) translateZ(12px) rotateX(22deg); }
+.nose-l { transform: rotateY(-90deg) translateZ(12px) rotateX(22deg); }
+.nose-r { transform: rotateY(90deg) translateZ(12px) rotateX(22deg); }
+
+.rocket-fin {
+  position: absolute;
+  width: 16px;
+  height: 24px;
+  border: 1px solid rgba(211, 27, 138, 0.6);
+  background: rgba(211, 27, 138, 0.1);
+  top: 66px;
+}
+.fin-l { left: 2px; transform: rotateY(-45deg); }
+.fin-r { right: 2px; transform: rotateY(45deg); }
+
+@keyframes rocketFloat {
+  0% { transform: translate3d(0, 0, 0) translateY(0); }
+  50% { transform: translate3d(5px, -15px, 20px) translateY(-8px); }
+  100% { transform: translate3d(0, 0, 0) translateY(0); }
+}
+
+/* Responsive Hide */
+@media(max-width: 992px) {
+  .tunnel-ring, .cyber-grid-floor, .cube-3d, .startup-chart-3d, .gear-assembly-3d, .rocket-container-3d {
+    display: none !important;
+  }
 }
 
 /* ===== HERO CONTAINER ===== */
-.ced-hero-wrap{
-  width:100%;
-  max-width:1200px;
-  display:grid;
-  grid-template-columns:420px 1fr;
-  gap:60px;
-  padding:80px 40px;
-  align-items:center;
+.ced-hero-wrap {
+  width: 100%;
+  max-width: 1360px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 120px;
+  align-items: center;
+  position: relative;
+  z-index: 5;
 }
 
-/* ===== LEFT CONTENT ===== */
-.ced-hero-content{
-  max-width:460px;
-  padding-left:24px;
-  border-left:5px solid #250c70;
+/* ===== LEFT COLUMN ===== */
+.ced-hero-left {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
 }
 
-.ced-hero-content h1{
-  font-size:56px;
-  line-height:1.15;
-  color:#111827;
+/* Accent bar wrapped title block */
+.ced-title-block {
+  position: relative;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.ced-hero-content span{
-  color:#250c70;
-  font-size:50px;
+.ced-title-block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 5px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #d31b8a 0%, #fe7f4b 100%);
+  box-shadow: 0 4px 15px rgba(211, 27, 138, 0.35);
 }
 
-.ced-hero-content p{
-  margin-top:18px;
-  color:#111827;
-  font-size:15px;
-  line-height:1.75;
-  max-width:400px;
-  font-weight:600;
+/* Innovate Badge */
+.ced-hero-badge {
+  align-self: flex-start;
+  background: #12101a;
+  color: #ffffff;
+  border: none;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(18, 16, 26, 0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* ===== CTA ===== */
-.ced-hero-actions{
-  margin-top:28px;
-  display:flex;
-  gap:14px;
+.ced-hero-badge::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fe7f4b;
 }
 
-.ced-solid-btn{
-  padding:14px 30px;
-  font-size:15px;
-  font-weight:600;
-  border-radius:10px;
-  border:none;
-  cursor:pointer;
-  transition:all .25s ease;
+/* CM Quote Top Ribbon Styling */
+.top-quote-ribbon {
+  width: 100%;
+  max-width: 1360px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(254, 127, 75, 0.45);
+  border-radius: 100px;
+  padding: 10px 24px;
+  margin-bottom: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 8px 30px rgba(18, 16, 26, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  z-index: 10;
 }
 
-.ced-solid-primary{
-  background:#D81B8C;
-  color:#fff;
-  box-shadow:0 8px 22px rgba(216,27,140,.35);
+.ribbon-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
 }
 
-.ced-solid-primary:hover{
-  transform:translateY(-2px);
+.cm-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fe7f4b, #e02898);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(224, 40, 152, 0.2);
 }
 
-.ced-solid-secondary{
-  background:#F1F5F9;
-  color:#111827;
+.tn-quote-text {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 600;
+  color: #12101a;
+  margin: 0;
+  letter-spacing: -0.2px;
+  line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
 }
 
-.ced-solid-secondary:hover{
-  transform:translateY(-2px);
+.typing-cursor {
+  font-weight: 300;
+  color: #e02898;
+  animation: typing-blink 0.8s step-end infinite;
+  margin-left: 2px;
 }
 
-/* ===== SLIDER ===== */
-.ced-slider-wrap{
-  position:relative;
-  height:360px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+@keyframes typing-blink {
+  from, to { opacity: 0; }
+  50% { opacity: 1; }
 }
 
-.ced-slide-card{
-  position:absolute;
-  width:380px;
-  height:350px;
-  border-radius:28px;
-  overflow:hidden;
-  transition:.8s ease;
+.tn-quote-author {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
-.ced-slide-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.tn-author-name {
+  font-weight: 800;
+  color: #e02898;
 }
 
-/* SLIDE STATES */
-.ced-active{
-  transform:scale(1.1);
-  z-index:3;
-}
-.ced-prev{
-  transform:translateX(-260px) rotate(-6deg) scale(.95);
-  opacity:.7;
-}
-.ced-next{
-  transform:translateX(260px) rotate(6deg) scale(.95);
-  opacity:.7;
-}
-.ced-hide{
-  opacity:0;
+.tn-author-title {
+  color: #534e66;
+  position: relative;
+  padding-left: 8px;
+  font-weight: 500;
 }
 
-/* ===== MOBILE ===== */
-@media(max-width:900px){
-  .ced-hero-wrap{
-    grid-template-columns:1fr;
-    padding:40px 20px;
-    text-align:center;
-    overflow-x:hidden;
+.tn-author-title::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: rgba(18, 16, 26, 0.15);
+}
+
+/* Editorial Display Serif Layout */
+.ced-hero-title {
+  font-size: 50px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #12101a;
+  margin-bottom: 12px;
+  margin-top: 4px;
+}
+
+.italic-accent {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff7d44 0%, #e02898 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+.ced-gradient-text {
+  background: linear-gradient(90deg, #e02898 0%, #ff7d44 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Subtitle using Plus Jakarta Sans */
+.ced-hero-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: #534e66;
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 400px;
+  margin-bottom: 0px;
+  letter-spacing: -0.1px;
+}
+
+/* CTA Actions */
+.ced-hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 45px;
+  margin-bottom: 18px;
+}
+
+.btn-gradient {
+  position: relative;
+  background: linear-gradient(135deg, #d31b8a 0%, #fe7f4b 100%);
+  color: #ffffff;
+  padding: 11px 26px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 20px -6px rgba(211, 27, 138, 0.45);
+  z-index: 1;
+}
+
+.btn-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.6s;
+  z-index: -1;
+}
+
+.btn-gradient:hover::before {
+  left: 100%;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 28px -5px rgba(211, 27, 138, 0.6);
+  color: #ffffff;
+}
+
+.btn-gradient-arrow {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover .btn-gradient-arrow {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.btn-outline {
+  position: relative;
+  background: #ffffff;
+  color: #12101a;
+  padding: 10px 25px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 30px;
+  border: 1.5px solid transparent;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(135deg, #d31b8a 0%, #fe7f4b 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-outline:hover {
+  transform: translateY(-3px);
+  background-image: linear-gradient(135deg, #d31b8a 0%, #fe7f4b 100%);
+  background-origin: border-box;
+  background-clip: border-box;
+  color: #ffffff;
+  box-shadow: 0 12px 24px -6px rgba(254, 127, 75, 0.35);
+}
+
+.btn-outline i {
+  transition: transform 0.3s ease;
+}
+
+.btn-outline:hover i {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Stats Card - Horizontal Glass Footer Bar */
+.stats-glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(254, 127, 75, 0.45);
+  border-radius: 20px;
+  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  box-shadow: 0 8px 30px rgba(18, 16, 26, 0.02);
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 100px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+}
+
+.stat-item::after {
+  display: none !important; /* Remove line dividers */
+}
+
+.stat-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* Vibrant icon wrappers */
+.stat-icon-rocket { background: rgba(211, 27, 138, 0.08); color: #d31b8a; }
+.stat-icon-users { background: rgba(254, 127, 75, 0.08); color: #fe7f4b; }
+.stat-icon-calendar { background: rgba(138, 35, 135, 0.08); color: #8a2387; }
+.stat-icon-trophy { background: rgba(230, 157, 0, 0.08); color: #e69d00; }
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-info h3 {
+  font-size: 17px;
+  font-weight: 900;
+  color: #12101a;
+  line-height: 1.1;
+  font-family: 'Cabinet Grotesk', sans-serif;
+}
+
+.stat-info p {
+  font-size: 10.5px;
+  color: #534e66;
+  font-weight: 500;
+  margin-top: 3px;
+  line-height: 1.2;
+}
+
+/* ===== RIGHT COLUMN ===== */
+.ced-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  order: 1;
+}
+
+/* Moments of Innovation Handwritten Note */
+.moments-note {
+  position: absolute;
+  top: -58px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.moments-text {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: #d31b8a;
+  letter-spacing: 1px;
+  transform: rotate(-3deg);
+}
+
+.moments-arrow {
+  width: 30px;
+  height: 15px;
+  border-right: 1.5px solid #d31b8a;
+  border-bottom: 1.5px solid #d31b8a;
+  border-radius: 0 0 12px 0;
+  transform: rotate(-12deg);
+  margin-top: -2px;
+  position: relative;
+}
+
+.moments-arrow::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  right: -3px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-top: 7px solid #d31b8a;
+  transform: rotate(45deg);
+}
+
+/* Carousel Outer Container */
+.carousel-outer-wrap {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Neon Base Rings (Rotating) */
+.neon-floor-ring-outer {
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  width: 530px;
+  height: 95px;
+  margin-left: -265px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(176, 18, 106, 0.75);
+  background: radial-gradient(ellipse at center, rgba(176, 18, 106, 0.15) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+  transform: rotateX(72deg);
+  box-shadow: 
+    0 0 20px rgba(176, 18, 106, 0.4),
+    inset 0 0 10px rgba(176, 18, 106, 0.2);
+  animation: hudPulse 2s ease-in-out infinite alternate;
+}
+
+.neon-floor-ring-inner {
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 460px;
+  height: 82px;
+  margin-left: -230px;
+  border-radius: 50%;
+  border: 2px dashed rgba(196, 80, 26, 0.95);
+  pointer-events: none;
+  z-index: 2;
+  transform: rotateX(72deg) rotate(0deg);
+  animation: hudSpin 8s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(196, 80, 26, 0.7));
+}
+
+@keyframes hudSpin {
+  0% { transform: rotateX(72deg) rotate(0deg); }
+  100% { transform: rotateX(72deg) rotate(-360deg); }
+}
+
+@keyframes hudPulse {
+  0% { transform: rotateX(72deg) scale(0.98); opacity: 0.7; }
+  100% { transform: rotateX(72deg) scale(1.02); opacity: 1; }
+}
+
+/* Active slider inner wrap */
+.ced-slider-wrap {
+  position: relative;
+  width: 100%;
+  height: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1600px;
+  z-index: 3;
+}
+
+/* Premium styled Slides (Standard Rounded Rectangles from Mockup) */
+.ced-slide-card {
+  position: absolute;
+  width: 340px;
+  height: 390px;
+  -webkit-clip-path: url(#cardClipPath);
+  clip-path: url(#cardClipPath);
+  background-color: #12101a;
+  overflow: hidden;
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-glow-top {
+  display: none !important;
+}
+
+.card-glow-bottom {
+  display: none !important;
+}
+
+
+.ced-slide-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.24) 0%, transparent 18%, transparent 82%, rgba(0, 0, 0, 0.24) 100%);
+  pointer-events: none;
+  -webkit-clip-path: url(#cardClipPath);
+  clip-path: url(#cardClipPath);
+  transition: all 0.5s ease;
+  z-index: 5;
+}
+
+.slide-img-clip-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-clip-path: url(#cardClipPath);
+  clip-path: url(#cardClipPath);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.slide-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-img.is-wider {
+  width: 520px;
+  transform: translateX(-90px);
+}
+
+.ced-active .slide-img.is-wider {
+  animation: activePanImage 6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes activePanImage {
+  0% { transform: translateX(0); }
+  12% { transform: translateX(0); }
+  88% { transform: translateX(-180px); }
+  100% { transform: translateX(-180px); }
+}
+
+.ced-slide-card:hover:not(.ced-active) .slide-img:not(.is-wider) {
+  transform: scale(1.06);
+}
+
+.ced-slide-card:hover:not(.ced-active) .slide-img.is-wider {
+  transform: translateX(-90px) scale(1.06);
+}
+
+.ced-active {
+  transform: translate3d(0, 0, 120px) rotateY(0deg) scale(1.1);
+  border: 3px solid transparent;
+  background: linear-gradient(135deg, #b21fff, #ff2a6d) border-box;
+  box-shadow: 
+    0 22px 45px rgba(0, 0, 0, 0.22),
+    0 0 20px rgba(224, 40, 152, 0.4);
+  z-index: 10;
+  opacity: 1;
+  animation: activeFloat 4s ease-in-out infinite alternate;
+}
+
+.ced-active::after {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.15) 0%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.15) 100%);
+}
+
+@keyframes activeFloat {
+  0% { transform: translate3d(0, 0, 120px) rotateY(0deg) scale(1.1); }
+  100% { transform: translate3d(0, -8px, 120px) rotateY(0deg) scale(1.1); }
+}
+
+.ced-prev {
+  transform: translate3d(-240px, 0, 30px) rotateY(-20deg) scale(0.92);
+  opacity: 0.9;
+  z-index: 8;
+}
+
+.ced-next {
+  transform: translate3d(240px, 0, 30px) rotateY(20deg) scale(0.92);
+  opacity: 0.9;
+  z-index: 8;
+}
+
+.ced-far-prev {
+  transform: translate3d(-460px, 0, -30px) rotateY(-30deg) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 5;
+}
+
+.ced-far-next {
+  transform: translate3d(460px, 0, -30px) rotateY(30deg) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 5;
+}
+
+.ced-far-far-prev {
+  transform: translate3d(-520px, 0, -100px) rotateY(-40deg) scale(0.68);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 2;
+}
+
+.ced-far-far-next {
+  transform: translate3d(520px, 0, -100px) rotateY(40deg) scale(0.68);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 2;
+}
+
+.ced-hide {
+  transform: translate3d(0, 0, -400px) scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Minimal Circle Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 45%;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(18, 10, 36, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  z-index: 12;
+}
+
+.carousel-arrow:hover {
+  background: linear-gradient(135deg, #d31b8a, #fe7f4b);
+  color: #ffffff;
+  border-color: transparent;
+  transform: scale(1.08);
+}
+
+.prev-arrow { left: 10px; }
+.next-arrow { right: 10px; }
+
+/* Dots and display */
+.carousel-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: -5px;
+  z-index: 5;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c5bed9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: #f73b9e;
+  width: 18px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(247, 59, 158, 0.5);
+}
+
+.carousel-number {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5c566e;
+  letter-spacing: 2px;
+}
+
+/* Bottom Features Grid - Unified Horizontal Tab Bar */
+.bottom-features-grid {
+  display: flex;
+  width: 100%;
+  max-width: 580px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 6px;
+  gap: 4px;
+  box-shadow: 0 8px 25px rgba(18, 16, 26, 0.02);
+  margin-top: 18px;
+}
+
+.feature-card {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: none !important;
+}
+
+.feature-icon-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.feature-text h4 {
+  font-size: 11px;
+  font-weight: 700;
+  color: #12101a;
+}
+
+.feature-text p {
+  font-size: 9px;
+  color: #5c566e;
+  margin-top: 1px;
+  font-weight: 500;
+}
+
+/* Hover elevation transitions inside tab bar */
+.ideate-card:hover { background: rgba(254, 102, 37, 0.05); transform: translateY(-2px); }
+.ideate-card .feature-icon-box { background: rgba(254, 102, 37, 0.1); color: #fe6625; }
+
+.innovate-card:hover { background: rgba(211, 27, 138, 0.05); transform: translateY(-2px); }
+.innovate-card .feature-icon-box { background: rgba(211, 27, 138, 0.1); color: #d31b8a; }
+
+.incubate-card:hover { background: rgba(0, 204, 102, 0.05); transform: translateY(-2px); }
+.incubate-card .feature-icon-box { background: rgba(0, 204, 102, 0.1); color: #00cc66; }
+
+.impact-card:hover { background: rgba(0, 153, 255, 0.05); transform: translateY(-2px); }
+.impact-card .feature-icon-box { background: rgba(0, 153, 255, 0.1); color: #0099ff; }
+
+/* ===== SCROLL DOWN MOUSE INDICATOR ===== */
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #5c566e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 5;
+}
+
+.scroll-down-indicator:hover {
+  color: #12101a;
+}
+
+.mouse-icon {
+  width: 20px;
+  height: 32px;
+  border-radius: 12px;
+  border: 1.5px solid currentColor;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.mouse-wheel {
+  width: 3px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: currentColor;
+  position: absolute;
+  top: 5px;
+  animation: scrollMouse 1.8s infinite ease-in-out;
+}
+
+@keyframes scrollMouse {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(5px); opacity: 0.3; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.scroll-down-indicator i {
+  font-size: 10px;
+  animation: bounceArrow 1.8s infinite ease-in-out;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
+@media(max-width: 1200px) {
+  .top-quote-ribbon {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 14px 20px;
+    gap: 10px;
+    text-align: center;
   }
 
-  .ced-hero-content{
-    border-left:none;
-    padding-left:0;
-    margin:auto;
+  .ribbon-left {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
   }
 
-  .ced-hero-content h1{
-    font-size:40px;
+  .ced-hero-wrap {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
   }
 
-  .ced-hero-content span{
-    font-size:32px;
+  .ced-hero-left {
+    align-items: center;
+    order: 1;
   }
 
-  .ced-hero-content p{
-    font-size:15px;
-    margin:14px auto 0;
+  .ced-hero-right {
+    order: 2;
   }
 
-  .ced-hero-actions{
-    justify-content:center;
-    flex-wrap:wrap;
+  .ced-hero-subtitle {
+    margin: 0 auto 25px;
   }
 
-  .ced-slider-wrap{
-    height:280px;
-    margin-top:20px;
+  .stats-glass-card {
+    order: 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 520px;
+    margin: 20px auto 0 auto;
   }
 
-  .ced-slide-card{
-    width:280px;
-    height:240px;
+  .stat-item {
+    position: static;
+  }
+}
+
+@media(max-width: 768px) {
+  .ced-view {
+    padding: 80px 20px 50px 20px;
   }
 
-  .ced-active{
-    transform:scale(1.05);
-    z-index:3;
+  .ced-hero-title {
+    font-size: 40px;
   }
 
-  .ced-prev{
-    transform:translateX(-80px) rotate(-4deg) scale(.9);
-    opacity:.7;
+  .stats-glass-card {
+    order: 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 20px 24px;
+    max-width: 440px;
   }
 
-  .ced-next{
-    transform:translateX(80px) rotate(4deg) scale(.9);
-    opacity:.7;
+  .carousel-outer-wrap {
+    height: 340px;
+  }
+
+  .ced-slide-card {
+    width: 160px;
+    height: 230px;
+  }
+
+  .neon-floor-ring-outer {
+    width: 400px;
+    height: 80px;
+    margin-left: -200px !important;
+    bottom: 30px !important;
+  }
+
+  .neon-floor-ring-inner {
+    width: 350px;
+    height: 70px;
+    margin-left: -175px !important;
+    bottom: 40px !important;
+  }
+
+  .ced-prev {
+    transform: translate3d(-110px, 15px, 25px) rotateY(-15deg) rotateZ(-4deg) scale(0.9);
+  }
+
+  .ced-next {
+    transform: translate3d(110px, 15px, 25px) rotateY(15deg) rotateZ(4deg) scale(0.9);
+  }
+}
+
+@media(max-width: 480px) {
+  .ced-hero-title {
+    font-size: 32px;
+  }
+
+  .ced-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto 25px;
+  }
+
+  .btn-gradient, .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stats-glass-card {
+    order: 3;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px 24px;
+    max-width: 280px;
+    margin: 15px auto 0 auto;
+  }
+
+  .neon-floor-ring-outer {
+    width: 290px;
+    height: 60px;
+    margin-left: -145px !important;
+    bottom: 30px !important;
+  }
+
+  .neon-floor-ring-inner {
+    width: 250px;
+    height: 52px;
+    margin-left: -125px !important;
+    bottom: 40px !important;
+  }
+}
+
+#techBgCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== HERO LOADING ENTRANCE ANIMATIONS ===== */
+.top-quote-ribbon,
+.ced-hero-badge,
+.ced-hero-title,
+.ced-hero-subtitle,
+.ced-hero-actions,
+.carousel-outer-wrap,
+.stats-glass-card {
+  opacity: 0;
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.top-quote-ribbon   { animation-delay: 0.1s; }
+.ced-hero-badge     { animation-delay: 0.22s; }
+.ced-hero-title     { animation-delay: 0.34s; }
+.ced-hero-subtitle  { animation-delay: 0.46s; }
+.ced-hero-actions   { animation-delay: 0.58s; }
+.carousel-outer-wrap { animation-delay: 0.7s; }
+.stats-glass-card   { animation-delay: 0.82s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
 
 <div class="ced-view">
 
+  <svg style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; overflow: hidden;">
+    <defs>
+      <clipPath id="cardClipPath" clipPathUnits="objectBoundingBox">
+        <path d="M 0,0.12 C 0,0.05 0.05,0 0.1,0.005 Q 0.5,0.11 0.9,0.005 C 0.95,0 1,0.05 1,0.12 L 1,0.88 C 1,0.95 0.95,1 0.9,0.995 Q 0.5,0.89 0.1,0.995 C 0.05,1 0,0.95 0,0.88 Z" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- Futuristic 3D Tech & Startup Background Elements -->
+  <div class="tech-bg-container">
+    <div class="tech-glow-blob blob-1"></div>
+    <div class="tech-glow-blob blob-2"></div>
+    <canvas id="techBgCanvas"></canvas>
+  </div>
+
+  <!-- Top Announcement Quote Ribbon -->
+  <div class="top-quote-ribbon">
+    <div class="ribbon-left">
+      <div class="cm-avatar">
+        <i class="fa fa-quote-left"></i>
+      </div>
+      <p class="tn-quote-text" data-text="“Tamil Nadu's ambition is to become a $1.5 trillion economy by 2036”">
+        “Tamil Nadu's ambition is to become a $1.5 trillion economy by 2036”
+      </p>
+    </div>
+    <div class="tn-quote-author">
+      <span class="tn-author-name">C. Joseph Vijay</span>
+      <span class="tn-author-title">Hon'ble Chief Minister of Tamil Nadu</span>
+    </div>
+  </div>
+
   <section class="ced-hero-wrap">
 
-    <!-- LEFT CONTENT -->
-    <div class="ced-hero-content">
-      <h1>
-        Discover <br>
-        <span>Startup Experiences</span>
-      </h1>
+    <!-- LEFT COLUMN (Main text content - Column 1) -->
+    <div class="ced-hero-left">
+      <div class="ced-title-block">
+        <div class="ced-hero-badge">
+          INNOVATE • CONNECT • GROW
+        </div>
 
-      <p>
-        Centre for Entrepreneurship Development,<br>
-        Anna University. Explore innovation programs.
-      </p>
+        <h1 class="ced-hero-title">
+          <span class="italic-accent">Discover</span> <br>
+          Startup Experiences
+        </h1>
+
+        <p class="ced-hero-subtitle">
+          Explore innovation programs, startup events, workshops and networking opportunities that inspire, connect and empower future entrepreneurs.
+        </p>
+      </div>
 
       <div class="ced-hero-actions">
-        <button class="ced-solid-btn ced-solid-primary">
-          Explore Events
-        </button>
-        <button class="ced-solid-btn ced-solid-secondary">
-          View Featured
-        </button>
+        <a href="https://www.austartify.com/" class="btn-gradient">
+          Startify 4.0
+          <span class="btn-gradient-arrow">
+            <i class="fa fa-arrow-right"></i>
+          </span>
+        </a>
+        <a href="/buzz" class="btn-outline">
+          View Gallery <i class="fa fa-picture-o"></i>
+        </a>
       </div>
     </div>
 
-    <!-- RIGHT SLIDER -->
-    <div class="ced-slider-wrap">
-
-      <div class="ced-slide-card">
-        <img src="/assets/img/homeimg.jpeg" alt="">
-      </div>
-      <div class="ced-slide-card">
-        <img src="/assets/img/home1img.jpeg" alt="">
+    <!-- RIGHT COLUMN -->
+    <div class="ced-hero-right">
+      <!-- Handwritten style Note -->
+      <div class="moments-note">
+        <span class="moments-text">Innovation Highlights ⭐</span>
+        <div class="moments-arrow"></div>
       </div>
 
+      <!-- Carousel Outer Container -->
+      <div class="carousel-outer-wrap">
+        <!-- Floating Glass Platform Ring -->
+        <div class="neon-floor-ring-outer"></div>
+        <div class="neon-floor-ring-inner"></div>
+
+
+
+        <!-- Arrow Buttons -->
+        <button class="carousel-arrow prev-arrow" id="carouselPrevBtn">
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="carousel-arrow next-arrow" id="carouselNextBtn">
+          <i class="fa fa-chevron-right"></i>
+        </button>
+
+        <!-- Image Slider wrapper -->
+        <div class="ced-slider-wrap">
+
+          <div class="ced-slide-card">
+            <div class="card-glow-top"></div>
+            <div class="slide-img-clip-wrap">
+              <div class="slide-img" style="background-image: url('/assets/img/startify23.jpg');" aria-label="Startify 2023"></div>
+            </div>
+            <div class="card-glow-bottom"></div>
+          </div>
+          <div class="ced-slide-card">
+            <div class="card-glow-top"></div>
+            <div class="slide-img-clip-wrap">
+              <div class="slide-img" style="background-image: url('/assets/img/demoday.jpg');" aria-label="Demo Day"></div>
+            </div>
+            <div class="card-glow-bottom"></div>
+          </div>
+
+          <div class="ced-slide-card">
+            <div class="card-glow-top"></div>
+            <div class="slide-img-clip-wrap">
+              <div class="slide-img" style="background-image: url('/assets/img/puthulir.jpg');" aria-label="Puthulir Event"></div>
+            </div>
+            <div class="card-glow-bottom"></div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <!-- Navigation indicators -->
+      <div class="carousel-navigation">
+        <div class="carousel-dots" id="carouselDotsContainer"></div>
+      </div>
     </div>
 
   </section>
 
+  <!-- Horizontal Stats Footer Bar -->
+  <div class="stats-glass-card">
+    <div class="stat-item">
+      <div class="stat-icon-wrapper stat-icon-rocket">
+        <i class="fa fa-rocket"></i>
+      </div>
+      <div class="stat-info">
+        <h3>150+</h3>
+        <p>Startups Supported</p>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon-wrapper stat-icon-users">
+        <i class="fa fa-users"></i>
+      </div>
+      <div class="stat-info">
+        <h3>5000+</h3>
+        <p>Students Engaged</p>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon-wrapper stat-icon-calendar">
+        <i class="fa fa-calendar"></i>
+      </div>
+      <div class="stat-info">
+        <h3>100+</h3>
+        <p>Events Conducted</p>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon-wrapper stat-icon-trophy">
+        <i class="fa fa-trophy"></i>
+      </div>
+      <div class="stat-info">
+        <h3>25+</h3>
+        <p>Partners & Mentors</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script is:inline>
-const slides = document.querySelectorAll(".ced-slide-card");
-let current = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".ced-slide-card");
+  const dotsContainer = document.getElementById("carouselDotsContainer");
+  const prevBtn = document.getElementById("carouselPrevBtn");
+  const nextBtn = document.getElementById("carouselNextBtn");
 
-function render(){
-  slides.forEach((s,i)=>{
-    s.className = "ced-slide-card";
-    if(i === current) s.classList.add("ced-active");
-    else if(i === (current+1) % slides.length) s.classList.add("ced-next");
-    else if(i === (current-1+slides.length) % slides.length) s.classList.add("ced-prev");
-    else s.classList.add("ced-hide");
+  if (slides.length === 0) return;
+
+  let currentIdx = 0;
+  const totalSlides = slides.length;
+
+  // Detect wide landscape images dynamically to only apply panning to images that would otherwise crop
+  slides.forEach((slide) => {
+    const imgDiv = slide.querySelector(".slide-img");
+    if (!imgDiv) return;
+    const bgImg = window.getComputedStyle(imgDiv).backgroundImage;
+    const urlMatch = bgImg.match(/url\(['"]?(.*?)['"]?\)/);
+    if (urlMatch && urlMatch[1]) {
+      const imgUrl = urlMatch[1];
+      const tempImg = new Image();
+      tempImg.onload = function() {
+        const aspect = tempImg.naturalWidth / tempImg.naturalHeight;
+        if (aspect > 0.9) {
+          imgDiv.classList.add("is-wider");
+        }
+      };
+      tempImg.src = imgUrl;
+    }
   });
-}
 
-setInterval(()=>{
-  current = (current + 1) % slides.length;
-  render();
-},3000);
+  // Create Pagination Dots
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("span");
+    dot.className = `carousel-dot ${i === 0 ? "active" : ""}`;
+    dot.addEventListener("click", () => {
+      currentIdx = i;
+      updateCarousel();
+    });
+    dotsContainer.appendChild(dot);
+  }
 
-render();
+  const dots = document.querySelectorAll(".carousel-dot");
+
+  function updateCarousel() {
+    slides.forEach((slide, idx) => {
+      // Clear class lists
+      slide.className = "ced-slide-card";
+
+      // Calculate relative index wrapped to [-half, half] range for perfect bilateral symmetry
+      let diff = idx - currentIdx;
+      const half = Math.floor(totalSlides / 2);
+      while (diff <= -half) diff += totalSlides;
+      while (diff > (totalSlides - 1) - half) diff -= totalSlides;
+
+      if (diff === 0) {
+        slide.classList.add("ced-active");
+      } else if (diff === 1) {
+        slide.classList.add("ced-next");
+      } else if (diff === 2) {
+        slide.classList.add("ced-far-next");
+      } else if (diff >= 3) {
+        slide.classList.add("ced-far-far-next");
+      } else if (diff === -1) {
+        slide.classList.add("ced-prev");
+      } else if (diff === -2) {
+        slide.classList.add("ced-far-prev");
+      } else if (diff <= -3) {
+        slide.classList.add("ced-far-far-prev");
+      } else {
+        slide.classList.add("ced-hide");
+      }
+    });
+
+    // Update dots active state
+    dots.forEach((dot, idx) => {
+      if (idx === currentIdx) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
+      }
+    });
+
+
+  }
+
+  // Next / Prev Actions
+  prevBtn.addEventListener("click", () => {
+    currentIdx = (currentIdx - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+    resetAutoPlay();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIdx = (currentIdx + 1) % totalSlides;
+    updateCarousel();
+    resetAutoPlay();
+  });
+
+  // Auto-play feature (aligned to 6.5s to allow active slide image to complete panning)
+  let autoPlayInterval = setInterval(() => {
+    currentIdx = (currentIdx + 1) % totalSlides;
+    updateCarousel();
+  }, 6500);
+
+  function resetAutoPlay() {
+    clearInterval(autoPlayInterval);
+    autoPlayInterval = setInterval(() => {
+      currentIdx = (currentIdx + 1) % totalSlides;
+      updateCarousel();
+    }, 6500);
+  }
+
+  // Click on cards to activate them
+  slides.forEach((slide, idx) => {
+    slide.addEventListener("click", () => {
+      currentIdx = idx;
+      updateCarousel();
+      resetAutoPlay();
+    });
+  });
+
+  // Canvas 3D Tech Background Animation
+  const canvas = document.getElementById("techBgCanvas");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    let width = canvas.offsetWidth;
+    let height = canvas.offsetHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    window.addEventListener("resize", () => {
+      width = canvas.offsetWidth;
+      height = canvas.offsetHeight;
+      canvas.width = width;
+      canvas.height = height;
+    });
+
+    const globes = [];
+    const focalLength = 350;
+    
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener("mousemove", (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      mouseX = e.clientX - cx;
+      mouseY = e.clientY - cy;
+    });
+
+    // Configuration for three distinct moving spheres (representing progressive innovation stages)
+    const globeConfigs = [
+      { y: -120, z: 20, radius: 110, speed: 0.85, colorTheme: 'pink' },
+      { y: 130, z: -100, radius: 85, speed: 0.6, colorTheme: 'orange' },
+      { y: 20, z: 120, radius: 65, speed: 1.1, colorTheme: 'pink' }
+    ];
+
+    globeConfigs.forEach((config, gIdx) => {
+      const particles = [];
+      const numLocalParticles = 30;
+      
+      for (let i = 0; i < numLocalParticles; i++) {
+        const u = Math.random();
+        const v = Math.random();
+        const theta = u * 2.0 * Math.PI;
+        const phi = Math.acos(2.0 * v - 1.0);
+
+        particles.push({
+          lx: config.radius * Math.sin(phi) * Math.cos(theta),
+          ly: config.radius * Math.sin(phi) * Math.sin(theta),
+          lz: config.radius * Math.cos(phi),
+          size: Math.random() * 1.5 + 1.0,
+          color: config.colorTheme === 'pink' ? "rgba(211, 27, 138, opacity)" : "rgba(254, 127, 75, opacity)"
+        });
+      }
+
+      globes.push({
+        x: (Math.random() - 0.5) * 800 - 300, // Staggered starting X position
+        y: config.y,
+        z: config.z,
+        radius: config.radius,
+        speed: config.speed,
+        particles: particles,
+        rotX: Math.random() * Math.PI,
+        rotY: Math.random() * Math.PI,
+        rotSpeedX: 0.001 + Math.random() * 0.002,
+        rotSpeedY: 0.002 + Math.random() * 0.003
+      });
+    });
+
+    function rotate3D(point, rx, ry) {
+      const cosY = Math.cos(ry);
+      const sinY = Math.sin(ry);
+      let x1 = point.x * cosY - point.z * sinY;
+      let z1 = point.z * cosY + point.x * sinY;
+      
+      const cosX = Math.cos(rx);
+      const sinX = Math.sin(rx);
+      let y2 = point.y * cosX - z1 * sinX;
+      let z2 = z1 * cosX + point.y * sinX;
+
+      return { x: x1, y: y2, z: z2 };
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Mouse interactive tilt addition
+      const mouseTiltX = mouseY * 0.0000015;
+      const mouseTiltY = mouseX * 0.0000015;
+
+      const centerX = width / 2;
+      const centerY = height / 2;
+
+      globes.forEach(g => {
+        // Translate from left to right (X goes from -width/2 to width/2 in projected coordinates)
+        const halfW = width / 2;
+        g.x += g.speed;
+        
+        // Wrap around when exiting screen boundaries
+        const limit = halfW + g.radius + 100;
+        if (g.x > limit) {
+          g.x = -limit;
+        }
+
+        // Local rotation spin
+        g.rotX += g.rotSpeedX + mouseTiltX;
+        g.rotY += g.rotSpeedY + mouseTiltY;
+
+        // Project local coordinates to screen space
+        const projected = g.particles.map(p => {
+          const rotPoint = rotate3D({ x: p.lx, y: p.ly, z: p.lz }, g.rotX, g.rotY);
+          const gx = g.x + rotPoint.x;
+          const gy = g.y + rotPoint.y;
+          const gz = g.z + rotPoint.z;
+
+          const scale = focalLength / (focalLength + gz);
+          return {
+            x: gx * scale + centerX,
+            y: gy * scale + centerY,
+            scale: scale,
+            z: gz,
+            size: p.size,
+            color: p.color
+          };
+        });
+
+        // Draw connections for this globe
+        const numP = g.particles.length;
+        for (let i = 0; i < numP; i++) {
+          let connections = 0;
+          for (let j = i + 1; j < numP; j++) {
+            const p1 = g.particles[i];
+            const p2 = g.particles[j];
+            
+            const dx = p1.lx - p2.lx;
+            const dy = p1.ly - p2.ly;
+            const dz = p1.lz - p2.lz;
+            const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+            if (dist < g.radius * 0.75 && connections < 3) {
+              const proj1 = projected[i];
+              const proj2 = projected[j];
+
+              const avgZ = (proj1.z + proj2.z) / 2;
+              const zFade = Math.max(0.1, Math.min(0.7, (focalLength - avgZ) / (focalLength * 1.5)));
+              const alpha = (1 - dist / (g.radius * 0.75)) * 0.14 * zFade;
+
+              ctx.strokeStyle = `rgba(211, 27, 138, ${alpha})`;
+              ctx.lineWidth = 0.5 * proj1.scale;
+              ctx.beginPath();
+              ctx.moveTo(proj1.x, proj1.y);
+              ctx.lineTo(proj2.x, proj2.y);
+              ctx.stroke();
+              connections++;
+            }
+          }
+        }
+
+        // Draw particles for this globe
+        projected.forEach(p => {
+          const opacity = Math.max(0.08, Math.min(0.8, (focalLength - p.z) / (focalLength * 1.5)));
+          ctx.fillStyle = p.color.replace("opacity", opacity);
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size * p.scale, 0, Math.PI * 2);
+          ctx.fill();
+        });
+      });
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+
+  // Typing Effect for Quote Ribbon (Non-Stop loop)
+  const quoteEl = document.querySelector('.tn-quote-text');
+  if (quoteEl) {
+    const text = quoteEl.getAttribute('data-text') || '';
+    quoteEl.innerHTML = '<span class="typing-text"></span><span class="typing-cursor">|</span>';
+    const typingTextEl = quoteEl.querySelector('.typing-text');
+    let idx = 0;
+    
+    function handleType() {
+      if (idx <= text.length) {
+        typingTextEl.textContent = text.slice(0, idx);
+        idx++;
+        setTimeout(handleType, 45 + Math.random() * 25);
+      } else {
+        idx = 0;
+        setTimeout(handleType, 1000); // 1s pause when complete, then start typing immediately again
+      }
+    }
+    
+    setTimeout(handleType, 500);
+  }
+
+  // Initialize
+  updateCarousel();
+});
 </script>

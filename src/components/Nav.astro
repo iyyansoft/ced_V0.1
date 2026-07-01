@@ -26,49 +26,69 @@ html, body {
    MOBILE – SHOW ALL CATEGORIES
 =============================== */
 @media (max-width: 991px) {
-
-  /* lock background */
-  body {
+  /* Lock background scroll when open */
+  body.menu-open {
     overflow: hidden;
   }
 
-  /* full screen nav */
+  /* Premium fullscreen slide-in drawer with glassmorphism */
   .navbar-collapse {
     position: fixed;
-    inset: 0;
-    background: #fff;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+    background: rgba(12, 10, 18, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
     z-index: 1050;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 16px 16px 140px;
+    padding: 80px 24px 120px 24px !important;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    display: none;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    opacity: 0;
   }
 
-  /* disable hover */
+  .navbar-collapse.show {
+    display: block !important;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* Disable hover trigger on mobile */
   .dropdown:hover .dropdown-menu {
     display: none;
   }
 
-  /* dropdown hidden */
+  /* Dropdown submenus */
   .navbar .dropdown-menu {
     display: none;
     position: static !important;
     width: 100%;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin-top: 12px;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 0 0 10px !important;
+    margin-top: 10px !important;
+    background: transparent !important;
   }
 
-  /* dropdown open */
   .navbar .dropdown-menu.show {
-    display: block;
-    max-height: calc(100vh - 160px);
-    overflow-y: auto;
+    display: block !important;
+    position: static !important;
+    max-height: calc(100vh - 220px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
-  /* 🔥 KEY FIX: desktop 3-column → mobile 1-column */
-  .dropdown-menu .row {
+  /* Row & columns to vertical block */
+  .dropdown-menu .row:not(.d-none) {
     display: block !important;
+    margin: 0;
   }
 
   .dropdown-menu [class^="col-"],
@@ -76,85 +96,316 @@ html, body {
     width: 100% !important;
     max-width: 100% !important;
     flex: 0 0 100% !important;
+    padding: 0;
   }
 
-  /* headings */
+  /* Neon Gradient Subheaders */
   .dropdown-header {
-    margin-top: 20px;
-    font-size: 15px;
-    font-weight: 700;
-    color: #d1007a;
-  }
-
-  /* items */
-  .dropdown-item {
-    display: block;
-    padding: 8px 0 8px 22px;
+    margin-top: 24px;
+    font-family: 'Cabinet Grotesk', 'Outfit', sans-serif;
     font-size: 14px;
-    line-height: 1.6;
-    white-space: normal;
-    color: #444;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff7d44, #e02898);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .dropdown-item:hover {
-    color: #d1007a;
+  /* Menu Items list */
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+    background: transparent !important;
   }
 
-  /* hide images */
+  .dropdown-item span {
+    padding-left: 0 !important;
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown-item:hover, .dropdown-item:focus {
+    color: #e02898 !important;
+  }
+
+  .dropdown-item:hover span {
+    transform: translateX(6px);
+  }
+
+  /* Hide raw layout images on mobile */
   .dropdown-image {
     display: none !important;
   }
+
+  /* Vertical separator hidden on mobile */
+  .vertical.dark {
+    display: none !important;
+  }
+
+  /* Mobile menu links style */
+  .navbar-nav .nav-link {
+    font-family: 'Outfit', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff !important;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #ff7d44 !important;
+  }
+
+  /* Dropdown indicator icon rotation when active */
+  .navbar-nav .dropdown .nav-link::after {
+    font-family: "FontAwesome";
+    content: "\f078";
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.25);
+    font-weight: 300;
+    transition: transform 0.3s ease;
+  }
+
+  .navbar-nav .dropdown.show .nav-link::after {
+    transform: rotate(180deg);
+    color: #ff7d44;
+  }
 }
 
+/* Mobile Brand Header & Three-dot Popover Layout */
+@media (max-width: 991px) {
+  .desktop-brands {
+    display: none !important;
+  }
+  
+  .navbar-header-mobile {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    padding: 6px 0;
+  }
 
+  .navbar-brands-mobile-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 70%;
+  }
 
+  .navbar-brands-mobile-left img {
+    max-height: 50px !important;
+    width: auto;
+    object-fit: contain;
+  }
 
+  .navbar-actions-mobile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 1100;
+  }
 
+  /* Override theme stylesheet for toggler and bars to make them a vertical three-dot menu by default */
+  .navbar-header-mobile .navbar-toggler {
+    border: none !important;
+    background: transparent !important;
+    padding: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    width: 36px !important;
+    height: 36px !important;
+    box-shadow: none !important;
+  }
+
+  .navbar-header-mobile .navbar-toggler .navbar-toggler-icon {
+    width: 22px !important;
+    height: 16px !important;
+    position: relative !important;
+    display: block !important;
+    background-image: none !important;
+  }
+
+  .navbar-header-mobile .navbar-toggler .navbar-toggler-icon .navbar-toggler-bar {
+    display: block !important;
+    position: absolute !important;
+    width: 5px !important;
+    height: 5px !important;
+    border-radius: 50% !important;
+    background-color: #12101a !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin: 0 !important;
+    left: 8px !important;
+  }
+
+  .navbar-header-mobile .navbar-toggler .navbar-toggler-icon .navbar-toggler-bar.bar1 {
+    top: 0 !important;
+    transform: none !important;
+  }
+
+  .navbar-header-mobile .navbar-toggler .navbar-toggler-icon .navbar-toggler-bar.bar2 {
+    top: 6px !important;
+    opacity: 1 !important;
+  }
+
+  .navbar-header-mobile .navbar-toggler .navbar-toggler-icon .navbar-toggler-bar.bar3 {
+    top: 12px !important;
+    transform: none !important;
+  }
+
+  /* Toggler remains as three vertical dots when open */
+
+  /* Three-dot button style */
+  .whats-new-mobile-container {
+    position: relative;
+  }
+
+  .whats-new-toggle-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #12101a;
+    font-size: 22px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .whats-new-toggle-btn:hover {
+    color: #e02898;
+  }
+
+  /* Popover dropdown container */
+  .whats-new-popover {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 10px;
+    background: rgba(18, 16, 26, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 8px 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    z-index: 1060;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+
+  .whats-new-popover.show {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .navbar-brand-mobile-left img,
+  .navbar-brand-mobile-center img {
+    max-height: 70px !important;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* Close Button inside Drawer */
+  .menu-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1070;
+  }
+
+  .menu-close-btn:hover {
+    color: #e02898;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-header-mobile {
+    display: none !important;
+  }
+}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-2">
 
+  <div class="container-fluid px-3 px-lg-5">    <!-- DESKTOP BRAND LOGOS (min-width: 992px) -->
+    <div class="desktop-brands d-none d-lg-flex align-items-center">
+      <a class="navbar-brand d-flex align-items-center" href="https://www.auced.com" rel="tooltip" title="CED-AU" data-placement="bottom">
+        <img src="/assets/img/au_logo.png" alt="CED-AU" class="img-fluid" style="max-height:110px; width:auto;">
+      </a>
+      <a class="navbar-brand d-flex align-items-center ms-3" href="https://www.auced.com" rel="tooltip" title="CED-AU" data-placement="bottom">
+        <img src="/assets/img/logos/CEDlogo.png" alt="CED-AU" class="img-fluid" style="max-height:110px; width:auto;">
+      </a>
+    </div>
 
-
-
-  <div class="container-fluid px-3 px-lg-5">
-
-    <a class="navbar-brand d-flex align-items-center" 
-   href="https://www.auced.com" 
-   rel="tooltip" title="TicketsHub | Your Ticketing Partner" data-placement="bottom">
-
+    <!-- MOBILE BRAND HEADER (max-width: 991px) -->
+    <div class="navbar-header-mobile d-flex d-lg-none align-items-center justify-content-between w-100">
+      <!-- Left Brands: Anna University & CED side-by-side -->
+      <div class="navbar-brands-mobile-left d-flex align-items-center gap-2">
+        <a href="https://www.auced.com">
+          <img src="/assets/img/au_logo.png" alt="Anna University Logo" style="max-height: 60px !important; width: auto; object-fit: contain;">
+        </a>
+        <a href="https://www.auced.com">
+          <img src="/assets/img/logos/CEDlogo.png" alt="CED Logo" style="max-height: 60px !important; width: auto; object-fit: contain;">
+        </a>
+      </div>
       
-      <img src="/assets/img/au_logo.png" 
-     alt="CED-AU" 
-     class="img-fluid"
-     style="max-height:110px; width:auto;">
-  </a>
+      <!-- Right Action Triggers -->
+      <div class="navbar-actions-mobile d-flex align-items-center">
+        <!-- Main Drawer Hamburger Toggler -->
+        <button class="navbar-toggler collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon mt-2">
+            <span class="navbar-toggler-bar bar1"></span>
+            <span class="navbar-toggler-bar bar2"></span>
+            <span class="navbar-toggler-bar bar3"></span>
+          </span>
+        </button>
+      </div>
+    </div>
 
-
-  <a class="navbar-brand d-flex align-items-center" 
-   href="https://www.auced.com" 
-   rel="tooltip" title="TicketsHub | Your Ticketing Partner" data-placement="bottom">
-
-      <img src="/assets/img/logos/CEDlogo.png" 
-     alt="CED-AU" 
-     class="img-fluid"
-     style="max-height:110px; width:auto;">
-  </a>
-
-
-
-
-
-    <a href="/announcements" class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 ms-auto d-lg-none d-block">What's New</a>
-    <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon mt-2">
-        <span class="navbar-toggler-bar bar1"></span>
-        <span class="navbar-toggler-bar bar2"></span>
-        <span class="navbar-toggler-bar bar3"></span>
-      </span>
-    </button>
-    <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+    <div class="collapse navbar-collapse w-100 py-lg-0" id="navigation">
+      <!-- Mobile Close Icon 'X' inside drawer -->
+      <button class="menu-close-btn d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-label="Close menu">
+        <i class="fa fa-times"></i>
+      </button>
       <ul class="navbar-nav navbar-nav-hover mx-auto">
+        <!-- Home Link (Mobile Only or Global) -->
+        <li class="nav-item mx-2 d-lg-none">
+          <a class="nav-link" href="/">
+            Home
+          </a>
+        </li>
         <li class="nav-item dropdown dropdown-hover mx-2">
           <a class="nav-link" href="#" data-mobile-toggle>
   Are you looking for?
@@ -165,7 +416,7 @@ html, body {
 
 
           <div class="dropdown-menu dropdown-menu-animation dropdown-xl p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages6">
-            <div class="row d-none d-lg-flex">
+            <div class="row">
               <div class="col-12 px-5 py-2">
                 <div class="row">
                   <div class="col-4 position-relative">
@@ -578,12 +829,8 @@ html, body {
   <li class="nav-item">
     <a href="https://www.austartify.com/" 
    class="btn btn-sm bg-gradient-primary btn-round mb-0 me-1 text-nowrap px-3">
-  What's New
+  Startify 4.0
 </a>
-
-
-
-
   </li>
 </ul>
 
@@ -597,10 +844,12 @@ html, body {
 </ul>
 
 <!-- MOBILE ONLY -->
-<div class="d-lg-none ms-2">
-  <a href="/buzz"
-     class="btn btn-sm bg-gradient-primary btn-round">
+<div class="d-lg-none ms-2 d-flex flex-column gap-2 mt-3" style="align-items: flex-start;">
+  <a href="/buzz" class="btn btn-sm bg-gradient-primary btn-round">
     Buzz @ CED
+  </a>
+  <a href="https://www.austartify.com/" class="btn btn-sm bg-gradient-primary btn-round">
+    Startify 4.0
   </a>
 </div>
 
@@ -644,6 +893,23 @@ document.addEventListener("DOMContentLoaded", () => {
   nav.addEventListener("hidden.bs.collapse", () => {
     document.body.style.overflow = "auto";
   });
+
+  // Mobile What's New Three-dot Popover Toggle
+  const whatsNewBtn = document.getElementById("whatsNewMobileBtn");
+  const whatsNewPopover = document.getElementById("whatsNewMobilePopover");
+  if (whatsNewBtn && whatsNewPopover) {
+    whatsNewBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      whatsNewPopover.classList.toggle("show");
+      const expanded = whatsNewPopover.classList.contains("show");
+      whatsNewBtn.setAttribute("aria-expanded", expanded);
+    });
+
+    document.addEventListener("click", () => {
+      whatsNewPopover.classList.remove("show");
+      whatsNewBtn.setAttribute("aria-expanded", "false");
+    });
+  }
 
   document.querySelectorAll("[data-mobile-toggle]").forEach(toggle => {
 
