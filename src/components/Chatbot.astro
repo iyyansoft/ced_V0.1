@@ -58,35 +58,39 @@
 
 .chat-widget__header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 20px 24px;
-  color: #ffffff;
-  background: linear-gradient(135deg, #250c70 0%, #150645 100%);
+  padding: 16px 20px;
+  color: #12101a;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 24px 24px 0 0;
 }
 
-.chat-widget__eyebrow {
-  margin: 0 0 4px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 800;
-  color: #f472b6;
+.chat-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.chat-widget__header h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
+.chat-header-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+.chat-header-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #12101a;
 }
 
 .chat-widget__close {
   border: 0;
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0.05);
+  color: #12101a;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -100,7 +104,7 @@
 }
 
 .chat-widget__close:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.1);
   transform: rotate(90deg);
 }
 
@@ -292,9 +296,9 @@
 
 <section id="cedChatWidget" class="chat-widget hidden">
   <div class="chat-widget__header">
-    <div>
-      <p class="chat-widget__eyebrow">CED Assistant</p>
-      <h2>How can I help you?</h2>
+    <div class="chat-header-left">
+      <img src="/assets/img/logos/CEDlogo.png" alt="CED Logo" class="chat-header-logo">
+      <span class="chat-header-title">CED Anna University</span>
     </div>
     <button id="cedCloseChatButton" class="chat-widget__close" type="button" aria-label="Close chatbot">✕</button>
   </div>
