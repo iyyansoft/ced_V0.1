@@ -1,0 +1,282 @@
+{
+  "Consumable": {
+    "displayName": "Consumable",
+    "startups": [
+      "Swatch Water Filters",
+      "Namma ammuchi tradition foods",
+      "F3",
+      "Simma Enterprise",
+      "GOO",
+      "Millet-Based Electrolyte Beverages",
+      "Nova Bottles",
+      "Quick Glow",
+      "ColdHot",
+      "GAGS",
+      "Little Hands",
+      "Sugarless Wonders",
+      "EcoShieldSPF"
+    ]
+  },
+  "Enviro-Tech": {
+    "displayName": "Enviro-Tech",
+    "startups": [
+      "Swatch Water Filters",
+      "DE la Greenspark",
+      "CarbonTech Innovations",
+      "Aquamorph",
+      "Nova Bottles",
+      "Aquaholics",
+      "Hydros",
+      "Flovepal Greenspace",
+      "Hyrowah",
+      "indyarn Clean Tech"
+    ]
+  },
+  "ai": {
+    "displayName": "AI",
+    "startups": [
+      "Gig AI Labs",
+      "Crea AI",
+      "SensChat",
+      "Lensora AI",
+      "Nova AI",
+      "Orion AI",
+      "FIOXYY-NEURAGENT",
+      "PickMyseat.ai",
+      "SPEAK KARO",
+      "SPACE CRAFT AI"
+    ]
+  },
+  "Ed-Tech": {
+    "displayName": "Ed-Tech",
+    "startups": [
+      "Iyyansoft Technologies",
+      "Pro EduVate",
+      "Curio",
+      "Edufyte",
+      "Veducate Skills and Technologies",
+      "SPEAK KARO",
+      "Little Hands",
+      "Learnsphere"
+    ]
+  },
+  "Agri-Tech": {
+    "displayName": "Agri-Tech",
+    "startups": [
+      "Namma Vivasayi",
+      "Hybrid Biofertilizer (Magasool)",
+      "Animal Tradex",
+      "Soil Steps",
+      "Lignozyme",
+      "UZHAVAN",
+      "Verdant Vision",
+      "SyncField",
+      "Flovepal Greenspace"
+    ]
+  },
+  "Med-Tech": {
+    "displayName": "Med-Tech",
+    "startups": [
+      "SanBio 360",
+      "Rapikit",
+      "Medmall",
+      "SenseUs",
+      "Cortivue",
+      "Navogenix Technologies",
+      "Diatech",
+      "Alertcare",
+      "Biomediac Solution X",
+      "SSGhealthcare pvt ltd",
+      "Diagnobee",
+      "Vitasafe"
+    ]
+  },
+  "Health-Tech": {
+    "displayName": "Health-Tech",
+    "startups": [
+      "Rapikit",
+      "Medmall",
+      "SenseUs",
+      "Cortivue",
+      "DizziGuard",
+      "Canine Connect",
+      "SafeStride Tech",
+      "GeneGlow",
+      "Niya Therapy Hub",
+      "Alertcare",
+      "SSGhealthcare pvt ltd",
+      "FITNGRO",
+      "EcoShieldSPF",
+      "Diagnobee",
+      "Vitasafe"
+    ]
+  },
+  "Food tech": {
+    "displayName": "Food Tech",
+    "startups": [
+      "Namma ammuchi tradition foods",
+      "F3",
+      "Millet-Based Electrolyte Beverages",
+      "Sugarless Wonders"
+    ]
+  },
+  "Renewable": {
+    "displayName": "Renewable",
+    "startups": [
+      "DE la Greenspark",
+      "Gas Tech",
+      "CarbonTech Innovations",
+      "CHARGE ONE",
+      "OCEAN WAVE ENERGY CONVERTER",
+      "Leogar Renewables",
+      "EternalEnergy",
+      "indyarn Clean Tech"
+    ]
+  },
+  "Industry 4.0": {
+    "displayName": "Industry 4.0",
+    "startups": [
+      "Intra Mobility and Precision System Pvt Ltd",
+      "Automaki",
+      "Grainforge3D Printer",
+      "misd automation"
+    ]
+  },
+  "Fashion": {
+    "displayName": "Fashion",
+    "startups": [
+      "Qloset",
+      "Quick Glow"
+    ]
+  },
+  "Auto ; EV": {
+    "displayName": "Auto & EV",
+    "startups": [
+      "Intra Mobility and Precision System Pvt Ltd",
+      "Aero rover",
+      "MotorX Mobility Private Limited",
+      "CEG Motors",
+      "Roxer Cub",
+      "CHARGE ONE",
+      "Automaki",
+      "RMK Aerospace and Sustainable Technology Private Limited",
+      "Runverve",
+      "Cyclebees"
+    ]
+  },
+  "Bio-Tech": {
+    "displayName": "Bio-Tech",
+    "startups": [
+      "SanBio 360",
+      "Hybrid Biofertilizer (Magasool)",
+      "Lignozyme",
+      "Navogenix Technologies",
+      "GeneGlow",
+      "Diatech"
+    ]
+  },
+  "FinTech": {
+    "displayName": "FinTech",
+    "startups": [
+      "giggers",
+      "UPI.Direct",
+      "Smart Hundi",
+      "TrustIT",
+      "Trustable",
+      "Sentivest"
+    ]
+  },
+  "deep-Tech": {
+    "displayName": "Deep-Tech",
+    "startups": [
+      "Ennamopenuphro Compute Technologies Pvt Ltd",
+      "Aero rover",
+      "Loopverse",
+      "ResourceIndia.co",
+      "Global Technologies",
+      "APIXY",
+      "Vitron",
+      "ARKADESLEVEL",
+      "Geosonic",
+      "Scout Edge",
+      "ChrysoLux",
+      "DizziGuard",
+      "Sun-dram Technologies",
+      "APEX",
+      "Pentastech",
+      "Verdant Vision",
+      "Lensora AI",
+      "praviot",
+      "Auronox Private Limited",
+      "Vision Solve",
+      "Grainforge3D Printer",
+      "Orion AI",
+      "FIOXYY-NEURAGENT",
+      "SafeStride Tech",
+      "RMK Aerospace and Sustainable Technology Private Limited",
+      "Tactical Bee",
+      "SPACE CRAFT AI",
+      "Spar Shield+",
+      "Fluxora",
+      "misd automation",
+      "Haptic Verse",
+      "PlumeXB",
+      "Kinsync",
+      "Asynchonix",
+      "CodizWorq",
+      "Harvo",
+      "Astro Access",
+      "APIDS",
+      "Blue Core Innovations",
+      "Hyrowah",
+      "Eclolin Ventures",
+      "Jefey Composites",
+      "Cyclebees"
+    ]
+  },
+  "SaaS": {
+    "displayName": "SaaS",
+    "startups": [
+      "Gig AI Labs",
+      "Iyyansoft Technologies",
+      "Crea AI",
+      "offora",
+      "giggers",
+      "ResourceIndia.co",
+      "Nexoris Solutions",
+      "APIXY",
+      "Tynko Partner",
+      "SensChat",
+      "Ztorys",
+      "Scout Edge",
+      "8Bix",
+      "TrustIT",
+      "Nova AI",
+      "Vision Solve",
+      "PickMyseat.ai",
+      "SPREZOX",
+      "Kinsync",
+      "CodizWorq",
+      "Trustable",
+      "Sentivest"
+    ]
+  },
+  "blank": {
+    "displayName": "#N/A",
+    "startups": [
+      "#N/A",
+      "#N/A",
+      "#N/A",
+      "#N/A",
+      "#N/A"
+    ]
+  },
+  "IoT": {
+    "displayName": "IoT",
+    "startups": [
+      "praviot",
+      "SyncField",
+      "Haptic Verse"
+    ]
+  }
+}

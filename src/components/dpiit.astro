@@ -3,75 +3,34 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 text-center">
-        <!-- SaaS Toggle Button -->
-        <div class="mb-4 d-inline-block">
-          <button id="saasToggleBtn" class="btn btn-sm btn-round px-4 py-2 text-nowrap" style="background: linear-gradient(135deg, #d31b8a 0%, #fe7f4b 100%); color: white; border: none; font-weight: 700; font-family: 'Outfit', sans-serif; cursor: pointer; box-shadow: 0 4px 15px rgba(211, 27, 138, 0.25); transition: all 0.3s ease;">
-            SaaS <i class="fa fa-chevron-down ms-2" id="saasArrowIcon" style="font-size: 10px; transition: transform 0.3s ease;"></i>
-          </button>
+        <!-- Category Selector Buttons -->
+        <div class="mb-4 d-flex flex-wrap justify-content-center gap-2" style="max-width: 1000px; margin: 0 auto;">
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Consumable">Consumable</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Enviro-Tech">Enviro-Tech</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="ai">AI</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Ed-Tech">Ed-Tech</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Agri-Tech">Agri-Tech</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Med-Tech">Med-Tech</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Health-Tech">Health-Tech</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Food tech">Food Tech</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Renewable">Renewable</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Industry 4.0">Industry 4.0</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Fashion">Fashion</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Auto ; EV">Auto & EV</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Bio-Tech">Bio-Tech</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="FinTech">FinTech</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="deep-Tech">Deep-Tech</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="SaaS">SaaS</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="blank">#N/A</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="IoT">IoT</button>
         </div>
 
-                <!-- Collapsible SaaS Startups List -->
-        <div id="saasStartupsList" class="hidden-saas text-start mb-5" style="max-width: 900px; margin: 0 auto; transition: all 0.3s ease;">
+        <!-- Collapsible Category Startups List -->
+        <div id="categoryStartupsList" class="hidden-category text-start mb-5" style="max-width: 900px; margin: 0 auto; transition: all 0.3s ease;">
           <div class="card p-4 shadow-sm border-radius-xl" style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(211, 27, 138, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;">
-            <h5 class="font-weight-bold mb-4 text-center text-primary" style="font-family: 'Outfit', sans-serif;">SaaS Uploaded Startups</h5>
-            <div class="row">
-              <div class="col-md-4">
-                <ul class="list-group list-group-flush bg-transparent" style="list-style: none; padding: 0;">
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>1. Nova AI</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>2. FIOXYY-NEURAGENT</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>3. SPACE CRAFT AI</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>4. Niya Therapy Hub</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>5. PickMyseat.ai</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>6. Animal Tradex</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>7. Edufyte</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>8. Vision Solve</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>9. Orion AI</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>10. Gig AI Labs</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>11. Vitron</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>12. Learnsphere</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>13. Ztorys</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>14. Navogenix Technologies</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>15. SPEAK KARO</li>
-                </ul>
-              </div>
-              <div class="col-md-4">
-                <ul class="list-group list-group-flush bg-transparent" style="list-style: none; padding: 0;">
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>16. UPI.Direct</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>17. SafeStride Tech</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>18. Scout Edge</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>19. Bails</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>20. Trustable</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>21. Pro EduVate</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>22. SPREZOX</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>23. Ennamopenuphro Compute Technologies Pvt Ltd</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>24. Iyyansoft Technologies</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>25. SyncField</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>26. APEX</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>27. Veducate Skills and Technologies</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>28. ResourceIndia.co</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>29. Verdant Vision</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>30. Sentivest</li>
-                </ul>
-              </div>
-              <div class="col-md-4">
-                <ul class="list-group list-group-flush bg-transparent" style="list-style: none; padding: 0;">
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>31. giggers</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>32. offora</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>33. Kinsync</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>34. Roxer Cub</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>35. Cyclebees</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>36. Canine Connect</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>37. SenseUs</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>38. CodizWorq</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>39. Tynko Partner</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>40. SensChat</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>41. Dechta</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>42. xathelete</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>43. Sree mahalakshmi entrp</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>44. Choiice</li>
-                  <li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>45. Call Sevai</li>
-                </ul>
-              </div>
+            <h5 id="categoryListHeading" class="font-weight-bold mb-4 text-center text-primary" style="font-family: 'Outfit', sans-serif; transition: all 0.3s ease;">Category Startups</h5>
+            <div class="row" id="categoryListContent" style="transition: all 0.3s ease;">
+              <!-- Dynamically populated via JS -->
             </div>
           </div>
         </div>
@@ -2237,34 +2196,385 @@
 }
 
 
-/* SaaS Collapsible Styles */
-.hidden-saas {
+/* Category Collapsible Styles */
+.hidden-category {
   display: none !important;
 }
 
-#saasToggleBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(211, 27, 138, 0.35) !important;
+.category-btn {
+  background: white;
+  color: #d31b8a;
+  border: 1.5px solid #d31b8a !important;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(211, 27, 138, 0.05);
+  transition: all 0.3s ease;
+  border-radius: 30px;
+}
+
+.category-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(211, 27, 138, 0.05);
+  box-shadow: 0 4px 12px rgba(211, 27, 138, 0.15) !important;
+}
+
+.category-btn.active-category {
+  background: linear-gradient(135deg, #d31b8a 0%, #fe7f4b 100%) !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(211, 27, 138, 0.25) !important;
 }
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.getElementById("saasToggleBtn");
-    const startupsList = document.getElementById("saasStartupsList");
-    const arrowIcon = document.getElementById("saasArrowIcon");
+  const startupsByCategory = {
+  "Consumable": {
+    "displayName": "Consumable",
+    "startups": [
+      "Swatch Water Filters",
+      "Namma ammuchi tradition foods",
+      "F3",
+      "Simma Enterprise",
+      "GOO",
+      "Millet-Based Electrolyte Beverages",
+      "Nova Bottles",
+      "Quick Glow",
+      "ColdHot",
+      "GAGS",
+      "Little Hands",
+      "Sugarless Wonders",
+      "EcoShieldSPF"
+    ]
+  },
+  "Enviro-Tech": {
+    "displayName": "Enviro-Tech",
+    "startups": [
+      "Swatch Water Filters",
+      "DE la Greenspark",
+      "CarbonTech Innovations",
+      "Aquamorph",
+      "Nova Bottles",
+      "Aquaholics",
+      "Hydros",
+      "Flovepal Greenspace",
+      "Hyrowah",
+      "indyarn Clean Tech"
+    ]
+  },
+  "ai": {
+    "displayName": "AI",
+    "startups": [
+      "Gig AI Labs",
+      "Crea AI",
+      "SensChat",
+      "Lensora AI",
+      "Nova AI",
+      "Orion AI",
+      "FIOXYY-NEURAGENT",
+      "PickMyseat.ai",
+      "SPEAK KARO",
+      "SPACE CRAFT AI"
+    ]
+  },
+  "Ed-Tech": {
+    "displayName": "Ed-Tech",
+    "startups": [
+      "Iyyansoft Technologies",
+      "Pro EduVate",
+      "Curio",
+      "Edufyte",
+      "Veducate Skills and Technologies",
+      "SPEAK KARO",
+      "Little Hands",
+      "Learnsphere"
+    ]
+  },
+  "Agri-Tech": {
+    "displayName": "Agri-Tech",
+    "startups": [
+      "Namma Vivasayi",
+      "Hybrid Biofertilizer (Magasool)",
+      "Animal Tradex",
+      "Soil Steps",
+      "Lignozyme",
+      "UZHAVAN",
+      "Verdant Vision",
+      "SyncField",
+      "Flovepal Greenspace"
+    ]
+  },
+  "Med-Tech": {
+    "displayName": "Med-Tech",
+    "startups": [
+      "SanBio 360",
+      "Rapikit",
+      "Medmall",
+      "SenseUs",
+      "Cortivue",
+      "Navogenix Technologies",
+      "Diatech",
+      "Alertcare",
+      "Biomediac Solution X",
+      "SSGhealthcare pvt ltd",
+      "Diagnobee",
+      "Vitasafe"
+    ]
+  },
+  "Health-Tech": {
+    "displayName": "Health-Tech",
+    "startups": [
+      "Rapikit",
+      "Medmall",
+      "SenseUs",
+      "Cortivue",
+      "DizziGuard",
+      "Canine Connect",
+      "SafeStride Tech",
+      "GeneGlow",
+      "Niya Therapy Hub",
+      "Alertcare",
+      "SSGhealthcare pvt ltd",
+      "FITNGRO",
+      "EcoShieldSPF",
+      "Diagnobee",
+      "Vitasafe"
+    ]
+  },
+  "Food tech": {
+    "displayName": "Food Tech",
+    "startups": [
+      "Namma ammuchi tradition foods",
+      "F3",
+      "Millet-Based Electrolyte Beverages",
+      "Sugarless Wonders"
+    ]
+  },
+  "Renewable": {
+    "displayName": "Renewable",
+    "startups": [
+      "DE la Greenspark",
+      "Gas Tech",
+      "CarbonTech Innovations",
+      "CHARGE ONE",
+      "OCEAN WAVE ENERGY CONVERTER",
+      "Leogar Renewables",
+      "EternalEnergy",
+      "indyarn Clean Tech"
+    ]
+  },
+  "Industry 4.0": {
+    "displayName": "Industry 4.0",
+    "startups": [
+      "Intra Mobility and Precision System Pvt Ltd",
+      "Automaki",
+      "Grainforge3D Printer",
+      "misd automation"
+    ]
+  },
+  "Fashion": {
+    "displayName": "Fashion",
+    "startups": [
+      "Qloset",
+      "Quick Glow"
+    ]
+  },
+  "Auto ; EV": {
+    "displayName": "Auto & EV",
+    "startups": [
+      "Intra Mobility and Precision System Pvt Ltd",
+      "Aero rover",
+      "MotorX Mobility Private Limited",
+      "CEG Motors",
+      "Roxer Cub",
+      "CHARGE ONE",
+      "Automaki",
+      "RMK Aerospace and Sustainable Technology Private Limited",
+      "Runverve",
+      "Cyclebees"
+    ]
+  },
+  "Bio-Tech": {
+    "displayName": "Bio-Tech",
+    "startups": [
+      "SanBio 360",
+      "Hybrid Biofertilizer (Magasool)",
+      "Lignozyme",
+      "Navogenix Technologies",
+      "GeneGlow",
+      "Diatech"
+    ]
+  },
+  "FinTech": {
+    "displayName": "FinTech",
+    "startups": [
+      "giggers",
+      "UPI.Direct",
+      "Smart Hundi",
+      "TrustIT",
+      "Trustable",
+      "Sentivest"
+    ]
+  },
+  "deep-Tech": {
+    "displayName": "Deep-Tech",
+    "startups": [
+      "Ennamopenuphro Compute Technologies Pvt Ltd",
+      "Aero rover",
+      "Loopverse",
+      "ResourceIndia.co",
+      "Global Technologies",
+      "APIXY",
+      "Vitron",
+      "ARKADESLEVEL",
+      "Geosonic",
+      "Scout Edge",
+      "ChrysoLux",
+      "DizziGuard",
+      "Sun-dram Technologies",
+      "APEX",
+      "Pentastech",
+      "Verdant Vision",
+      "Lensora AI",
+      "praviot",
+      "Auronox Private Limited",
+      "Vision Solve",
+      "Grainforge3D Printer",
+      "Orion AI",
+      "FIOXYY-NEURAGENT",
+      "SafeStride Tech",
+      "RMK Aerospace and Sustainable Technology Private Limited",
+      "Tactical Bee",
+      "SPACE CRAFT AI",
+      "Spar Shield+",
+      "Fluxora",
+      "misd automation",
+      "Haptic Verse",
+      "PlumeXB",
+      "Kinsync",
+      "Asynchonix",
+      "CodizWorq",
+      "Harvo",
+      "Astro Access",
+      "APIDS",
+      "Blue Core Innovations",
+      "Hyrowah",
+      "Eclolin Ventures",
+      "Jefey Composites",
+      "Cyclebees"
+    ]
+  },
+  "SaaS": {
+    "displayName": "SaaS",
+    "startups": [
+      "Gig AI Labs",
+      "Iyyansoft Technologies",
+      "Crea AI",
+      "offora",
+      "giggers",
+      "ResourceIndia.co",
+      "Nexoris Solutions",
+      "APIXY",
+      "Tynko Partner",
+      "SensChat",
+      "Ztorys",
+      "Scout Edge",
+      "8Bix",
+      "TrustIT",
+      "Nova AI",
+      "Vision Solve",
+      "PickMyseat.ai",
+      "SPREZOX",
+      "Kinsync",
+      "CodizWorq",
+      "Trustable",
+      "Sentivest"
+    ]
+  },
+  "blank": {
+    "displayName": "#N/A",
+    "startups": [
+      "#N/A",
+      "#N/A",
+      "#N/A",
+      "#N/A",
+      "#N/A"
+    ]
+  },
+  "IoT": {
+    "displayName": "IoT",
+    "startups": [
+      "praviot",
+      "SyncField",
+      "Haptic Verse"
+    ]
+  }
+};
 
-    if (toggleBtn && startupsList && arrowIcon) {
-      toggleBtn.addEventListener("click", () => {
-        const isHidden = startupsList.classList.contains("hidden-saas");
-        if (isHidden) {
-          startupsList.classList.remove("hidden-saas");
-          arrowIcon.style.transform = "rotate(180deg)";
-        } else {
-          startupsList.classList.add("hidden-saas");
-          arrowIcon.style.transform = "rotate(0deg)";
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".category-btn");
+    const startupsList = document.getElementById("categoryStartupsList");
+    const heading = document.getElementById("categoryListHeading");
+    const contentContainer = document.getElementById("categoryListContent");
+
+    let currentActiveCategory = null;
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const categoryKey = btn.getAttribute("data-category");
+        
+        // If clicking the currently active button, toggle collapse
+        if (currentActiveCategory === categoryKey) {
+          startupsList.classList.add("hidden-category");
+          btn.classList.remove("active-category");
+          currentActiveCategory = null;
+          return;
         }
+
+        // Remove active class from all buttons
+        buttons.forEach(b => b.classList.remove("active-category"));
+        
+        // Mark this button as active
+        btn.classList.add("active-category");
+        currentActiveCategory = categoryKey;
+
+        // Fetch category data
+        const catData = startupsByCategory[categoryKey];
+        if (!catData) return;
+
+        // Update heading
+        heading.textContent = catData.displayName + " Uploaded Startups";
+
+        // Generate columns
+        const startups = catData.startups || [];
+        
+        if (startups.length === 0) {
+          contentContainer.innerHTML = '<div class="col-12 text-center text-muted py-3">No startups in this category.</div>';
+        } else {
+          const colSize = Math.ceil(startups.length / 3);
+          const cols = [
+            startups.slice(0, colSize),
+            startups.slice(colSize, colSize * 2),
+            startups.slice(colSize * 2)
+          ];
+
+          let html = '';
+          let startIndex = 1;
+          cols.forEach(col => {
+            html += '<div class="col-md-4"><ul class="list-group list-group-flush bg-transparent" style="list-style: none; padding: 0;">';
+            col.forEach(name => {
+              html += `<li class="py-2 border-bottom border-light text-sm text-dark font-weight-normal"><i class="fa fa-rocket text-primary me-2" style="font-size: 11px;"></i>${startIndex}. ${name}</li>`;
+              startIndex++;
+            });
+            html += '</ul></div>';
+          });
+          contentContainer.innerHTML = html;
+        }
+
+        // Show the list
+        startupsList.classList.remove("hidden-category");
       });
-    }
+    });
   });
 </script>
