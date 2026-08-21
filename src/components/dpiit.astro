@@ -2203,41 +2203,43 @@
   max-width: 1000px;
   margin: 0 auto;
   background: transparent;
-  padding: 5px 0;
-  border-bottom: 1.5px solid #eaeaea;
+  padding: 10px 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
 }
 
 .category-btn {
-  background: transparent;
-  color: #666;
-  border: none !important;
+  background: #ffffff;
+  color: #555555;
+  border: 1px solid #e2e8f0 !important;
   font-weight: 600;
   font-family: 'Outfit', sans-serif;
   cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 0 !important;
-  padding: 8px 16px !important;
-  font-size: 0.85rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 30px !important;
+  padding: 8px 20px !important;
+  font-size: 0.8rem;
   letter-spacing: 0.3px;
-  border-bottom: 2px solid transparent !important;
-  margin-bottom: -1.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .category-btn:hover {
-  color: #111;
-  border-bottom-color: #ccc !important;
+  color: #d31b8a;
+  border-color: #d31b8a !important;
+  background: rgba(211, 27, 138, 0.02);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(211, 27, 138, 0.08) !important;
 }
 
 .category-btn.active-category {
-  background: transparent !important;
-  color: #d31b8a !important;
+  background: linear-gradient(135deg, #d31b8a 0%, #fe7f4b 100%) !important;
+  color: white !important;
+  border: 1px solid transparent !important;
   font-weight: 700;
-  border-bottom: 2.5px solid #d31b8a !important;
-  box-shadow: none !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(211, 27, 138, 0.25) !important;
 }
 </style>
 
