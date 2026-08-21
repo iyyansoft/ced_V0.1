@@ -2202,36 +2202,42 @@
 .category-track {
   max-width: 1000px;
   margin: 0 auto;
-  background: rgba(0, 0, 0, 0.04);
-  padding: 8px;
-  border-radius: 50px;
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  background: transparent;
+  padding: 5px 0;
+  border-bottom: 1.5px solid #eaeaea;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .category-btn {
   background: transparent;
-  color: #555;
+  color: #666;
   border: none !important;
   font-weight: 600;
   font-family: 'Outfit', sans-serif;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 30px;
-  padding: 8px 20px !important;
-  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  border-radius: 0 !important;
+  padding: 8px 16px !important;
+  font-size: 0.85rem;
   letter-spacing: 0.3px;
+  border-bottom: 2px solid transparent !important;
+  margin-bottom: -1.5px;
 }
 
 .category-btn:hover {
-  background: rgba(0, 0, 0, 0.03);
-  color: #000;
+  color: #111;
+  border-bottom-color: #ccc !important;
 }
 
 .category-btn.active-category {
-  background: white !important;
+  background: transparent !important;
   color: #d31b8a !important;
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 2.5px solid #d31b8a !important;
+  box-shadow: none !important;
 }
 </style>
 
