@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
       <div class="col-12 text-center">
         <!-- Category Selector Buttons -->
-        <div class="mb-4 d-flex flex-wrap justify-content-center gap-2" style="max-width: 1000px; margin: 0 auto;">
+        <div class="category-track mb-5 d-flex flex-wrap justify-content-center gap-2">
           <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Enviro-Tech">Enviro-Tech</button>
           <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="ai">AI</button>
           <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Ed-Tech">Ed-Tech</button>
@@ -2199,34 +2199,39 @@
   display: none !important;
 }
 
+.category-track {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 8px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
 .category-btn {
-  background: #f8f9fa;
-  color: #495057;
-  border: 1px solid #e9ecef !important;
-  font-weight: 500;
+  background: transparent;
+  color: #555;
+  border: none !important;
+  font-weight: 600;
   font-family: 'Outfit', sans-serif;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 30px;
-  padding: 8px 18px !important;
+  padding: 8px 20px !important;
   font-size: 0.8rem;
   letter-spacing: 0.3px;
 }
 
 .category-btn:hover {
-  background: #e9ecef;
-  color: #212529;
-  border-color: #dee2e6 !important;
-  transform: translateY(-1px);
+  background: rgba(0, 0, 0, 0.03);
+  color: #000;
 }
 
 .category-btn.active-category {
-  background: linear-gradient(135deg, #d31b8a 0%, #fe7f4b 100%) !important;
-  color: white !important;
-  border: 1px solid transparent !important;
+  background: white !important;
+  color: #d31b8a !important;
   font-weight: 700;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(211, 27, 138, 0.25) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
 }
 </style>
 
