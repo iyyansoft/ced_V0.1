@@ -19,8 +19,8 @@
           <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="Bio-Tech">Bio-Tech</button>
           <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="FinTech">FinTech</button>
           <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="deep-Tech">Deep-Tech</button>
-          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="SaaS">SaaS</button>
           <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="IoT">IoT</button>
+          <button class="category-btn btn btn-sm btn-round px-3 py-2 text-nowrap" data-category="SaaS">SaaS</button>
         </div>
 
         <!-- Collapsible Category Startups List -->
@@ -2520,7 +2520,7 @@
         if (!catData) return;
 
         // Update heading
-        heading.textContent = catData.displayName + " Uploaded Startups";
+        heading.textContent = catData.displayName + " Startups";
 
         // Generate columns
         const startups = catData.startups || [];
