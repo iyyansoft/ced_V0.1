@@ -115,16 +115,163 @@
 }
 
 
+  /* ===== HERO INLINE CTA BUTTON (inside grey section) ===== */
+  .hero-cta-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-hero-p3 {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #7C3AED 0%, #C026D3 55%, #EC4899 100%);
+    color: #ffffff !important;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    padding: 0.95rem 3rem;
+    border-radius: 60px;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35), 0 4px 12px rgba(236, 72, 153, 0.2);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+  }
+
+  .btn-hero-p3:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 20px 48px rgba(124, 58, 237, 0.45), 0 8px 20px rgba(236, 72, 153, 0.3);
+    color: #ffffff !important;
+  }
+
+  @media (max-width: 576px) {
+    .btn-hero-p3 {
+      font-size: 1rem;
+      padding: 0.85rem 1.6rem;
+      width: 90%;
+      justify-content: center;
+    }
+  }
+
+  /* ===== PUTHULIR 3.0 CTA BUTTON ===== */
+
+  .puthulir3-cta-section {
+    padding: 3.5rem 1rem 4rem;
+    background: #ffffff;
+    text-align: center;
+    border-top: 1px solid rgba(124, 58, 237, 0.1);
+  }
+
+  .puthulir3-cta-label {
+    display: inline-block;
+    background: rgba(124, 58, 237, 0.1);
+    color: #7C3AED;
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .puthulir3-cta-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 1.8rem;
+  }
+
+  .puthulir3-cta-heading span {
+    background: linear-gradient(135deg, #7C3AED, #EC4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .btn-puthulir3 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #7C3AED 0%, #C026D3 50%, #EC4899 100%);
+    color: #ffffff !important;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 1rem 3.5rem;
+    border-radius: 60px;
+    text-decoration: none;
+    box-shadow: 0 12px 32px rgba(124, 58, 237, 0.35), 0 4px 12px rgba(236, 72, 153, 0.2);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    border: none;
+    outline: none;
+  }
+
+  .btn-puthulir3:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 20px 48px rgba(124, 58, 237, 0.45), 0 8px 20px rgba(236, 72, 153, 0.3);
+    color: #ffffff !important;
+  }
+
+  .btn-puthulir3 .btn-p3-arrow {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-puthulir3:hover .btn-p3-arrow {
+    transform: translateX(7px);
+  }
+
+  /* Pulse glow ring */
+  .btn-puthulir3-wrap {
+    position: relative;
+    display: inline-block;
+  }
+
+  .btn-puthulir3-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 60px;
+    background: rgba(124, 58, 237, 0.3);
+    z-index: -1;
+    animation: p3PulseGlow 2.5s ease-in-out infinite;
+  }
+
+  @keyframes p3PulseGlow {
+    0%   { transform: scale(0.97); opacity: 0.8; }
+    70%  { transform: scale(1.14); opacity: 0; }
+    100% { transform: scale(0.97); opacity: 0; }
+  }
+
+  @media (max-width: 576px) {
+    .btn-puthulir3 {
+      font-size: 1.05rem;
+      padding: 0.9rem 2rem;
+      width: 100%;
+      max-width: 340px;
+    }
+  }
+
 </style>
 
 <section class="py-5 bg-light">
   <div class="container-fluid p-0">
 
     <!-- TOP TITLE -->
-    <div class="text-center mb-5">
+    <div class="text-center mb-5 pb-2">
       <h2 class="fw-bold display-4 text-gradient">✨ Puthulir 2.0 – Instructions</h2>
       <p class="lead mb-0">Centre for Entrepreneurship Development (CED), Anna University</p>
-      <p class="text-muted">State-Level Innovation Competition for School Students</p>
+      <p class="text-muted mb-4">State-Level Innovation Competition for School Students</p>
+
+      <!-- PuThulir 3.0 CTA inside hero -->
+      <div class="hero-cta-wrap mt-2">
+        <a href="/puthulir-3.0" class="btn-hero-p3" id="puthulir3-hero-btn">
+          ✨ Please Click Here – PuThulir 3.0 →
+        </a>
+      </div>
     </div>
 
     <!-- CARD -->
@@ -177,6 +324,7 @@
 
   </div>
 </section>
+
 
 
 
